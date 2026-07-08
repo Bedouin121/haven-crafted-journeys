@@ -73,7 +73,7 @@ function PackageDetail() {
             <p className="text-eyebrow text-teal">The itinerary</p>
             <h2 className="mt-3 font-display text-4xl text-navy">Day by day</h2>
             <div className="mt-10 space-y-3">
-              {pkg.itinerary.map((it) => {
+              {pkg.itinerary.map((it: { day: number; title: string; body: string }) => {
                 const isOpen = openDay === it.day;
                 return (
                   <div key={it.day} className="rounded-2xl border border-border bg-card overflow-hidden">
@@ -110,7 +110,7 @@ function PackageDetail() {
           <section className="mt-16">
             <p className="text-eyebrow text-teal">What's included</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {pkg.inclusions.map((inc) => (
+              {pkg.inclusions.map((inc: string) => (
                 <li key={inc} className="flex items-start gap-3 text-navy">
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-teal-soft text-teal mt-0.5">
                     <Check className="h-3.5 w-3.5" />

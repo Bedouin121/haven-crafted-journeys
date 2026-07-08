@@ -62,7 +62,7 @@ function BlogArticle() {
       <div className="container-editorial py-16 max-w-3xl">
         <p className="font-display text-2xl text-navy leading-[1.4] mb-10">{article.excerpt}</p>
         <div className="space-y-6 text-lg leading-relaxed text-foreground">
-          {article.body.map((p, i) => (
+          {article.body.map((p: string, i: number) => (
             <p key={i}>{p}</p>
           ))}
         </div>

@@ -90,7 +90,7 @@ function DestinationDetail() {
           <div className="mt-16">
             <p className="text-eyebrow text-teal">Signature experiences</p>
             <ul className="mt-6 space-y-4">
-              {dest.highlights.map((h, i) => (
+              {dest.highlights.map((h: string, i: number) => (
                 <motion.li
                   key={h}
                   initial={{ opacity: 0, x: -20 }}
@@ -109,7 +109,7 @@ function DestinationDetail() {
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-4">
-            {dest.gallery.map((src, i) => (
+            {dest.gallery.map((src: string, i: number) => (
               <motion.div
                 key={src}
                 initial={{ opacity: 0, y: 20 }}

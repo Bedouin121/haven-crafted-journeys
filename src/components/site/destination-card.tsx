@@ -23,9 +23,9 @@ export function DestinationCard({ dest, index = 0 }: { dest: Destination; index?
             loading="lazy"
             className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.16em] opacity-90">
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/15 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground text-center">
+            <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.16em] opacity-90">
               <MapPin className="h-3.5 w-3.5" />
               <span>{dest.country}</span>
             </div>
@@ -36,12 +36,13 @@ export function DestinationCard({ dest, index = 0 }: { dest: Destination; index?
             <ArrowUpRight className="h-4 w-4" />
           </div>
         </div>
-        <div className="flex items-center justify-between px-6 py-5">
+        <div className="flex items-center justify-center gap-10 px-6 py-5 text-center">
           <div>
             <p className="text-xs text-muted-foreground">From</p>
             <p className="font-display text-lg text-navy">${dest.fromPrice.toLocaleString()}</p>
           </div>
-          <div className="text-right">
+          <div className="h-8 w-px bg-border" aria-hidden />
+          <div>
             <p className="text-xs text-muted-foreground">Ideal</p>
             <p className="text-sm text-navy">{dest.duration}</p>
           </div>

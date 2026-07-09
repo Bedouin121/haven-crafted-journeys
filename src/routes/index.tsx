@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Search, MapPin, Compass, Award, HeartHandshake, Sparkles, ArrowRight, Calendar, Users,
 } from "lucide-react";
@@ -39,6 +39,43 @@ function Home() {
   );
 }
 
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=2400&q=85",
+  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2400&q=85",
+  "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=85",
+  "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2400&q=85",
+];
+
+function HeroSlideshow() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIdx((i) => (i + 1) % HERO_IMAGES.length), 6000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="absolute inset-0">
+      {HERO_IMAGES.map((src, i) => (
+        <motion.img
+          key={src}
+          src={src}
+          alt=""
+          aria-hidden
+          initial={false}
+          animate={{
+            opacity: i === idx ? 1 : 0,
+            scale: i === idx ? 1.12 : 1,
+          }}
+          transition={{
+            opacity: { duration: 1.8, ease: "easeInOut" },
+            scale: { duration: 8, ease: "linear" },
+          }}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ))}
+    </div>
+  );
+}
+
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -46,14 +83,11 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] overflow-hidden">
+    <section ref={ref} className="relative min-h-[100svh] overflow-hidden bg-navy">
       <motion.div style={{ y, scale }} className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=2400&q=85"
-          alt=""
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
+        <HeroSlideshow />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,26,46,0.35)_60%,rgba(11,26,46,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/70" />
       </motion.div>
 
       <div className="relative container-editorial flex min-h-[100svh] flex-col justify-end pt-32 pb-16">

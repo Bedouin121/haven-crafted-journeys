@@ -98,7 +98,7 @@ export function SiteHeader() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="grid place-items-center h-11 w-11 rounded-full border border-border"
+                className="grid place-items-center h-11 w-11 rounded-full border border-border/60 bg-card/90 shadow-soft transition-all duration-300 hover:bg-card hover:border-border"
               >
                 <X className="h-5 w-5" />
               </button>

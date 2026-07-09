@@ -32,7 +32,9 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/85 backdrop-blur-lg shadow-[0_1px_0_0_var(--color-border)]" : "bg-transparent"
+        scrolled
+          ? "bg-secondary/95 backdrop-blur-xl border-b border-border/60 shadow-soft"
+          : "bg-transparent"
       }`}
     >
       <div className="container-editorial flex items-center justify-between gap-6 py-4">
@@ -40,7 +42,9 @@ export function SiteHeader() {
           <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display text-lg leading-none">
             A
           </span>
-          <span className="font-display text-xl tracking-tight text-navy">Aeris</span>
+          <span className={`font-display text-xl tracking-tight transition-colors duration-500 ${scrolled ? "text-navy" : "text-white"}`}>
+            Aeris
+          </span>
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-2">
@@ -48,9 +52,14 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              activeProps={{ className: "bg-navy text-primary-foreground shadow-soft border-navy" }}
-              inactiveProps={{ className: "bg-background/70 text-foreground/80 hover:text-navy hover:bg-white hover:border-border/80 hover:shadow-soft" }}
-              className="rounded-full border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-300"
+              activeProps={{
+                className:
+                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft",
+              }}
+              inactiveProps={{
+                className:
+                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-sm font-medium text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5",
+              }}
             >
               {item.label}
             </Link>
@@ -60,14 +69,14 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/book"
-            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors"
+            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
           >
             Plan a trip
           </Link>
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="lg:hidden grid place-items-center h-11 w-11 rounded-full border border-border bg-background/70"
+            className="lg:hidden grid place-items-center h-11 w-11 rounded-full border border-border/60 bg-card/90 shadow-soft transition-all duration-300 hover:bg-card hover:border-border"
             aria-label="Open menu"
           >
             <Menu className="h-5 w-5" />
@@ -91,7 +100,7 @@ export function SiteHeader() {
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
-                className="grid place-items-center h-11 w-11 rounded-full border border-border"
+                className="grid place-items-center h-11 w-11 rounded-full border border-border/60 bg-card/90 shadow-soft transition-all duration-300 hover:bg-card hover:border-border"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -114,7 +123,7 @@ export function SiteHeader() {
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-2xl border border-border bg-secondary/50 px-5 py-4 font-display text-2xl text-navy transition-colors hover:bg-secondary hover:border-border/80"
+                    className="block rounded-2xl border border-border/60 bg-card px-5 py-4 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-secondary hover:border-border"
                   >
                     {item.label}
                   </Link>
@@ -127,7 +136,7 @@ export function SiteHeader() {
                 <Link
                   to="/book"
                   onClick={() => setOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
                 >
                   Plan a trip
                 </Link>

@@ -50,9 +50,14 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
-              activeProps={{ className: "bg-navy text-primary-foreground shadow-soft border-navy" }}
-              inactiveProps={{ className: "bg-background/70 text-foreground/80 hover:text-navy hover:bg-white hover:border-border/80 hover:shadow-soft" }}
-              className="rounded-full border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-300"
+              activeProps={{
+                className:
+                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft",
+              }}
+              inactiveProps={{
+                className:
+                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-sm font-medium text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5",
+              }}
             >
               {item.label}
             </Link>

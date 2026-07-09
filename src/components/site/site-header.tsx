@@ -42,7 +42,9 @@ export function SiteHeader() {
           <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display text-lg leading-none">
             A
           </span>
-          <span className="font-display text-xl tracking-tight text-navy">Aeris</span>
+          <span className={`font-display text-xl tracking-tight transition-colors duration-500 ${scrolled ? "text-navy" : "text-white"}`}>
+            Aeris
+          </span>
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-2">

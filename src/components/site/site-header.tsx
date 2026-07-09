@@ -32,7 +32,9 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/85 backdrop-blur-lg shadow-[0_1px_0_0_var(--color-border)]" : "bg-transparent"
+        scrolled
+          ? "bg-secondary/95 backdrop-blur-xl border-b border-border/60 shadow-soft"
+          : "bg-transparent"
       }`}
     >
       <div className="container-editorial flex items-center justify-between gap-6 py-4">

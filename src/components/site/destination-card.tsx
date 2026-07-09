@@ -21,6 +21,9 @@ export function DestinationCard({ dest, index = 0 }: { dest: Destination; index?
             src={dest.image}
             alt={`${dest.name}, ${dest.country}`}
             loading="lazy"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.opacity = "0";
+            }}
             className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/75 via-navy/15 to-transparent" />

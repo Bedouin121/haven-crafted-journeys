@@ -94,7 +94,7 @@ export const destinations: Destination[] = [
     bestTime: "November – March",
     duration: "9 – 12 nights",
     fromPrice: 7420,
-    image: U("photo-1531794116803-f7098c9c5d5e"),
+    image: U("photo-1470071459604-3b5ec3a7fe05"),
     gallery: [
       U("photo-1516426122078-c23e76319801"),
       U("photo-1470071459604-3b5ec3a7fe05"),
@@ -120,7 +120,7 @@ export const destinations: Destination[] = [
     bestTime: "May – June, September",
     duration: "6 – 8 nights",
     fromPrice: 5980,
-    image: U("photo-1533165850316-2f28e485115a"),
+    image: U("photo-1523906630133-f6934a1ab2b9"),
     gallery: [
       U("photo-1516483638261-f4dbaf036963"),
       U("photo-1499602378908-64f1adfd4b3d"),
@@ -257,7 +257,7 @@ export const packages: Package[] = [
     style: "Adventure",
     rating: 4.9,
     reviews: 94,
-    image: U("photo-1531794116803-f7098c9c5d5e"),
+    image: U("photo-1470071459604-3b5ec3a7fe05"),
     summary:
       "A ten-night journey through Torres del Paine and Los Glaciares — expert mountaineer guides, remote estancias, and untouched wilderness.",
     inclusions: [
@@ -290,7 +290,7 @@ export const packages: Package[] = [
     style: "Romantic",
     rating: 4.8,
     reviews: 156,
-    image: U("photo-1533165850316-2f28e485115a"),
+    image: U("photo-1516483638261-f4dbaf036963"),
     summary:
       "Seven nights of long lunches, sea days, and cliffside villas — the Amalfi as it should be, without the crowds.",
     inclusions: [

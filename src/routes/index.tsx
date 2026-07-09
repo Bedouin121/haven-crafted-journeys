@@ -48,10 +48,23 @@ const HERO_IMAGES = [
 
 function HeroSlideshow() {
   const [idx, setIdx] = useState(0);
+
+  // Preload all hero images as soon as this component mounts
+  useEffect(() => {
+    HERO_IMAGES.forEach((src) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = src;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   useEffect(() => {
     const id = setInterval(() => setIdx((i) => (i + 1) % HERO_IMAGES.length), 6000);
     return () => clearInterval(id);
   }, []);
+
   return (
     <div className="absolute inset-0">
       {HERO_IMAGES.map((src, i) => (
@@ -63,12 +76,16 @@ function HeroSlideshow() {
           initial={false}
           animate={{
             opacity: i === idx ? 1 : 0,
-            scale: i === idx ? 1.12 : 1,
+            scale: i === idx ? 1.08 : 1,
           }}
           transition={{
-            opacity: { duration: 1.8, ease: "easeInOut" },
+            opacity: { duration: 1.4, ease: "easeInOut" },
             scale: { duration: 8, ease: "linear" },
           }}
+          // Eagerly load the first image; lazily load the rest
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchPriority={i === 0 ? "high" : "auto"}
+          decoding={i === 0 ? "sync" : "async"}
           className="absolute inset-0 h-full w-full object-cover"
         />
       ))}
@@ -94,7 +111,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
           className="text-eyebrow text-gold-soft"
         >
           Est. 2008 · Bespoke Travel Studio
@@ -102,7 +119,7 @@ function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="mt-4 max-w-5xl font-display text-5xl leading-[1.02] text-primary-foreground sm:text-7xl lg:text-8xl"
         >
           The world, slowly and beautifully.
@@ -110,7 +127,7 @@ function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 max-w-xl text-lg text-primary-foreground/90"
         >
           We design unhurried, meticulously planned journeys for travelers who value the quiet things — a
@@ -120,7 +137,7 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.75 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
           className="mt-12"
         >
           <SearchWidget />
@@ -169,8 +186,7 @@ function SearchWidget() {
           <div className="mt-1 flex items-center gap-2">
             <Calendar className="h-4 w-4 text-navy/60" aria-hidden />
             <input
-              type="text"
-              placeholder="Add dates"
+              type="date"
               className="w-full bg-transparent text-sm text-navy placeholder:text-navy/40 focus:outline-none"
               aria-label="Travel dates"
             />

@@ -43,14 +43,14 @@ export function SiteHeader() {
           <span className="font-display text-xl tracking-tight text-navy">Aeris</span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">
+        <nav aria-label="Primary" className="hidden lg:flex items-center gap-2">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              activeProps={{ className: "text-navy" }}
-              inactiveProps={{ className: "text-foreground/70 hover:text-navy" }}
-              className="rounded-full px-4 py-2 text-sm font-medium transition-colors"
+              activeProps={{ className: "bg-navy text-primary-foreground shadow-soft border-navy" }}
+              inactiveProps={{ className: "bg-background/70 text-foreground/80 hover:text-navy hover:bg-white hover:border-border/80 hover:shadow-soft" }}
+              className="rounded-full border border-border/60 px-4 py-2 text-sm font-medium transition-all duration-300"
             >
               {item.label}
             </Link>
@@ -114,7 +114,7 @@ export function SiteHeader() {
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block py-4 border-b border-border font-display text-3xl text-navy"
+                    className="block rounded-2xl border border-border bg-secondary/50 px-5 py-4 font-display text-2xl text-navy transition-colors hover:bg-secondary hover:border-border/80"
                   >
                     {item.label}
                   </Link>

@@ -67,14 +67,14 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/book"
-            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors"
+            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
           >
             Plan a trip
           </Link>
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="lg:hidden grid place-items-center h-11 w-11 rounded-full border border-border bg-background/70"
+            className="lg:hidden grid place-items-center h-11 w-11 rounded-full border border-border/60 bg-card/90 shadow-soft transition-all duration-300 hover:bg-card hover:border-border"
             aria-label="Open menu"
           >
             <Menu className="h-5 w-5" />

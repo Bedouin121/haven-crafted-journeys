@@ -121,7 +121,7 @@ export function SiteHeader() {
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-2xl border border-border bg-secondary/50 px-5 py-4 font-display text-2xl text-navy transition-colors hover:bg-secondary hover:border-border/80"
+                    className="block rounded-2xl border border-border/60 bg-card px-5 py-4 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-secondary hover:border-border"
                   >
                     {item.label}
                   </Link>

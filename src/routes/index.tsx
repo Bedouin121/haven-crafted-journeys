@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Search, MapPin, Compass, Award, HeartHandshake, Sparkles, ArrowRight, Calendar, Users,
 } from "lucide-react";

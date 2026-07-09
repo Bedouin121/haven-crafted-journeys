@@ -134,7 +134,7 @@ export function SiteHeader() {
                 <Link
                   to="/book"
                   onClick={() => setOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
                 >
                   Plan a trip
                 </Link>

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
-  Search, MapPin, Compass, Award, HeartHandshake, Sparkles, ArrowRight, Calendar, Users,
+  Compass, Award, HeartHandshake, Sparkles, ArrowRight,
 } from "lucide-react";
 import { destinations, packages, articles, stats } from "../lib/data";
 import { DestinationCard } from "../components/site/destination-card";
@@ -11,13 +11,26 @@ import { SectionHeading } from "../components/site/section-heading";
 import { TestimonialCarousel } from "../components/site/testimonial-carousel";
 import { WorldMap } from "../components/site/world-map";
 import { AnimatedNumber } from "../components/site/animated-number";
+import { HeroBookingWidget } from "../components/site/hero-booking-widget";
+import { TripMoodFinder } from "../components/site/trip-mood-finder";
+import { PlanDreamTripForm } from "../components/site/plan-dream-trip-form";
+import { MagneticButton } from "../components/site/magnetic-button";
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aeris — Bespoke Travel, Beautifully Considered" },
-      { name: "description", content: "Aeris designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers." },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=1600&q=80" },
+      { title: "Travel Tours — Bespoke Travel, Beautifully Considered" },
+      { name: "description", content: "Travel Tours designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers." },
+      { property: "og:image", content: "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=1200&q=80" },
+    ],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=1800&q=80&fm=webp",
+      },
     ],
   }),
   component: Home,
@@ -29,35 +42,49 @@ function Home() {
       <Hero />
       <Stats />
       <PopularDestinations />
+      <TripMoodFinder />
       <FeaturedPackages />
       <WhyUs />
       <MapSection />
       <Testimonials />
       <Journal />
+      <PlanDreamTripSection />
       <Newsletter />
     </div>
   );
 }
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2400&q=85",
+  "/images/1.jpg",
+  "/images/2.jpg",
+  "/images/3.jpg",
+  "/images/4.jpg",
 ];
 
 function HeroSlideshow() {
   const [idx, setIdx] = useState(0);
+  // Start as true so the overlay never blocks images on hydration.
+  // The parent section already has bg-navy as a colour fallback.
+  const [loaded, setLoaded] = useState(true);
+  const firstImgRef = useRef<HTMLImageElement | null>(null);
 
-  // Preload all hero images as soon as this component mounts
   useEffect(() => {
-    HERO_IMAGES.forEach((src) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = src;
-      document.head.appendChild(link);
-    });
+    // Belt-and-suspenders: if onLoad fired before React hydrated, the ref
+    // will already have complete === true – reveal immediately.
+    if (firstImgRef.current && !firstImgRef.current.complete) {
+      setLoaded(false); // image not yet done – show the overlay
+    }
+  }, []);
+
+  useEffect(() => {
+    // Eagerly fetch subsequent images after first paint
+    const timer = setTimeout(() => {
+      HERO_IMAGES.slice(1).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -70,25 +97,30 @@ function HeroSlideshow() {
       {HERO_IMAGES.map((src, i) => (
         <motion.img
           key={src}
+          ref={i === 0 ? firstImgRef : undefined}
           src={src}
           alt=""
           aria-hidden
           initial={false}
-          animate={{
-            opacity: i === idx ? 1 : 0,
-            scale: i === idx ? 1.08 : 1,
-          }}
+          animate={{ opacity: i === idx ? 1 : 0, scale: i === idx ? 1.06 : 1 }}
           transition={{
-            opacity: { duration: 1.4, ease: "easeInOut" },
-            scale: { duration: 8, ease: "linear" },
+            opacity: { duration: 1.6, ease: "easeInOut" },
+            scale: { duration: 9, ease: "linear" },
           }}
-          // Eagerly load the first image; lazily load the rest
           loading={i === 0 ? "eager" : "lazy"}
+          // @ts-ignore
           fetchPriority={i === 0 ? "high" : "auto"}
           decoding={i === 0 ? "sync" : "async"}
+          onLoad={() => { if (i === 0) setLoaded(true); }}
           className="absolute inset-0 h-full w-full object-cover"
         />
       ))}
+      {/* Navy fallback shown only while first image is still loading */}
+      <div
+        className="absolute inset-0 bg-navy transition-opacity duration-700"
+        style={{ opacity: loaded ? 0 : 1, pointerEvents: "none" }}
+        aria-hidden
+      />
     </div>
   );
 }
@@ -100,14 +132,14 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="relative min-h-[100svh] overflow-hidden bg-navy">
-      <motion.div style={{ y, scale }} className="absolute inset-0">
+    <section ref={ref} className="relative h-[100svh] bg-navy overflow-hidden" >
+      <motion.div style={{ y, scale }} className="absolute inset-0 overflow-hidden" >
         <HeroSlideshow />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,26,46,0.35)_60%,rgba(11,26,46,0.85)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/70" />
       </motion.div>
 
-      <div className="relative container-editorial flex min-h-[100svh] flex-col justify-end pt-32 pb-16">
+      <div className="relative container-editorial flex h-[100svh] flex-col justify-end pt-32 pb-16">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,7 +152,7 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 max-w-5xl font-display text-5xl leading-[1.02] text-primary-foreground sm:text-7xl lg:text-8xl"
+          className="mt-4 max-w-5xl font-display text-5xl leading-[1.02] text-primary-foreground sm:text-7xl lg:text-8xl hero-headline-glow"
         >
           The world, slowly and beautifully.
         </motion.h1>
@@ -140,7 +172,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="mt-12"
         >
-          <SearchWidget />
+          <HeroBookingWidget />
         </motion.div>
       </div>
 
@@ -162,57 +194,32 @@ function Hero() {
   );
 }
 
-function SearchWidget() {
+function PlanDreamTripSection() {
   return (
-    <form
-      onSubmit={(e) => e.preventDefault()}
-      className="glass-panel rounded-3xl p-2 sm:p-3 max-w-3xl shadow-lift"
-    >
-      <div className="grid gap-1 sm:grid-cols-[1.4fr_1fr_1fr_auto]">
-        <label className="group rounded-2xl px-5 py-3 hover:bg-white/50 transition-colors cursor-text">
-          <span className="block text-[11px] font-medium uppercase tracking-wider text-navy/70">Destination</span>
-          <div className="mt-1 flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-navy/60" aria-hidden />
-            <input
-              type="text"
-              placeholder="Where to?"
-              className="w-full bg-transparent text-sm text-navy placeholder:text-navy/40 focus:outline-none"
-              aria-label="Destination"
-            />
-          </div>
-        </label>
-        <label className="group rounded-2xl px-5 py-3 hover:bg-white/50 transition-colors cursor-text">
-          <span className="block text-[11px] font-medium uppercase tracking-wider text-navy/70">Dates</span>
-          <div className="mt-1 flex items-center gap-2">
-            <Calendar className="h-4 w-4 text-navy/60" aria-hidden />
-            <input
-              type="date"
-              className="w-full bg-transparent text-sm text-navy placeholder:text-navy/40 focus:outline-none"
-              aria-label="Travel dates"
-            />
-          </div>
-        </label>
-        <label className="group rounded-2xl px-5 py-3 hover:bg-white/50 transition-colors cursor-text">
-          <span className="block text-[11px] font-medium uppercase tracking-wider text-navy/70">Travelers</span>
-          <div className="mt-1 flex items-center gap-2">
-            <Users className="h-4 w-4 text-navy/60" aria-hidden />
-            <input
-              type="text"
-              placeholder="2 adults"
-              className="w-full bg-transparent text-sm text-navy placeholder:text-navy/40 focus:outline-none"
-              aria-label="Number of travelers"
-            />
-          </div>
-        </label>
-        <button
-          type="submit"
-          className="grid place-items-center rounded-2xl bg-navy px-6 py-4 text-primary-foreground hover:bg-navy-soft transition-colors"
-          aria-label="Search journeys"
-        >
-          <Search className="h-5 w-5" />
-        </button>
+    <section className="container-editorial py-24 sm:py-32" aria-labelledby="dream-trip-home-heading">
+      <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr] lg:gap-24 items-start">
+        <div>
+          <p className="text-eyebrow text-teal">Plan your dream trip</p>
+          <h2 id="dream-trip-home-heading" className="mt-3 font-display text-4xl sm:text-5xl text-navy leading-[1.05]">
+            Have a trip idea in mind?
+          </h2>
+          <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+            Submit your custom itinerary idea and a Travel Tours specialist will review it personally,
+            then follow up with a tailored quote within two business days.
+          </p>
+          <Link
+            to="/plan-dream-trip"
+            className="mt-8 inline-flex items-center gap-2 text-base font-medium text-navy hover:text-teal transition-colors group"
+          >
+            See the full planning process
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+        <div>
+          <PlanDreamTripForm compact />
+        </div>
       </div>
-    </form>
+    </section>
   );
 }
 
@@ -233,7 +240,7 @@ function Stats() {
               <AnimatedNumber value={s.value} />
               <span className="text-gold text-4xl">{s.suffix}</span>
             </p>
-            <p className="mt-4 text-sm text-muted-foreground max-w-[14ch]">{s.label}</p>
+            <p className="mt-4 text-base text-muted-foreground max-w-[14ch]">{s.label}</p>
           </motion.div>
         ))}
       </div>
@@ -306,7 +313,7 @@ function WhyUs() {
     <section className="container-editorial py-24 sm:py-32">
       <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
         <SectionHeading
-          eyebrow="Why Aeris"
+          eyebrow="Why Travel Tours"
           title="A travel studio, not a booking engine."
         />
         <div className="grid gap-8 sm:grid-cols-2">
@@ -408,29 +415,29 @@ function Journal() {
 function Newsletter() {
   return (
     <section className="container-editorial pb-4">
-      <div className="relative overflow-hidden rounded-4xl bg-sand-deep px-8 py-16 sm:px-16 sm:py-24">
+      <div className="relative overflow-hidden rounded-4xl bg-sand-deep px-8 py-16 sm:px-16 sm:py-24 cta-sweep">
         <div className="max-w-2xl">
           <p className="text-eyebrow text-teal">Postcards</p>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl text-navy leading-[1.05]">
             A quiet letter, once a month.
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
+          <p className="mt-4 text-muted-foreground text-xl">
             Small-print destinations, honest advice, and the occasional restaurant we probably shouldn't share.
           </p>
           <form className="mt-8 flex flex-col gap-3 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="nl-email" className="sr-only">Email</label>
+            <label htmlFor="nl-email" className="sr-only">Email address</label>
             <input
               id="nl-email"
               type="email"
               required
               placeholder="you@somewhere.com"
-              className="flex-1 rounded-full bg-background px-6 py-4 text-base text-navy placeholder:text-navy/40 border border-border focus:outline-none focus:ring-2 focus:ring-teal"
+              className="flex-1 rounded-full bg-background px-6 py-4 text-lg text-navy placeholder:text-navy/40 border-2 border-border focus:outline-none focus:ring-2 focus:ring-teal glow-focus"
             />
-            <button className="rounded-full bg-navy px-8 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
+            <button className="rounded-full bg-navy px-8 py-4 text-lg font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
               Subscribe
             </button>
           </form>
-          <p className="mt-4 text-xs text-muted-foreground">No spam. Unsubscribe anytime. We hate inbox clutter too.</p>
+          <p className="mt-4 text-sm text-muted-foreground">No spam. Unsubscribe anytime. We hate inbox clutter too.</p>
         </div>
       </div>
     </section>

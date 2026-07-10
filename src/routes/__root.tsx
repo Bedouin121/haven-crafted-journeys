@@ -79,15 +79,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aeris — Bespoke Travel, Beautifully Considered" },
+      { title: "Travel Tours — Bespoke Travel, Beautifully Considered" },
       {
         name: "description",
         content:
-          "Aeris designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers. Consult our travel designers to craft your next escape.",
+          "Travel Tours designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers. Consult our travel designers to craft your next escape.",
       },
-      { name: "author", content: "Aeris Travel" },
+      { name: "author", content: "Travel Tours" },
       { name: "theme-color", content: "#1a2540" },
-      { property: "og:title", content: "Aeris — Bespoke Travel, Beautifully Considered" },
+      { property: "og:title", content: "Travel Tours — Bespoke Travel, Beautifully Considered" },
       {
         property: "og:description",
         content:

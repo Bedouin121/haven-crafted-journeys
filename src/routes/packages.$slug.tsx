@@ -16,7 +16,7 @@ export const Route = createFileRoute("/packages/$slug")({
     const { pkg } = loaderData;
     return {
       meta: [
-        { title: `${pkg.title} — Aeris` },
+        { title: `${pkg.title} — Travel Tours` },
         { name: "description", content: pkg.summary },
         { property: "og:title", content: pkg.title },
         { property: "og:description", content: pkg.summary },
@@ -128,17 +128,17 @@ function PackageDetail() {
             <p className="mt-4 font-display text-2xl text-navy leading-tight">{pkg.title}</p>
             <p className="text-sm text-muted-foreground mt-1">{pkg.destination} · {pkg.nights} nights</p>
             <div className="mt-6 border-t border-border pt-5">
-              <p className="text-xs text-muted-foreground">From</p>
+              <p className="text-sm text-muted-foreground">From</p>
               <p className="font-display text-4xl text-navy">${pkg.price.toLocaleString()}</p>
-              <p className="text-xs text-muted-foreground">per person, twin share. Adaptable.</p>
+              <p className="text-sm text-muted-foreground">per person, twin share. Adaptable.</p>
             </div>
             <Link
               to="/book"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-4 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors"
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700"
             >
               Enquire about this trip <ArrowRight className="h-4 w-4" />
             </Link>
-            <p className="mt-4 text-xs text-muted-foreground text-center">No obligation. A specialist replies within one business day.</p>
+            <p className="mt-4 text-sm text-muted-foreground text-center">No obligation. A specialist replies within one business day.</p>
           </div>
         </aside>
       </div>

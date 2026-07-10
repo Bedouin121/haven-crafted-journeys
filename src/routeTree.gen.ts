@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisaRouteImport } from './routes/visa'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PlanDreamTripRouteImport } from './routes/plan-dream-trip'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
@@ -23,6 +25,11 @@ import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
 import { Route as DestinationsSlugRouteImport } from './routes/destinations.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const VisaRoute = VisaRouteImport.update({
+  id: '/visa',
+  path: '/visa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
@@ -31,6 +38,11 @@ const TestimonialsRoute = TestimonialsRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanDreamTripRoute = PlanDreamTripRouteImport.update({
+  id: '/plan-dream-trip',
+  path: '/plan-dream-trip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PackagesRoute = PackagesRouteImport.update({
@@ -98,8 +110,10 @@ export interface FileRoutesByFullPath {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/plan-dream-trip': typeof PlanDreamTripRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/visa': typeof VisaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -113,8 +127,10 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/plan-dream-trip': typeof PlanDreamTripRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/visa': typeof VisaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -129,8 +145,10 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/packages': typeof PackagesRouteWithChildren
+  '/plan-dream-trip': typeof PlanDreamTripRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/visa': typeof VisaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -146,8 +164,10 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/packages'
+    | '/plan-dream-trip'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/visa'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -161,8 +181,10 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/packages'
+    | '/plan-dream-trip'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/visa'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -176,8 +198,10 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/packages'
+    | '/plan-dream-trip'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/visa'
     | '/blog/$slug'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -192,12 +216,21 @@ export interface RootRouteChildren {
   DestinationsRoute: typeof DestinationsRouteWithChildren
   FaqRoute: typeof FaqRoute
   PackagesRoute: typeof PackagesRouteWithChildren
+  PlanDreamTripRoute: typeof PlanDreamTripRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  VisaRoute: typeof VisaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/visa': {
+      id: '/visa'
+      path: '/visa'
+      fullPath: '/visa'
+      preLoaderRoute: typeof VisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/testimonials': {
       id: '/testimonials'
       path: '/testimonials'
@@ -210,6 +243,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-dream-trip': {
+      id: '/plan-dream-trip'
+      path: '/plan-dream-trip'
+      fullPath: '/plan-dream-trip'
+      preLoaderRoute: typeof PlanDreamTripRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/packages': {
@@ -335,8 +375,10 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationsRoute: DestinationsRouteWithChildren,
   FaqRoute: FaqRoute,
   PackagesRoute: PackagesRouteWithChildren,
+  PlanDreamTripRoute: PlanDreamTripRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
+  VisaRoute: VisaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

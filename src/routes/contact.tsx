@@ -7,10 +7,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Aeris Travel Studio" },
-      { name: "description", content: "Speak to an Aeris travel designer. Offices in London and Singapore, specialists on six continents." },
-      { property: "og:title", content: "Contact Aeris" },
-      { property: "og:description", content: "Speak to an Aeris travel designer." },
+      { title: "Contact — Travel Tours" },
+      { name: "description", content: "Speak to a Travel Tours travel designer. Offices in London and Singapore, specialists on six continents." },
+      { property: "og:title", content: "Contact Travel Tours" },
+      { property: "og:description", content: "Speak to a Travel Tours travel designer." },
     ],
   }),
   component: ContactPage,
@@ -41,10 +41,10 @@ function ContactPage() {
 
           <div className="mt-16 rounded-3xl bg-sand-deep p-8">
             <p className="text-eyebrow text-teal">Rather have us design it?</p>
-            <h2 className="mt-2 font-display text-2xl text-navy">Start with our planning form</h2>
-            <p className="mt-2 text-sm text-muted-foreground">The five-minute version — dates, style, and where you're leaning.</p>
-            <Link to="/book" className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
-              Plan a trip <ArrowRight className="h-4 w-4" />
+            <h2 className="mt-2 font-display text-2xl text-navy">Plan your dream trip</h2>
+            <p className="mt-2 text-base text-muted-foreground">Submit your idea and a specialist will come back with a custom itinerary and quote — usually within two business days.</p>
+            <Link to="/plan-dream-trip" className="mt-5 inline-flex items-center gap-2 rounded-full bg-navy px-5 py-3 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
+              Start planning <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </motion.div>
@@ -74,13 +74,13 @@ function ContactPage() {
               </div>
               <Field id="destination" label="Destination(s) in mind" placeholder="Kyoto, Patagonia, undecided…" />
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-navy">How can we help?</label>
-                <textarea id="message" required rows={5} className="mt-2 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" placeholder="Tell us about what you're imagining…" />
+                <label htmlFor="message" className="block text-base font-semibold text-navy mb-2">How can we help?</label>
+                <textarea id="message" required rows={5} className="form-field-accessible w-full rounded-2xl glow-focus" placeholder="Tell us about what you're imagining…" />
               </div>
-              <button className="w-full rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
+              <button className="w-full rounded-full bg-navy px-6 py-4 text-lg font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
                 Send note
               </button>
-              <p className="text-xs text-muted-foreground text-center">By sending, you agree to our privacy notice. No marketing without consent.</p>
+              <p className="text-sm text-muted-foreground text-center">By sending, you agree to our privacy notice. No marketing without consent.</p>
             </>
           )}
         </motion.form>
@@ -106,13 +106,13 @@ function ContactRow({ icon: Icon, label, value }: { icon: React.ComponentType<{ 
 function Field({ id, label, type = "text", required, placeholder }: { id: string; label: string; type?: string; required?: boolean; placeholder?: string }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-navy">{label}</label>
+      <label htmlFor={id} className="block text-base font-semibold text-navy mb-2">{label}</label>
       <input
         id={id}
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal"
+        className="form-field-accessible w-full glow-focus"
       />
     </div>
   );

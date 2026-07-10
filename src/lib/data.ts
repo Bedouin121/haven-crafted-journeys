@@ -1,4 +1,4 @@
-// Fictional but realistic travel data for the Aeris design showcase.
+// Fictional but realistic travel data for the Travel Tours design showcase.
 
 export type Destination = {
   slug: string;
@@ -13,7 +13,14 @@ export type Destination = {
   image: string;
   gallery: string[];
   highlights: string[];
-  coordinates: { x: number; y: number }; // % on world map
+  coordinates: { x: number; y: number }; // legacy, no longer needed once the new map is live
+  lat: number;
+  lng: number;
+};
+
+export type PackageMood = {
+  pace: "relaxing" | "adventurous";
+  landscape: "beach" | "mountains" | "mixed";
 };
 
 export type Package = {
@@ -30,6 +37,18 @@ export type Package = {
   summary: string;
   inclusions: string[];
   itinerary: { day: number; title: string; body: string }[];
+  mood: PackageMood;
+};
+
+export type VisaPackage = {
+  slug: string;
+  country: string;
+  title: string;
+  visaType: string;
+  price: number;
+  turnaround: string;
+  summary: string;
+  image: string;
 };
 
 export type Testimonial = {
@@ -82,6 +101,8 @@ export const destinations: Destination[] = [
       "Guided visit to a working ceramics studio",
     ],
     coordinates: { x: 83, y: 40 },
+    lat: 35.0116,
+    lng: 135.7681,
   },
   {
     slug: "patagonia",
@@ -108,6 +129,8 @@ export const destinations: Destination[] = [
       "Private flight over the Southern Ice Field",
     ],
     coordinates: { x: 30, y: 82 },
+    lat: -50.9423,
+    lng: -73.4068,
   },
   {
     slug: "amalfi-coast",
@@ -134,6 +157,8 @@ export const destinations: Destination[] = [
       "After-hours access to Villa Rufolo gardens",
     ],
     coordinates: { x: 53, y: 37 },
+    lat: 40.6280,
+    lng: 14.4849,
   },
   {
     slug: "marrakech",
@@ -160,6 +185,8 @@ export const destinations: Destination[] = [
       "Kasbah dinner under the stars",
     ],
     coordinates: { x: 47, y: 45 },
+    lat: 31.6295,
+    lng: -7.9811,
   },
   {
     slug: "iceland",
@@ -186,6 +213,8 @@ export const destinations: Destination[] = [
       "Helicopter landing on a volcano rim",
     ],
     coordinates: { x: 47, y: 22 },
+    lat: 64.1466,
+    lng: -21.9426,
   },
   {
     slug: "kenya",
@@ -212,6 +241,8 @@ export const destinations: Destination[] = [
       "Bush breakfast on the plains",
     ],
     coordinates: { x: 58, y: 62 },
+    lat: -1.4061,
+    lng: 35.0058,
   },
 ];
 
@@ -224,6 +255,7 @@ export const packages: Package[] = [
     nights: 8,
     price: 6480,
     style: "Cultural",
+    mood: { pace: "relaxing", landscape: "mixed" },
     rating: 4.9,
     reviews: 128,
     image: U("photo-1545569341-9eb8b30979d9"),
@@ -255,6 +287,7 @@ export const packages: Package[] = [
     nights: 10,
     price: 9420,
     style: "Adventure",
+    mood: { pace: "adventurous", landscape: "mountains" },
     rating: 4.9,
     reviews: 94,
     image: U("photo-1470071459604-3b5ec3a7fe05"),
@@ -288,6 +321,7 @@ export const packages: Package[] = [
     nights: 7,
     price: 7180,
     style: "Romantic",
+    mood: { pace: "relaxing", landscape: "beach" },
     rating: 4.8,
     reviews: 156,
     image: U("photo-1516483638261-f4dbaf036963"),
@@ -318,6 +352,7 @@ export const packages: Package[] = [
     nights: 9,
     price: 11480,
     style: "Family",
+    mood: { pace: "adventurous", landscape: "mixed" },
     rating: 5.0,
     reviews: 72,
     image: U("photo-1547970810-dc1eac37d174"),
@@ -350,6 +385,7 @@ export const packages: Package[] = [
     nights: 7,
     price: 8140,
     style: "Adventure",
+    mood: { pace: "adventurous", landscape: "mountains" },
     rating: 4.8,
     reviews: 68,
     image: U("photo-1504829857797-ddff29c27927"),
@@ -380,6 +416,7 @@ export const packages: Package[] = [
     nights: 8,
     price: 4980,
     style: "Cultural",
+    mood: { pace: "relaxing", landscape: "mountains" },
     rating: 4.7,
     reviews: 112,
     image: U("photo-1548013146-72479768bada"),
@@ -411,7 +448,7 @@ export const testimonials: Testimonial[] = [
     location: "London, UK",
     trip: "Kyoto in Quiet",
     quote:
-      "Aeris understood exactly what we were looking for — not the checklist Kyoto, but the quiet one. Every choice, from the ryokan to the ceramics studio, felt considered.",
+      "Travel Tours understood exactly what we were looking for — not the checklist Kyoto, but the quiet one. Every choice, from the ryokan to the ceramics studio, felt considered.",
     rating: 5,
     avatar: U("photo-1544005313-94ddf0286df2", 200),
   },
@@ -514,7 +551,7 @@ export const articles: Article[] = [
 export const faqs: { q: string; a: string; category: string }[] = [
   {
     category: "Booking",
-    q: "How does a typical Aeris trip come together?",
+    q: "How does a typical Travel Tours trip come together?",
     a: "Every journey starts with a conversation. A specialist listens to what you're after, sends across a first proposal within five business days, and refines it with you until the details feel right. Only then do we book.",
   },
   {
@@ -555,3 +592,104 @@ export const stats = [
   { value: "4.9", suffix: "/5", label: "Client satisfaction" },
   { value: "94", suffix: "%", label: "Return travelers" },
 ];
+
+export const visaPackages: VisaPackage[] = [
+  {
+    slug: "japan-tourist",
+    country: "Japan",
+    title: "Japan Tourist Visa",
+    visaType: "Tourist",
+    price: 185,
+    turnaround: "5–7 business days",
+    summary: "Single-entry tourist visa for stays up to 90 days. Full document review and embassy submission handled for you.",
+    image: U("photo-1493976040374-85c8e12f0c0e"),
+  },
+  {
+    slug: "schengen-tourist",
+    country: "Schengen (Europe)",
+    title: "Schengen Tourist Visa",
+    visaType: "Tourist",
+    price: 220,
+    turnaround: "10–15 business days",
+    summary: "Multi-country Schengen visa for Italy, France, Spain, and 24 other nations. Appointment scheduling included.",
+    image: U("photo-1516483638261-f4dbaf036963"),
+  },
+  {
+    slug: "kenya-tourist",
+    country: "Kenya",
+    title: "Kenya eVisa",
+    visaType: "Tourist",
+    price: 95,
+    turnaround: "2–3 business days",
+    summary: "Electronic tourist visa for safari and coastal travel. Fast-track processing with document verification.",
+    image: U("photo-1547970810-dc1eac37d174"),
+  },
+  {
+    slug: "morocco-tourist",
+    country: "Morocco",
+    title: "Morocco Tourist Visa",
+    visaType: "Tourist",
+    price: 145,
+    turnaround: "7–10 business days",
+    summary: "Tourist visa for medina stays and Atlas mountain treks. Includes invitation letter coordination when required.",
+    image: U("photo-1489749798305-4fea3ae63d43"),
+  },
+  {
+    slug: "iceland-tourist",
+    country: "Iceland",
+    title: "Iceland Schengen Visa",
+    visaType: "Tourist",
+    price: 210,
+    turnaround: "12–18 business days",
+    summary: "Schengen visa processed through Iceland for ring-road and aurora itineraries. Biometric appointment support.",
+    image: U("photo-1504829857797-ddff29c27927"),
+  },
+  {
+    slug: "argentina-tourist",
+    country: "Argentina",
+    title: "Argentina Tourist Visa",
+    visaType: "Tourist",
+    price: 165,
+    turnaround: "8–12 business days",
+    summary: "Tourist visa for Patagonia trekking and Buenos Aires city breaks. Document checklist and embassy liaison.",
+    image: U("photo-1470071459604-3b5ec3a7fe05"),
+  },
+];
+
+export const visaFaqs: { q: string; a: string; category?: string }[] = [
+  {
+    category: "Process",
+    q: "How does Travel Tours handle visa applications?",
+    a: "We review your documents, prepare your application, schedule embassy appointments when needed, and submit on your behalf. You'll receive status updates at every stage.",
+  },
+  {
+    category: "Process",
+    q: "How long before my trip should I apply?",
+    a: "We recommend starting 6–8 weeks before departure for Schengen visas, and 3–4 weeks for eVisas and simpler tourist visas. Rush processing is available for select countries.",
+  },
+  {
+    category: "Documents",
+    q: "What documents will I need?",
+    a: "Typically a valid passport, recent photos, proof of travel insurance, flight reservations, and hotel confirmations. We provide a tailored checklist for your destination.",
+  },
+  {
+    category: "Documents",
+    q: "Can you help if my application was previously denied?",
+    a: "Yes. Our specialists review denial letters, identify gaps, and advise on a strengthened reapplication strategy.",
+  },
+  {
+    category: "Pricing",
+    q: "What's included in the visa service fee?",
+    a: "Document review, application preparation, embassy submission, and status tracking. Government visa fees are separate and listed transparently on your quote.",
+  },
+  {
+    category: "Pricing",
+    q: "Do you offer business and transit visas?",
+    a: "Absolutely. Contact us with your travel purpose and we'll match you with the correct visa category and processing timeline.",
+  },
+];
+
+/** Count tours/packages per destination slug */
+export function getTourCount(destinationSlug: string): number {
+  return packages.filter((p) => p.destinationSlug === destinationSlug).length;
+}

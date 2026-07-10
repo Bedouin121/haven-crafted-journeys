@@ -6,10 +6,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Journal — Aeris Travel Studio" },
-      { name: "description", content: "Field notes, destination guides, and quiet essays from Aeris travel designers." },
-      { property: "og:title", content: "The Aeris Journal" },
-      { property: "og:description", content: "Field notes, destination guides, and quiet essays from Aeris travel designers." },
+      { title: "Journal — Travel Tours" },
+      { name: "description", content: "Field notes, destination guides, and quiet essays from Travel Tours travel designers." },
+      { property: "og:title", content: "The Travel Tours Journal" },
+      { property: "og:description", content: "Field notes, destination guides, and quiet essays from Travel Tours travel designers." },
     ],
   }),
   component: BlogIndex,
@@ -26,7 +26,7 @@ function BlogIndex() {
         transition={{ duration: 0.7 }}
         className="mt-8 max-w-3xl"
       >
-        <p className="text-eyebrow text-teal">The Aeris Journal</p>
+        <p className="text-eyebrow text-teal">The Travel Tours Journal</p>
         <h1 className="mt-3 font-display text-5xl sm:text-7xl leading-[1.02] text-navy">
           Notes from the road.
         </h1>

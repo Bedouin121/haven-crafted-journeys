@@ -30,7 +30,7 @@ export function TestimonialCarousel() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="flex items-center gap-1 text-gold" aria-label={`${t.rating} out of 5`}>
                 {Array.from({ length: t.rating }).map((_, k) => (
@@ -60,16 +60,16 @@ export function TestimonialCarousel() {
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+              className="grid h-12 w-12 place-items-center rounded-full border-2 border-white/30 hover:bg-white/15 transition-colors duration-700 glow-focus"
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+              className="grid h-12 w-12 place-items-center rounded-full border-2 border-white/30 hover:bg-white/15 transition-colors duration-700 glow-focus"
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </button>
             <div className="ml-3 flex gap-1.5" role="tablist">
               {testimonials.map((_, k) => (

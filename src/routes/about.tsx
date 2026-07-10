@@ -8,9 +8,9 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Aeris — A travel studio, not a booking engine" },
-      { name: "description", content: "How Aeris designs journeys — a small studio of specialists, a network of trusted local partners, and eighteen years of considered travel." },
-      { property: "og:title", content: "About Aeris" },
+      { title: "About Travel Tours — A travel studio, not a booking engine" },
+      { name: "description", content: "How Travel Tours designs journeys — a small studio of specialists, a network of trusted local partners, and eighteen years of considered travel." },
+      { property: "og:title", content: "About Travel Tours" },
       { property: "og:description", content: "A small studio of travel specialists designing unhurried, meticulously planned journeys." },
     ],
   }),
@@ -42,7 +42,7 @@ function About() {
             A small studio, thoughtfully run.
           </h1>
           <p className="mt-8 text-xl leading-relaxed text-muted-foreground max-w-3xl">
-            Aeris was founded in 2008 on a simple premise: the best trips are quiet, considered, and shaped by
+            Travel Tours was founded in 2008 on a simple premise: the best trips are quiet, considered, and shaped by
             people who have actually been there. Eighteen years later, we still work that way.
           </p>
         </motion.div>
@@ -125,13 +125,13 @@ function About() {
       </section>
 
       <section className="container-editorial pb-8">
-        <div className="rounded-4xl bg-sand-deep px-8 py-16 sm:px-16 sm:py-24 text-center">
+        <div className="relative overflow-hidden rounded-4xl bg-sand-deep px-8 py-16 sm:px-16 sm:py-24 text-center cta-sweep">
           <p className="text-eyebrow text-teal">Ready when you are</p>
           <h2 className="mt-3 font-display text-4xl sm:text-6xl text-navy leading-[1.05] max-w-3xl mx-auto">
             Let's plan something extraordinary.
           </h2>
-          <Link to="/book" className="mt-10 inline-flex items-center gap-2 rounded-full bg-navy px-8 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
-            Start a conversation <ArrowRight className="h-4 w-4" />
+          <Link to="/plan-dream-trip" className="mt-10 inline-flex items-center gap-2 rounded-full bg-navy px-8 py-4 text-lg font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
+            Start planning <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

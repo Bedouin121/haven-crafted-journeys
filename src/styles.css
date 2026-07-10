@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Aeris Travel — Premium editorial travel agency design system.
+ * Travel Tours — Premium editorial travel agency design system.
  * Palette: warm white, deep navy, muted teal, soft sand, subtle gold.
+ * Calibrated for clarity-first legibility (older professional audience).
  */
 
 @theme inline {
@@ -83,7 +84,7 @@
   --secondary: oklch(0.95 0.015 85);
   --secondary-foreground: var(--navy);
   --muted: oklch(0.955 0.012 85);
-  --muted-foreground: oklch(0.5 0.02 250);
+  --muted-foreground: oklch(0.34 0.03 250);  /* stepped up for AAA-closer contrast */
   --accent: var(--teal);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.55 0.2 25);
@@ -126,6 +127,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1.1875rem;   /* ~19px — stepped up from 18px for older-audience legibility */
+    line-height: 1.72;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -143,9 +146,10 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--teal);
-    outline-offset: 3px;
+    outline: 3px solid var(--teal);
+    outline-offset: 4px;
     border-radius: 4px;
+    box-shadow: 0 0 0 7px oklch(0.58 0.08 195 / 0.40);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -154,6 +158,13 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    .glow-focus:focus-visible,
+    .glow-focus:focus-within,
+    .booking-tab-active {
+      box-shadow: none !important;
+      outline: 3px solid var(--teal) !important;
     }
   }
 }
@@ -169,9 +180,9 @@
 
 @utility text-eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted-foreground);
 }
@@ -183,7 +194,7 @@
 }
 
 @utility hover-lift {
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 400ms;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 700ms;
   &:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
 }
 
@@ -191,4 +202,93 @@
   background: var(--card);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-soft);
+}
+
+@utility glow-focus {
+  &:focus-visible,
+  &:focus-within {
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px oklch(0.58 0.08 195 / 0.4), 0 0 20px oklch(0.58 0.08 195 / 0.25);
+  }
+}
+
+@utility booking-tab-active {
+  box-shadow: 0 0 0 3px oklch(0.58 0.08 195 / 0.45), 0 0 16px oklch(0.58 0.08 195 / 0.3);
+}
+
+@utility form-field-accessible {
+  font-size: 1.0625rem;
+  padding: 0.9375rem 1.1875rem;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--border);
+  background: var(--background);
+  transition: border-color 600ms ease, box-shadow 600ms ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 5px oklch(0.58 0.08 195 / 0.40), 0 0 20px oklch(0.58 0.08 195 / 0.22);
+  }
+}
+
+@utility cta-sweep {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      oklch(1 0 0 / 0.12) 50%,
+      transparent 60%
+    );
+    transform: translateX(-120%);
+    animation: cta-light-sweep 10s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes cta-light-sweep {
+  0%, 72% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+@keyframes hero-breathe {
+  0%, 100% { opacity: 0.32; transform: scale(1); }
+  50% { opacity: 0.52; transform: scale(1.02); }
+}
+
+@utility hero-headline-glow {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10%;
+    background: radial-gradient(ellipse at center, oklch(0.72 0.11 78 / 0.25) 0%, transparent 70%);
+    filter: blur(40px);
+    animation: hero-breathe 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-sweep::after,
+  .hero-headline-glow::before {
+    animation: none !important;
+    display: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .magnetic-target,
+  .tilt-card,
+  .cursor-light-surface {
+    transform: none !important;
+  }
 }

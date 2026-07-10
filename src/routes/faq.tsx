@@ -9,10 +9,10 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Aeris Travel Studio" },
-      { name: "description", content: "Answers to common questions about planning, pricing, on-the-ground support, and responsible travel with Aeris." },
-      { property: "og:title", content: "Aeris FAQ" },
-      { property: "og:description", content: "Common questions about planning and traveling with Aeris." },
+      { title: "FAQ — Travel Tours" },
+      { name: "description", content: "Answers to common questions about planning, pricing, on-the-ground support, and responsible travel with Travel Tours." },
+      { property: "og:title", content: "Travel Tours FAQ" },
+      { property: "og:description", content: "Common questions about planning and traveling with Travel Tours." },
     ],
   }),
   component: FaqPage,
@@ -29,7 +29,7 @@ function FaqPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mt-8 max-w-3xl">
         <p className="text-eyebrow text-teal">Common questions</p>
         <h1 className="mt-3 font-display text-5xl sm:text-7xl leading-[1.02] text-navy">Answers, honestly.</h1>
-        <p className="mt-6 text-lg text-muted-foreground">
+        <p className="mt-6 text-xl text-muted-foreground">
           If your question isn't here, our specialists are happy to answer it directly — always by a person, never a form response.
         </p>
       </motion.div>

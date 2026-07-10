@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const { article } = loaderData;
     return {
       meta: [
-        { title: `${article.title} — Aeris Journal` },
+        { title: `${article.title} — Travel Tours Journal` },
         { name: "description", content: article.excerpt },
         { property: "og:title", content: article.title },
         { property: "og:description", content: article.excerpt },

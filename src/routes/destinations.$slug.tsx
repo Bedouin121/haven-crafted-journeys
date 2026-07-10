@@ -17,7 +17,7 @@ export const Route = createFileRoute("/destinations/$slug")({
     const { dest } = loaderData;
     return {
       meta: [
-        { title: `${dest.name}, ${dest.country} — Aeris` },
+        { title: `${dest.name}, ${dest.country} — Travel Tours` },
         { name: "description", content: dest.description },
         { property: "og:title", content: `${dest.name}, ${dest.country}` },
         { property: "og:description", content: dest.tagline },
@@ -150,13 +150,13 @@ function DestinationDetail() {
             </div>
             <Link
               to="/book"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-4 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors"
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700"
             >
               Plan this trip <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/contact"
-              className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-border px-6 py-4 text-sm font-medium text-navy hover:bg-secondary transition-colors"
+              className="mt-3 inline-flex w-full items-center justify-center rounded-full border-2 border-border px-6 py-4 text-base font-medium text-navy hover:bg-secondary transition-colors duration-700"
             >
               Speak to a specialist
             </Link>

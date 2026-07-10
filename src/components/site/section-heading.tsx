@@ -31,7 +31,7 @@ export function SectionHeading({
         <h2 className="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl text-navy leading-[1.05]">
           {title}
         </h2>
-        {intro && <p className="mt-5 text-lg text-muted-foreground leading-relaxed">{intro}</p>}
+        {intro && <p className="mt-5 text-xl text-muted-foreground leading-relaxed">{intro}</p>}
       </motion.div>
       {action && <div className="shrink-0">{action}</div>}
     </div>

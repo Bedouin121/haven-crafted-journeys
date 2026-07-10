@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 const nav = [
   { to: "/destinations", label: "Destinations" },
   { to: "/packages", label: "Journeys" },
+  { to: "/visa", label: "Visa" },
   { to: "/about", label: "About" },
   { to: "/blog", label: "Journal" },
-  { to: "/testimonials", label: "Stories" },
-  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -38,12 +37,12 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-editorial flex items-center justify-between gap-6 py-4">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="Aeris home">
+        <Link to="/" className="flex items-center gap-2 group" aria-label="Travel Tours home">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display text-lg leading-none">
-            A
+            T
           </span>
           <span className={`font-display text-xl tracking-tight transition-colors duration-500 ${scrolled ? "text-navy" : "text-white"}`}>
-            Aeris
+            Travel Tours
           </span>
         </Link>
 
@@ -54,11 +53,11 @@ export function SiteHeader() {
               to={item.to}
               activeProps={{
                 className:
-                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft",
+                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft",
               }}
               inactiveProps={{
                 className:
-                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-sm font-medium text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5",
+                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-base font-medium text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5",
               }}
             >
               {item.label}
@@ -69,7 +68,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <Link
             to="/book"
-            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
+            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft hover:shadow-lift"
           >
             Plan a trip
           </Link>
@@ -94,8 +93,8 @@ export function SiteHeader() {
           >
             <div className="container-editorial flex items-center justify-between py-4">
               <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display">A</span>
-                <span className="font-display text-xl text-navy">Aeris</span>
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display">T</span>
+                <span className="font-display text-xl text-navy">Travel Tours</span>
               </Link>
               <button
                 onClick={() => setOpen(false)}
@@ -123,7 +122,7 @@ export function SiteHeader() {
                   <Link
                     to={item.to}
                     onClick={() => setOpen(false)}
-                    className="block rounded-2xl border border-border/60 bg-card px-5 py-4 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-300 hover:bg-secondary hover:border-border"
+                    className="block rounded-2xl border border-border/60 bg-card px-5 py-5 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-secondary hover:border-border"
                   >
                     {item.label}
                   </Link>

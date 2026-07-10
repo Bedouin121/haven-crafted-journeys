@@ -7,12 +7,12 @@ export function SiteFooter() {
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2" aria-label="Aeris home">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">A</span>
-              <span className="font-display text-2xl">Aeris</span>
+            <Link to="/" className="flex items-center gap-2" aria-label="Travel Tours home">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">T</span>
+              <span className="font-display text-2xl">Travel Tours</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
-              Bespoke travel, quietly considered. Designed in London, delivered on six continents.
+              Bespoke travel, quietly considered. Travel Tours designs meticulously planned journeys across six continents, tailored for travelers who value the finer details and unhurried experiences.
             </p>
             <form className="mt-8 flex max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
               <label htmlFor="footer-email" className="sr-only">Email address</label>
@@ -32,12 +32,14 @@ export function SiteFooter() {
           <FooterCol title="Discover" links={[
             ["Destinations", "/destinations"],
             ["Journeys", "/packages"],
+            ["Visa Services", "/visa"],
             ["Journal", "/blog"],
             ["Client stories", "/testimonials"],
           ]} />
           <FooterCol title="Company" links={[
-            ["About Aeris", "/about"],
-            ["Plan a trip", "/book"],
+            ["About Travel Tours", "/about"],
+            ["Plan your dream trip", "/plan-dream-trip"],
+            ["Book a trip", "/book"],
             ["Contact", "/contact"],
             ["FAQ", "/faq"],
           ]} />
@@ -51,7 +53,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-primary-foreground/60">
-            © {new Date().getFullYear()} Aeris Travel Studio. A fictional showcase.
+            © {new Date().getFullYear()} Travel Tours. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             {[

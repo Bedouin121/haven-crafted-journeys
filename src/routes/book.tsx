@@ -8,10 +8,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "Plan a trip — Aeris" },
-      { name: "description", content: "Start planning a bespoke journey with Aeris. Tell us where you're going, when, and who with — a specialist responds within one business day." },
-      { property: "og:title", content: "Plan a trip with Aeris" },
-      { property: "og:description", content: "Start planning a bespoke journey with Aeris." },
+      { title: "Plan a trip — Travel Tours" },
+      { name: "description", content: "Start planning a bespoke journey with Travel Tours. Tell us where you're going, when, and who with — a specialist responds within one business day." },
+      { property: "og:title", content: "Plan a trip with Travel Tours" },
+      { property: "og:description", content: "Start planning a bespoke journey with Travel Tours." },
     ],
   }),
   component: BookPage,
@@ -62,7 +62,7 @@ function BookPage() {
                 <div key={i} className={`h-1 flex-1 rounded-full transition-colors ${i <= step ? "bg-navy" : "bg-border"}`} />
               ))}
             </div>
-            <p className="text-sm text-muted-foreground">Step {step + 1} of {steps.length} · {steps[step]}</p>
+            <p className="text-base text-muted-foreground">Step {step + 1} of {steps.length} · {steps[step]}</p>
           </div>
 
           <form
@@ -75,7 +75,7 @@ function BookPage() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.35 }}
+                transition={{ duration: 0.45 }}
               >
                 {step === 0 && (
                   <div>
@@ -97,8 +97,8 @@ function BookPage() {
                       ))}
                     </div>
                     <div className="mt-6">
-                      <label htmlFor="dest-other" className="block text-sm font-medium text-navy">Or somewhere else</label>
-                      <input id="dest-other" type="text" value={form.destination} onChange={(e) => update("destination", e.target.value)} placeholder="Write it here…" className="mt-2 w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                      <label htmlFor="dest-other" className="block text-base font-semibold text-navy mb-2">Or somewhere else</label>
+                      <input id="dest-other" type="text" value={form.destination} onChange={(e) => update("destination", e.target.value)} placeholder="Write it here…" className="form-field-accessible w-full glow-focus" />
                     </div>
                   </div>
                 )}
@@ -108,14 +108,14 @@ function BookPage() {
                     <h2 className="font-display text-3xl text-navy">When were you thinking?</h2>
                     <p className="mt-2 text-muted-foreground">Rough dates are fine.</p>
                     <div className="mt-6">
-                      <label htmlFor="dates" className="block text-sm font-medium text-navy">Preferred dates</label>
-                      <input id="dates" type="text" value={form.dates} onChange={(e) => update("dates", e.target.value)} placeholder="e.g. mid-October, 10 nights" className="mt-2 w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                      <label htmlFor="dates" className="block text-base font-semibold text-navy mb-2">Preferred dates</label>
+                      <input id="dates" type="text" value={form.dates} onChange={(e) => update("dates", e.target.value)} placeholder="e.g. mid-October, 10 nights" className="form-field-accessible w-full glow-focus" />
                     </div>
                     <fieldset className="mt-6">
-                      <legend className="text-sm font-medium text-navy">How flexible?</legend>
+                      <legend className="text-base font-semibold text-navy">How flexible?</legend>
                       <div className="mt-3 grid gap-2 sm:grid-cols-3">
                         {[{ v: "fixed", l: "Fixed dates" }, { v: "flexible", l: "Somewhat flexible" }, { v: "very", l: "Very flexible" }].map((o) => (
-                          <label key={o.v} className={`cursor-pointer rounded-2xl border p-4 text-center text-sm transition-colors ${form.flexibility === o.v ? "border-navy bg-navy text-primary-foreground" : "border-border bg-background hover:border-navy"}`}>
+                          <label key={o.v} className={`cursor-pointer rounded-2xl border-2 p-4 text-center text-base transition-colors glow-focus ${form.flexibility === o.v ? "border-navy bg-navy text-primary-foreground" : "border-border bg-background hover:border-navy"}`}>
                             <input type="radio" name="flex" value={o.v} checked={form.flexibility === o.v} onChange={() => update("flexibility", o.v)} className="sr-only" />
                             {o.l}
                           </label>
@@ -150,10 +150,10 @@ function BookPage() {
                       </div>
                     </div>
                     <fieldset className="mt-8">
-                      <legend className="text-sm font-medium text-navy">Style</legend>
+                      <legend className="text-base font-semibold text-navy">Style</legend>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {["Cultural", "Adventure", "Romantic", "Family", "Luxury"].map((s) => (
-                          <label key={s} className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors ${form.style === s ? "border-navy bg-navy text-primary-foreground" : "border-border bg-background hover:border-navy"}`}>
+                          <label key={s} className={`cursor-pointer rounded-full border-2 px-5 py-2.5 text-base transition-colors glow-focus ${form.style === s ? "border-navy bg-navy text-primary-foreground" : "border-border bg-background hover:border-navy"}`}>
                             <input type="radio" name="style" value={s} checked={form.style === s} onChange={() => update("style", s)} className="sr-only" />
                             {s}
                           </label>
@@ -168,16 +168,16 @@ function BookPage() {
                     <h2 className="font-display text-3xl text-navy">Last bits.</h2>
                     <div className="mt-6 grid gap-5">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-navy">Your name</label>
-                        <input id="name" required value={form.name} onChange={(e) => update("name", e.target.value)} className="mt-2 w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                        <label htmlFor="name" className="block text-base font-semibold text-navy mb-2">Your name</label>
+                        <input id="name" required value={form.name} onChange={(e) => update("name", e.target.value)} className="form-field-accessible w-full glow-focus" autoComplete="name" />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-navy">Email</label>
-                        <input id="email" type="email" required value={form.email} onChange={(e) => update("email", e.target.value)} className="mt-2 w-full rounded-full border border-border bg-background px-5 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                        <label htmlFor="email" className="block text-base font-semibold text-navy mb-2">Email address</label>
+                        <input id="email" type="email" required value={form.email} onChange={(e) => update("email", e.target.value)} className="form-field-accessible w-full glow-focus" autoComplete="email" />
                       </div>
                       <div>
-                        <label htmlFor="notes" className="block text-sm font-medium text-navy">Anything else</label>
-                        <textarea id="notes" rows={4} value={form.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Dietary needs, occasions, dreams…" className="mt-2 w-full rounded-2xl border border-border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal" />
+                        <label htmlFor="notes" className="block text-base font-semibold text-navy mb-2">Anything else</label>
+                        <textarea id="notes" rows={4} value={form.notes} onChange={(e) => update("notes", e.target.value)} placeholder="Dietary needs, occasions, dreams…" className="form-field-accessible w-full rounded-2xl glow-focus" />
                       </div>
                     </div>
                   </div>
@@ -190,11 +190,11 @@ function BookPage() {
                 type="button"
                 onClick={back}
                 disabled={step === 0}
-                className="inline-flex items-center gap-2 text-sm text-navy disabled:opacity-30"
+                className="inline-flex items-center gap-2 text-base font-medium text-navy disabled:opacity-30 glow-focus rounded-full px-4 py-2"
               >
                 <ArrowLeft className="h-4 w-4" /> Back
               </button>
-              <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-navy px-8 py-3.5 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
+              <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-navy px-8 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700 glow-focus">
                 {step === steps.length - 1 ? "Send enquiry" : "Continue"} <ArrowRight className="h-4 w-4" />
               </button>
             </div>
@@ -221,12 +221,12 @@ function BookPage() {
 
 function Counter({ label, value, onChange, min, max }: { label: string; value: number; onChange: (v: number) => void; min: number; max: number }) {
   return (
-    <div className="rounded-2xl border border-border p-5">
-      <p className="text-sm text-muted-foreground">{label}</p>
+    <div className="rounded-2xl border-2 border-border p-5">
+      <p className="text-base font-medium text-navy">{label}</p>
       <div className="mt-3 flex items-center justify-between">
-        <button type="button" onClick={() => onChange(Math.max(min, value - 1))} className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-secondary" aria-label={`Decrease ${label}`}>−</button>
+        <button type="button" onClick={() => onChange(Math.max(min, value - 1))} className="grid h-12 w-12 place-items-center rounded-full border-2 border-border hover:bg-secondary text-xl glow-focus" aria-label={`Decrease ${label}`}>−</button>
         <span className="font-display text-3xl text-navy">{value}</span>
-        <button type="button" onClick={() => onChange(Math.min(max, value + 1))} className="grid h-10 w-10 place-items-center rounded-full border border-border hover:bg-secondary" aria-label={`Increase ${label}`}>+</button>
+        <button type="button" onClick={() => onChange(Math.min(max, value + 1))} className="grid h-12 w-12 place-items-center rounded-full border-2 border-border hover:bg-secondary text-xl glow-focus" aria-label={`Increase ${label}`}>+</button>
       </div>
     </div>
   );
@@ -235,10 +235,10 @@ function Counter({ label, value, onChange, min, max }: { label: string; value: n
 function SummaryRow({ icon: Icon, label, value }: { icon: React.ComponentType<{ className?: string }>; label: string; value: string }) {
   return (
     <div className="flex items-start gap-3">
-      <Icon className="h-4 w-4 text-teal mt-1" aria-hidden />
+      <Icon className="h-5 w-5 text-teal mt-0.5" aria-hidden />
       <div className="min-w-0">
-        <dt className="text-xs text-muted-foreground">{label}</dt>
-        <dd className="mt-0.5 text-sm text-navy truncate">{value}</dd>
+        <dt className="text-sm text-muted-foreground">{label}</dt>
+        <dd className="mt-0.5 text-base text-navy truncate">{value}</dd>
       </div>
     </div>
   );
@@ -260,15 +260,15 @@ function ConfirmationScreen({ name }: { name: string }) {
         <h1 className="mt-3 font-display text-5xl sm:text-6xl text-navy leading-[1.05]">
           Thank you, {name}.
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground">
+        <p className="mt-6 text-xl text-muted-foreground">
           Your enquiry is with our team. A specialist will read it carefully and reply within one business day with a
           first direction — always by a person.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link to="/" className="rounded-full bg-navy px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-navy-soft transition-colors">
+          <Link to="/" className="rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
             Return home
           </Link>
-          <Link to="/blog" className="rounded-full border border-border px-6 py-3 text-sm font-medium text-navy hover:bg-secondary transition-colors">
+          <Link to="/blog" className="rounded-full border-2 border-border px-6 py-4 text-base font-medium text-navy hover:bg-secondary transition-colors duration-700">
             Read the journal
           </Link>
         </div>

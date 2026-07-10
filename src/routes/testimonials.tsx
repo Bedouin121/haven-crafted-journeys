@@ -7,10 +7,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Client Stories — Aeris" },
-      { name: "description", content: "What our clients say about traveling with Aeris — a collection of first-person stories from journeys we've designed." },
-      { property: "og:title", content: "Client Stories — Aeris" },
-      { property: "og:description", content: "First-person stories from journeys designed by Aeris." },
+      { title: "Client Stories — Travel Tours" },
+      { name: "description", content: "What our clients say about traveling with Travel Tours — a collection of first-person stories from journeys we've designed." },
+      { property: "og:title", content: "Client Stories — Travel Tours" },
+      { property: "og:description", content: "First-person stories from journeys designed by Travel Tours." },
     ],
   }),
   component: TestimonialsPage,
@@ -30,7 +30,7 @@ function TestimonialsPage() {
         <h1 className="mt-3 font-display text-5xl sm:text-7xl leading-[1.02] text-navy">
           In their own words.
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground">
+        <p className="mt-6 text-xl text-muted-foreground">
           Unedited notes from clients — a few weeks after they've returned home, when the trip has properly settled.
         </p>
       </motion.div>

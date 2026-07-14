@@ -18,7 +18,7 @@ export const Route = createFileRoute("/destinations")({
   component: DestinationsPage,
 });
 
-const regions = ["All", "Asia", "Europe", "South America", "Africa"] as const;
+const regions = ["All", "Asia", "Americas", "Africa"] as const;
 
 function DestinationsPage() {
   const [query, setQuery] = useState("");

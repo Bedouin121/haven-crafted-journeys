@@ -37,12 +37,14 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-editorial flex items-center justify-between gap-6 py-4">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="Travel Tours home">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display text-lg leading-none">
-            T
-          </span>
+        <Link to="/" className="flex items-center gap-2 group" aria-label="Diganta Overseas home">
+        <img 
+          src="/logo.jpeg" 
+          alt="Haven Crafted Journeys Logo" 
+          className="h-16 w-16 rounded-full object-cover object-top" 
+        />
           <span className={`font-display text-xl tracking-tight transition-colors duration-500 ${scrolled ? "text-navy" : "text-white"}`}>
-            Travel Tours
+            Diganta Overseas
           </span>
         </Link>
 
@@ -93,8 +95,12 @@ export function SiteHeader() {
           >
             <div className="container-editorial flex items-center justify-between py-4">
               <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-primary-foreground font-display">T</span>
-                <span className="font-display text-xl text-navy">Travel Tours</span>
+                <img 
+                  src="/logo.jpeg" 
+                  alt="Haven Crafted Journeys Logo" 
+                  className="h-16 w-16 rounded-full object-cover object-top" 
+                />
+                <span className="font-display text-xl text-navy">Diganta Overseas</span>
               </Link>
               <button
                 onClick={() => setOpen(false)}

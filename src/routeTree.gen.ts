@@ -12,13 +12,17 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PlanDreamTripRouteImport } from './routes/plan-dream-trip'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PackagesSlugRouteImport } from './routes/packages.$slug'
@@ -40,6 +44,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PlanDreamTripRoute = PlanDreamTripRouteImport.update({
   id: '/plan-dream-trip',
   path: '/plan-dream-trip',
@@ -48,6 +57,11 @@ const PlanDreamTripRoute = PlanDreamTripRouteImport.update({
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -73,6 +87,16 @@ const BookRoute = BookRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -104,13 +128,17 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
   '/blog': typeof BlogRouteWithChildren
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
@@ -121,13 +149,17 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
   '/blog': typeof BlogRouteWithChildren
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
@@ -139,13 +171,17 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
+  '/admin': typeof AdminRoute
   '/blog': typeof BlogRouteWithChildren
   '/book': typeof BookRoute
   '/contact': typeof ContactRoute
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
+  '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
+  '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
@@ -158,13 +194,17 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/account'
+    | '/admin'
     | '/blog'
     | '/book'
     | '/contact'
     | '/destinations'
     | '/faq'
+    | '/login'
     | '/packages'
     | '/plan-dream-trip'
+    | '/signup'
     | '/sitemap.xml'
     | '/testimonials'
     | '/visa'
@@ -175,13 +215,17 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/account'
+    | '/admin'
     | '/blog'
     | '/book'
     | '/contact'
     | '/destinations'
     | '/faq'
+    | '/login'
     | '/packages'
     | '/plan-dream-trip'
+    | '/signup'
     | '/sitemap.xml'
     | '/testimonials'
     | '/visa'
@@ -192,13 +236,17 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/account'
+    | '/admin'
     | '/blog'
     | '/book'
     | '/contact'
     | '/destinations'
     | '/faq'
+    | '/login'
     | '/packages'
     | '/plan-dream-trip'
+    | '/signup'
     | '/sitemap.xml'
     | '/testimonials'
     | '/visa'
@@ -210,13 +258,17 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
+  AdminRoute: typeof AdminRoute
   BlogRoute: typeof BlogRouteWithChildren
   BookRoute: typeof BookRoute
   ContactRoute: typeof ContactRoute
   DestinationsRoute: typeof DestinationsRouteWithChildren
   FaqRoute: typeof FaqRoute
+  LoginRoute: typeof LoginRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   PlanDreamTripRoute: typeof PlanDreamTripRoute
+  SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
   VisaRoute: typeof VisaRoute
@@ -245,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/plan-dream-trip': {
       id: '/plan-dream-trip'
       path: '/plan-dream-trip'
@@ -257,6 +316,13 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -292,6 +358,20 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -369,13 +449,17 @@ const PackagesRouteWithChildren = PackagesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
+  AdminRoute: AdminRoute,
   BlogRoute: BlogRouteWithChildren,
   BookRoute: BookRoute,
   ContactRoute: ContactRoute,
   DestinationsRoute: DestinationsRouteWithChildren,
   FaqRoute: FaqRoute,
+  LoginRoute: LoginRoute,
   PackagesRoute: PackagesRouteWithChildren,
   PlanDreamTripRoute: PlanDreamTripRoute,
+  SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
   VisaRoute: VisaRoute,

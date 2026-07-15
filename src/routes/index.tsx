@@ -132,7 +132,7 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="relative h-[100svh] bg-navy" >
+    <section ref={ref} className="relative z-40 h-[100svh] bg-navy" >
       <motion.div style={{ y, scale }} className="absolute inset-0 overflow-hidden" >
         <HeroSlideshow />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,26,46,0.35)_60%,rgba(11,26,46,0.85)_100%)]" />

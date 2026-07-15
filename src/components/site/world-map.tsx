@@ -57,7 +57,7 @@ export function WorldMap() {
   };
 
   return (
-    <div className="relative w-full rounded-3xl overflow-hidden bg-navy">
+    <div className="relative w-full rounded-3xl bg-navy">
       <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full h-auto">
         <defs>
           <radialGradient id="mapGlow" cx="50%" cy="45%" r="65%">

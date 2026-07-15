@@ -227,9 +227,9 @@ export const destinations: Destination[] = [
     bestTime: "June – September",
     duration: "8 – 11 nights",
     fromPrice: 5980,
-    image: U("photo-1519832979-6fa011b87667"),
+    image: U("photo-1489447068241-b3490214e879"),
     gallery: [
-      U("photo-1519832979-6fa011b87667"),
+      U("photo-1489447068241-b3490214e879"),
       U("photo-1489447068241-b3490214e879"),
       U("photo-1476610182048-b716b8518aae"),
       U("photo-1464822759023-fed622ff2c3b"),
@@ -311,7 +311,7 @@ export const destinations: Destination[] = [
     bestTime: "May – October",
     duration: "6 – 9 nights",
     fromPrice: 3280,
-    image: U("photo-1610294928006-8b6a7f671cd3"),
+    image: U("photo-1567168539593-59673ababaae"),
     gallery: [
       U("photo-1567168539593-59673ababaae"),
       U("photo-1602517340036-fc9d3fd8b0f2"),
@@ -509,7 +509,7 @@ export const packages: Package[] = [
     mood: { pace: "adventurous", landscape: "mountains" },
     rating: 4.9,
     reviews: 108,
-    image: U("photo-1503614472-8c93d56cd601"),
+    image: U("photo-1489447068241-b3490214e879"),
     summary:
       "Nine nights between Banff and Jasper — private canoes at first light, glacier walks with a mountaineer, and lodges beside the loudest silence you've ever heard.",
     inclusions: [
@@ -610,7 +610,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "mountains" },
     rating: 4.8,
     reviews: 42,
-    image: U("photo-1610294928006-8b6a7f671cd3"),
+    image: U("photo-1567168539593-59673ababaae"),
     summary:
       "Seven nights through Yerevan, the Areni wine country, and the monasteries of the Debed and Vayots Dzor valleys — small crowds, big landscapes.",
     inclusions: [
@@ -698,7 +698,7 @@ export const articles: Article[] = [
     readTime: "8 min read",
     date: "October 21, 2026",
     author: "Tomás Fernández",
-    image: U("photo-1503614472-8c93d56cd601"),
+    image: U("photo-1489447068241-b3490214e879"),
     body: [
       "First principle: layers. Four thin layers will always beat two thick ones. The wind coming off a glacier does not negotiate.",
       "Second: waterproof, not water-resistant. There is a meaningful difference and you will discover it, unpleasantly, on the wrong day.",

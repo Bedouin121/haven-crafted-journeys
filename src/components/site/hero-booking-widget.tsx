@@ -20,7 +20,10 @@ function useDismissableDropdown<T extends HTMLElement>(open: boolean, onDismiss:
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onDismiss();
     };
-    const handleScroll = () => onDismiss();
+    const handleScroll = (e: Event) => {
+      if (ref.current && ref.current.contains(e.target as Node)) return;
+      onDismiss();
+    };
 
     document.addEventListener("mousedown", handlePointer);
     document.addEventListener("keydown", handleKey);
@@ -61,6 +64,8 @@ const DUMMY_DESTINATIONS = [
   "Safari — Tanzania",
 ];
 
+const ALL_PLACES = ["Dhaka", ...DUMMY_DESTINATIONS];
+
 // ─── Reusable label ──────────────────────────────────────────────────────────
 function FieldLabel({ children, htmlFor }: { children: React.ReactNode; htmlFor: string }) {
   return (
@@ -70,10 +75,14 @@ function FieldLabel({ children, htmlFor }: { children: React.ReactNode; htmlFor:
   );
 }
 
-// ─── Destination dropdown ────────────────────────────────────────────────────
-function DestinationDropdown({ id, label }: { id: string; label: string }) {
+function ControlledDropdown({ 
+  id, label, placeholder, icon: Icon, options, value, onChange 
+}: { 
+  id: string; label: string; placeholder: string; 
+  icon: React.ComponentType<{ className?: string }>; 
+  options: string[]; value: string; onChange: (v: string) => void; 
+}) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("");
   const dismiss = useCallback(() => setOpen(false), []);
   const ref = useDismissableDropdown<HTMLDivElement>(open, dismiss);
 
@@ -89,9 +98,9 @@ function DestinationDropdown({ id, label }: { id: string; label: string }) {
         className="form-field-accessible w-full flex items-center justify-between gap-2 text-left glow-focus"
       >
         <span className="flex items-center gap-2 min-w-0">
-          <MapPin className="h-4 w-4 text-navy/50 shrink-0" aria-hidden />
-          <span className={`truncate ${selected ? "text-navy" : "text-navy/40"}`}>
-            {selected || "Where to?"}
+          <Icon className="h-4 w-4 text-navy/50 shrink-0" aria-hidden />
+          <span className={`truncate ${value ? "text-navy" : "text-navy/40"}`}>
+            {value || placeholder}
           </span>
         </span>
         <ChevronDown
@@ -111,17 +120,17 @@ function DestinationDropdown({ id, label }: { id: string; label: string }) {
             transition={{ duration: 0.2 }}
             className="absolute z-50 mt-2 w-full rounded-2xl border border-border bg-card shadow-lift max-h-64 overflow-y-auto"
           >
-            {DUMMY_DESTINATIONS.map((dest) => (
-              <li key={dest}>
+            {options.map((opt) => (
+              <li key={opt}>
                 <button
                   type="button"
                   role="option"
-                  aria-selected={selected === dest}
-                  onClick={() => { setSelected(dest); setOpen(false); }}
-                  className={`w-full px-4 py-3 text-left text-base transition-colors hover:bg-secondary ${selected === dest ? "text-teal font-semibold bg-teal/5" : "text-navy"
+                  aria-selected={value === opt}
+                  onClick={() => { onChange(opt); setOpen(false); }}
+                  className={`w-full px-4 py-3 text-left text-base transition-colors hover:bg-secondary ${value === opt ? "text-teal font-semibold bg-teal/5" : "text-navy"
                     }`}
                 >
-                  {dest}
+                  {opt}
                 </button>
               </li>
             ))}
@@ -129,6 +138,36 @@ function DestinationDropdown({ id, label }: { id: string; label: string }) {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+function DestinationDropdown({ id, label, options = DUMMY_DESTINATIONS }: { id: string; label: string; options?: string[] }) {
+  const [selected, setSelected] = useState("");
+  return (
+    <ControlledDropdown
+      id={id}
+      label={label}
+      placeholder="Where to?"
+      icon={MapPin}
+      options={options}
+      value={selected}
+      onChange={setSelected}
+    />
+  );
+}
+
+function FlightDropdowns({ baseId }: { baseId: string }) {
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+
+  const fromOptions = ALL_PLACES.filter((p) => p !== to);
+  const toOptions = ALL_PLACES.filter((p) => p !== from);
+
+  return (
+    <>
+      <ControlledDropdown id={`${baseId}-from`} label="Flying from" icon={Plane} placeholder="Departure city" options={fromOptions} value={from} onChange={setFrom} />
+      <ControlledDropdown id={`${baseId}-to`} label="Flying to" icon={Plane} placeholder="Arrival city" options={toOptions} value={to} onChange={setTo} />
+    </>
   );
 }
 
@@ -323,7 +362,7 @@ export function HeroBookingWidget() {
               onKeyDown={(e) => onKeyDown(e, i)}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-500 glow-focus ${selected
                 ? "bg-navy text-primary-foreground booking-tab-active"
-                : "bg-white/60 text-navy hover:bg-white/80"
+                : "bg-background/60 text-navy hover:bg-background/80"
                 }`}
             >
               <tab.icon className="h-4 w-4" aria-hidden />
@@ -356,8 +395,7 @@ export function HeroBookingWidget() {
             )}
             {active === "flight" && (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                <WidgetField id={`${baseId}-from`} label="Flying from" icon={Plane} placeholder="Departure city" />
-                <WidgetField id={`${baseId}-to`} label="Flying to" icon={Plane} placeholder="Arrival city" />
+                <FlightDropdowns baseId={baseId} />
                 <WidgetField id={`${baseId}-depart`} label="Depart date" icon={Calendar} type="date" />
                 <WidgetField id={`${baseId}-return`} label="Return date" icon={Calendar} type="date" />
                 <WidgetSelect id={`${baseId}-class`} label="Class" options={["Economy", "Premium Economy", "Business", "First"]} />
@@ -365,7 +403,8 @@ export function HeroBookingWidget() {
               </div>
             )}
             {active === "hotel" && (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <DestinationDropdown id={`${baseId}-hotel-place`} label="Place" options={ALL_PLACES} />
                 <WidgetField id={`${baseId}-checkin`} label="Check in" icon={Calendar} type="date" />
                 <WidgetField id={`${baseId}-checkout`} label="Check out" icon={Calendar} type="date" />
                 <TravelersCounter id={`${baseId}-hotel-guests`} label="Guests" />

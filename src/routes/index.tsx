@@ -132,14 +132,16 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="relative z-40 h-[100svh] bg-navy" >
-      <motion.div style={{ y, scale }} className="absolute inset-0 overflow-hidden" >
-        <HeroSlideshow />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,26,46,0.35)_60%,rgba(11,26,46,0.85)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/20 via-transparent to-navy/70" />
-      </motion.div>
+    <section ref={ref} className="relative min-h-[100svh] bg-brand-navy">
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div style={{ y, scale }} className="absolute inset-0">
+          <HeroSlideshow />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(11,26,46,0.35)_60%,rgba(11,26,46,0.85)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/20 via-transparent to-brand-navy/70" />
+        </motion.div>
+      </div>
 
-      <div className="relative container-editorial flex h-[100svh] flex-col justify-end pt-32 pb-16">
+      <div className="relative container-editorial flex min-h-[100svh] flex-col justify-end pt-32 pb-16">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -152,7 +154,7 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-4 max-w-5xl font-display text-5xl leading-[1.02] text-primary-foreground sm:text-7xl lg:text-8xl hero-headline-glow"
+          className="mt-4 max-w-5xl font-display text-5xl leading-[1.02] text-white sm:text-7xl lg:text-8xl hero-headline-glow"
         >
           The world, slowly and beautifully.
         </motion.h1>
@@ -160,7 +162,7 @@ function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-6 max-w-xl text-lg text-primary-foreground/90"
+          className="mt-6 max-w-xl text-lg text-white/90"
         >
           We design unhurried, meticulously planned journeys for travelers who value the quiet things — a
           garden at sunrise, a chef who cooks only for you, a guide who knows exactly where to stand.
@@ -180,7 +182,7 @@ function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-primary-foreground/70"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70"
         aria-hidden
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
@@ -225,7 +227,7 @@ function PlanDreamTripSection() {
 
 function Stats() {
   return (
-    <section className="container-editorial py-24 sm:py-32">
+    <section className="container-editorial py-24 sm:py-32 bg-background">
       <div className="grid gap-y-12 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s, i) => (
           <motion.div

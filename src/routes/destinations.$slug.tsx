@@ -50,8 +50,8 @@ function DestinationDetail() {
           alt={dest.name}
           className="absolute inset-0 h-[120%] w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy/70" />
-        <div className="relative container-editorial flex h-full flex-col justify-end pt-32 pb-16 text-primary-foreground">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-transparent to-brand-navy/70" />
+        <div className="relative container-editorial flex h-full flex-col justify-end pt-32 pb-16 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ function DestinationDetail() {
             <h1 className="mt-3 font-display text-5xl sm:text-7xl lg:text-8xl leading-[1.02]">
               {dest.name}
             </h1>
-            <p className="mt-4 max-w-2xl text-xl text-primary-foreground/90 font-display italic">
+            <p className="mt-4 max-w-2xl text-xl text-white/90 font-display italic">
               {dest.tagline}
             </p>
           </motion.div>

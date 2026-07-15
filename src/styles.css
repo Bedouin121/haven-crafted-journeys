@@ -43,15 +43,18 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-navy: var(--navy);
-  --color-navy-soft: var(--navy-soft);
+  --color-brand-navy: var(--navy);
+  --color-brand-navy-soft: var(--navy-soft);
+  
+  --color-navy: var(--primary);
+  --color-navy-soft: color-mix(in oklab, var(--primary) 85%, transparent);
   --color-teal: var(--teal);
   --color-teal-soft: var(--teal-soft);
-  --color-sand: var(--sand);
-  --color-sand-deep: var(--sand-deep);
+  --color-sand: var(--secondary);
+  --color-sand-deep: var(--muted);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
-  --color-ink: var(--ink);
+  --color-ink: var(--foreground);
 
   --shadow-soft: 0 1px 2px oklch(0.2 0.03 250 / 0.04), 0 8px 24px oklch(0.2 0.03 250 / 0.06);
   --shadow-lift: 0 2px 4px oklch(0.2 0.03 250 / 0.05), 0 20px 40px -12px oklch(0.2 0.03 250 / 0.12);
@@ -188,9 +191,9 @@
 }
 
 @utility glass-panel {
-  background: color-mix(in oklab, white 70%, transparent);
+  background: color-mix(in oklab, var(--color-background) 70%, transparent);
   backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid color-mix(in oklab, white 60%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-border) 60%, transparent);
 }
 
 @utility hover-lift {

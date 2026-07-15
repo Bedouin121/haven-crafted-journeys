@@ -218,7 +218,7 @@ function VisaPage() {
           </p>
           <Link
             to="/contact"
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-medium text-navy hover:bg-gold-soft transition-colors duration-700"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-8 py-4 text-base font-medium text-brand-navy hover:bg-gold-soft transition-colors duration-700"
           >
             Get started <ArrowRight className="h-4 w-4" />
           </Link>

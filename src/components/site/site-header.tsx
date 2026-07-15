@@ -108,7 +108,7 @@ export function SiteHeader() {
             <div className="relative hidden sm:block">
               <button
                 onClick={() => setMenuOpen((v) => !v)}
-                className="flex items-center gap-2 rounded-full border border-border/60 bg-card/90 px-3 py-2 text-sm font-medium text-secondary-foreground shadow-soft transition-colors hover:bg-card"
+                className="flex items-center gap-2 rounded-full border border-border/60 bg-card/90 px-3 py-2 text-sm font-medium text-secondary-foreground shadow-soft transition-colors hover:bg-card whitespace-nowrap"
                 aria-haspopup="menu"
                 aria-expanded={menuOpen}
               >
@@ -155,7 +155,7 @@ export function SiteHeader() {
           ) : (
             <Link
               to="/login"
-              className="hidden sm:inline-flex items-center rounded-full border border-border/60 bg-card/90 px-4 py-2.5 text-sm font-medium text-secondary-foreground shadow-soft transition-all hover:bg-card"
+              className="hidden sm:inline-flex items-center rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-base font-medium text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5 whitespace-nowrap"
             >
               Sign in
             </Link>
@@ -163,7 +163,7 @@ export function SiteHeader() {
 
           <Link
             to="/book"
-            className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft hover:shadow-lift"
+            className="hidden sm:inline-flex items-center rounded-full border border-navy bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft whitespace-nowrap"
           >
             Plan a trip
           </Link>
@@ -237,14 +237,14 @@ export function SiteHeader() {
               )}
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
-                className="mt-8 flex flex-col gap-3"
+                className="mt-8 flex flex-col gap-1"
               >
                 {isLoggedIn ? (
                   <>
                     <Link
                       to="/account"
                       onClick={() => setOpen(false)}
-                      className="inline-flex w-full items-center justify-center rounded-full border border-border/60 bg-card px-6 py-4 text-base font-medium text-foreground"
+                      className="block rounded-2xl border border-border/60 bg-card px-5 py-5 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-secondary hover:border-border"
                     >
                       Your account
                     </Link>
@@ -253,7 +253,7 @@ export function SiteHeader() {
                         onLogout();
                         setOpen(false);
                       }}
-                      className="inline-flex w-full items-center justify-center rounded-full border border-destructive/40 px-6 py-4 text-base font-medium text-destructive"
+                      className="block w-full text-left rounded-2xl border border-destructive/40 bg-card px-5 py-5 font-display text-2xl text-destructive shadow-soft transition-all duration-500 hover:bg-destructive/10 hover:border-destructive/60"
                     >
                       Sign out
                     </button>
@@ -262,7 +262,7 @@ export function SiteHeader() {
                   <Link
                     to="/login"
                     onClick={() => setOpen(false)}
-                    className="inline-flex w-full items-center justify-center rounded-full border border-border/60 bg-card px-6 py-4 text-base font-medium text-foreground"
+                    className="block rounded-2xl border border-border/60 bg-card px-5 py-5 font-display text-2xl text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-secondary hover:border-border"
                   >
                     Sign in
                   </Link>
@@ -270,7 +270,7 @@ export function SiteHeader() {
                 <Link
                   to="/book"
                   onClick={() => setOpen(false)}
-                  className="inline-flex w-full items-center justify-center rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground shadow-soft transition-all duration-300 hover:bg-navy-soft hover:shadow-lift"
+                  className="block rounded-2xl border border-navy bg-navy px-5 py-5 font-display text-2xl text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft"
                 >
                   Plan a trip
                 </Link>

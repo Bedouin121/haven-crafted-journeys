@@ -3,7 +3,7 @@ import { AtSign, Send, Share2, Mail } from "lucide-react";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 bg-navy text-primary-foreground">
+    <footer className="mt-32 bg-brand-navy text-white">
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
@@ -11,7 +11,7 @@ export function SiteFooter() {
               <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">T</span>
               <span className="font-display text-2xl">Travel Tours</span>
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
               Bespoke travel, quietly considered. Travel Tours designs meticulously planned journeys across six continents, tailored for travelers who value the finer details and unhurried experiences.
             </p>
             <form className="mt-8 flex max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
@@ -21,9 +21,9 @@ export function SiteFooter() {
                 type="email"
                 required
                 placeholder="Your email"
-                className="flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-gold"
+                className="flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-gold"
               />
-              <button className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-medium text-navy hover:bg-gold-soft transition-colors">
+              <button className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-medium text-brand-navy hover:bg-gold-soft transition-colors">
                 <Mail className="h-4 w-4" /> Subscribe
               </button>
             </form>
@@ -52,7 +52,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-primary-foreground/60">
+          <p className="text-xs text-white/60">
             © {new Date().getFullYear()} Travel Tours. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
@@ -80,11 +80,11 @@ export function SiteFooter() {
 function FooterCol({ title, links }: { title: string; links: [string, string][] }) {
   return (
     <div>
-      <h3 className="text-eyebrow text-primary-foreground/60">{title}</h3>
+      <h3 className="text-eyebrow text-white/60">{title}</h3>
       <ul className="mt-5 space-y-3">
         {links.map(([label, to]) => (
           <li key={label}>
-            <Link to={to} className="text-sm text-primary-foreground/85 hover:text-gold transition-colors">
+            <Link to={to} className="text-sm text-white/85 hover:text-gold transition-colors">
               {label}
             </Link>
           </li>

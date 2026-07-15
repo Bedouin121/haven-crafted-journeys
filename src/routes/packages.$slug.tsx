@@ -41,8 +41,8 @@ function PackageDetail() {
     <article>
       <section className="relative h-[75svh] min-h-[520px] overflow-hidden">
         <img src={pkg.image} alt={pkg.title} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 to-navy/80" />
-        <div className="relative container-editorial flex h-full flex-col justify-end pt-32 pb-14 text-primary-foreground">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 to-brand-navy/80" />
+        <div className="relative container-editorial flex h-full flex-col justify-end pt-32 pb-14 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

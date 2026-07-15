@@ -227,7 +227,7 @@ export const destinations: Destination[] = [
     bestTime: "June – September",
     duration: "8 – 11 nights",
     fromPrice: 5980,
-    image: U("photo-1503614472-8c93d56cd601"),
+    image: U("photo-1519832979-6fa011b87667"),
     gallery: [
       U("photo-1519832979-6fa011b87667"),
       U("photo-1489447068241-b3490214e879"),

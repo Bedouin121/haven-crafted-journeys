@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,6 +14,9 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/site-header";
 import { SiteFooter } from "../components/site/site-footer";
+import { CustomCursor } from "../components/site/custom-cursor";
+import { AuthProvider } from "../lib/auth-context";
+import { ThemeProvider } from "../lib/theme-context";
 
 function NotFoundComponent() {
   return (
@@ -129,20 +133,29 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  // Standalone layouts (admin + auth) manage their own chrome.
+  const bareLayout =
+    pathname.startsWith("/admin") || pathname === "/login" || pathname === "/signup";
 
   return (
     <QueryClientProvider client={queryClient}>
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-navy focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
-      >
-        Skip to content
-      </a>
-      <SiteHeader />
-      <main id="main">
-        <Outlet />
-      </main>
-      <SiteFooter />
+      <ThemeProvider>
+        <AuthProvider>
+          <CustomCursor />
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-navy focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+          >
+            Skip to content
+          </a>
+          {!bareLayout && <SiteHeader />}
+          <main id="main">
+            <Outlet />
+          </main>
+          {!bareLayout && <SiteFooter />}
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

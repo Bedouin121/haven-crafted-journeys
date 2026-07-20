@@ -85,12 +85,18 @@ function LoginPage() {
           {submitting ? "Signing in…" : "Sign in"}
         </button>
 
-        <p className="text-center text-sm text-muted-foreground">
-          No account yet?{" "}
-          <Link to="/signup" className="text-navy underline underline-offset-4">
-            Create one
-          </Link>
-        </p>
+        <div className="pt-6 mt-2 border-t border-border/60 text-center">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">New here</p>
+          <p className="mt-2 font-display text-lg text-foreground">
+            No account yet?{" "}
+            <Link
+              to="/signup"
+              className="relative italic text-navy transition-colors hover:text-teal"
+            >
+              <span className="border-b border-[color:var(--gold)]/70 pb-0.5">Create one</span>
+            </Link>
+          </p>
+        </div>
       </form>
     </AuthShell>
   );

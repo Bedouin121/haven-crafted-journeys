@@ -439,6 +439,7 @@ export function HeroBookingWidget() {
           </motion.div>
         </AnimatePresence>
       </form>
+      </div>
     </div>
   );
 }

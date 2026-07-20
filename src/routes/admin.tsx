@@ -184,7 +184,7 @@ function BookingsTable() {
 
 function ContentTable() {
   return (
-    <Section title="Content" description="Journeys, destinations, and journal articles.">
+    <Section title="Content" description="Journeys, destinations, and visa services.">
       <Table
         head={["Type", "Title", "Slug", "Status", ""]}
         rows={packages.slice(0, 6).map((p) => [

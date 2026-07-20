@@ -8,9 +8,9 @@ import { useAuth } from "../../lib/auth-context";
 const nav = [
   { to: "/destinations", label: "Destinations" },
   { to: "/packages", label: "Journeys" },
-  { to: "/visa", label: "Visa" },
+  { to: "/visa", label: "Tourist Visa" },
+  { to: "/student-visa", label: "Student Visa" },
   { to: "/about", label: "About" },
-  { to: "/blog", label: "Journal" },
   { to: "/contact", label: "Contact" },
 ] as const;
 

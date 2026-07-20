@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as StudentVisaRouteImport } from './routes/student-visa'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PlanDreamTripRouteImport } from './routes/plan-dream-trip'
@@ -35,6 +36,11 @@ const VisaRoute = VisaRouteImport.update({
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentVisaRoute = StudentVisaRouteImport.update({
+  id: '/student-visa',
+  path: '/student-visa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -166,6 +174,7 @@ export interface FileRoutesById {
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
@@ -187,6 +196,7 @@ export interface FileRouteTypes {
     | '/plan-dream-trip'
     | '/signup'
     | '/sitemap.xml'
+    | '/student-visa'
     | '/testimonials'
     | '/visa'
     | '/destinations/$slug'
@@ -206,6 +216,7 @@ export interface FileRouteTypes {
     | '/plan-dream-trip'
     | '/signup'
     | '/sitemap.xml'
+    | '/student-visa'
     | '/testimonials'
     | '/visa'
     | '/destinations/$slug'
@@ -225,6 +236,7 @@ export interface FileRouteTypes {
     | '/plan-dream-trip'
     | '/signup'
     | '/sitemap.xml'
+    | '/student-visa'
     | '/testimonials'
     | '/visa'
     | '/destinations/$slug'
@@ -245,6 +257,7 @@ export interface RootRouteChildren {
   PlanDreamTripRoute: typeof PlanDreamTripRoute
   SignupRoute: typeof SignupRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StudentVisaRoute: typeof StudentVisaRoute
   TestimonialsRoute: typeof TestimonialsRoute
   VisaRoute: typeof VisaRoute
 }
@@ -263,6 +276,13 @@ declare module '@tanstack/react-router' {
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/student-visa': {
+      id: '/student-visa'
+      path: '/student-visa'
+      fullPath: '/student-visa'
+      preLoaderRoute: typeof StudentVisaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -411,6 +431,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlanDreamTripRoute: PlanDreamTripRoute,
   SignupRoute: SignupRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StudentVisaRoute: StudentVisaRoute,
   TestimonialsRoute: TestimonialsRoute,
   VisaRoute: VisaRoute,
 }

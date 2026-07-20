@@ -268,8 +268,8 @@ function ConfirmationScreen({ name }: { name: string }) {
           <Link to="/" className="rounded-full bg-navy px-6 py-4 text-base font-medium text-primary-foreground hover:bg-navy-soft transition-colors duration-700">
             Return home
           </Link>
-          <Link to="/blog" className="rounded-full border-2 border-border px-6 py-4 text-base font-medium text-navy hover:bg-secondary transition-colors duration-700">
-            Read the journal
+          <Link to="/packages" className="rounded-full border-2 border-border px-6 py-4 text-base font-medium text-navy hover:bg-secondary transition-colors duration-700">
+            Browse journeys
           </Link>
         </div>
       </motion.div>

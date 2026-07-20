@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   Compass, Award, HeartHandshake, Sparkles, ArrowRight,
 } from "lucide-react";
-import { destinations, packages, articles, stats } from "../lib/data";
+import { destinations, packages, stats } from "../lib/data";
 import { DestinationCard } from "../components/site/destination-card";
 import { PackageCard } from "../components/site/package-card";
 import { SectionHeading } from "../components/site/section-heading";
@@ -47,7 +47,6 @@ function Home() {
       <WhyUs />
       <MapSection />
       <Testimonials />
-      <Journal />
       <PlanDreamTripSection />
       <Newsletter />
     </div>
@@ -365,54 +364,7 @@ function Testimonials() {
   );
 }
 
-function Journal() {
-  return (
-    <section className="container-editorial py-24 sm:py-32">
-      <SectionHeading
-        eyebrow="Journal"
-        title="Notes from the road."
-        action={
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-navy hover:text-teal group"
-          >
-            Read all
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
-        }
-      />
-      <div className="mt-16 grid gap-8 md:grid-cols-3">
-        {articles.slice(0, 3).map((a, i) => (
-          <motion.article
-            key={a.slug}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.08 }}
-          >
-            <Link to="/blog/$slug" params={{ slug: a.slug }} className="group block">
-              <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-                <img
-                  src={a.image}
-                  alt={a.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                />
-              </div>
-              <p className="mt-6 text-xs uppercase tracking-[0.16em] text-teal">
-                {a.category} · {a.readTime}
-              </p>
-              <h3 className="mt-3 font-display text-2xl text-navy group-hover:text-teal transition-colors leading-tight">
-                {a.title}
-              </h3>
-              <p className="mt-3 text-muted-foreground line-clamp-2">{a.excerpt}</p>
-            </Link>
-          </motion.article>
-        ))}
-      </div>
-    </section>
-  );
-}
+
 
 function Newsletter() {
   return (

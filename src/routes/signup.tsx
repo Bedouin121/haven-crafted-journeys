@@ -71,12 +71,18 @@ function SignupPage() {
         >
           {submitting ? "Creating…" : "Create account"}
         </button>
-        <p className="text-center text-sm text-muted-foreground">
-          Already have one?{" "}
-          <Link to="/login" className="text-navy underline underline-offset-4">
-            Sign in
-          </Link>
-        </p>
+        <div className="pt-6 mt-2 border-t border-border/60 text-center">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">Returning traveler</p>
+          <p className="mt-2 font-display text-lg text-foreground">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="relative italic text-navy transition-colors hover:text-teal"
+            >
+              <span className="border-b border-[color:var(--gold)]/70 pb-0.5">Sign in</span>
+            </Link>
+          </p>
+        </div>
       </form>
     </AuthShell>
   );

@@ -60,7 +60,7 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
             </p>
           </div>
           <Link
-            to="/visa"
+            to={visa.visaType === "Student" ? "/student-visa" : "/visa"}
             className="grid h-12 w-12 place-items-center rounded-full bg-secondary text-navy transition-all duration-500 group-hover:bg-navy group-hover:text-primary-foreground glow-focus"
             aria-label={`Learn more about ${visa.title}`}
           >

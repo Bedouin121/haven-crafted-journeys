@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { AtSign, Send, Share2, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import { FacebookIcon, InstagramIcon, TikTokIcon } from "./brand-icons";
+
+const SOCIALS = [
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
+  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+];
 
 export function SiteFooter() {
   return (
@@ -7,37 +14,38 @@ export function SiteFooter() {
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2" aria-label="Travel Tours home">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">T</span>
-              <span className="font-display text-2xl">Travel Tours</span>
+            <Link to="/" className="flex items-center gap-2" aria-label="Diganta Overseas home">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">D</span>
+              <span className="font-display text-2xl">Diganta Overseas</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-              Bespoke travel, quietly considered. Travel Tours designs meticulously planned journeys across six continents, tailored for travelers who value the finer details and unhurried experiences.
+              Bespoke travel, quietly considered. Diganta Overseas designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
             </p>
-            <form className="mt-8 flex max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
-              <label htmlFor="footer-email" className="sr-only">Email address</label>
-              <input
-                id="footer-email"
-                type="email"
-                required
-                placeholder="Your email"
-                className="flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-gold"
-              />
-              <button className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-sm font-medium text-brand-navy hover:bg-gold-soft transition-colors">
-                <Mail className="h-4 w-4" /> Subscribe
-              </button>
-            </form>
+            <ul className="mt-8 space-y-3 text-sm text-white/80">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-gold" aria-hidden />
+                <span>4/A Indira Road, Mahabub Plaza (4th Floor), Room No-503, Farmgate, Dhaka – 1215</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden />
+                <a href="tel:+8801840519083" className="hover:text-gold transition-colors">+8801840-519083</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 shrink-0 text-gold" aria-hidden />
+                <a href="mailto:hello@digantaoverseas.com" className="hover:text-gold transition-colors">hello@digantaoverseas.com</a>
+              </li>
+            </ul>
           </div>
 
           <FooterCol title="Discover" links={[
             ["Destinations", "/destinations"],
             ["Journeys", "/packages"],
-            ["Visa Services", "/visa"],
-            ["Journal", "/blog"],
+            ["Tourist Visa", "/visa"],
+            ["Student Visa", "/student-visa"],
             ["Client stories", "/testimonials"],
           ]} />
           <FooterCol title="Company" links={[
-            ["About Travel Tours", "/about"],
+            ["About", "/about"],
             ["Plan your dream trip", "/plan-dream-trip"],
             ["Book a trip", "/book"],
             ["Contact", "/contact"],
@@ -47,25 +55,22 @@ export function SiteFooter() {
             ["Privacy", "/"],
             ["Terms", "/"],
             ["Responsible travel", "/about"],
-            ["Press", "/"],
           ]} />
         </div>
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/60">
-            © {new Date().getFullYear()} Travel Tours. All rights reserved.
+            © {new Date().getFullYear()} Diganta Overseas. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            {[
-              { icon: AtSign, label: "Instagram" },
-              { icon: Send, label: "Twitter" },
-              { icon: Share2, label: "YouTube" },
-            ].map(({ icon: Icon, label }) => (
+            {SOCIALS.map(({ icon: Icon, label, href }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-white/10 transition-colors"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 hover:bg-white/10 hover:border-gold/60 hover:text-gold transition-colors"
               >
                 <Icon className="h-4 w-4" />
               </a>

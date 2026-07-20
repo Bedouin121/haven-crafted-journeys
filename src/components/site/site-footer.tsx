@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Music2, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
+import { FacebookIcon, InstagramIcon, TikTokIcon } from "./brand-icons";
 
 const SOCIALS = [
-  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
-  { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
+  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
 ];
 
 export function SiteFooter() {

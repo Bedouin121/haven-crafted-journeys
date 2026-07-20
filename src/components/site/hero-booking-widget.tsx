@@ -344,33 +344,45 @@ export function HeroBookingWidget() {
   }, []);
 
   return (
-    <div className="glass-panel rounded-3xl p-4 sm:p-5 max-w-4xl shadow-lift">
-      {/* Tab strip */}
-      <div role="tablist" aria-label="Booking type" className="flex flex-wrap gap-2 mb-5">
-        {TABS.map((tab, i) => {
-          const selected = active === tab.id;
-          return (
-            <button
-              key={tab.id}
-              ref={(el) => { tabRefs.current[i] = el; }}
-              role="tab"
-              id={`${baseId}-tab-${tab.id}`}
-              aria-selected={selected}
-              aria-controls={`${baseId}-panel-${tab.id}`}
-              tabIndex={selected ? 0 : -1}
-              onClick={() => setActive(tab.id)}
-              onKeyDown={(e) => onKeyDown(e, i)}
-              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-500 glow-focus ${selected
-                ? "bg-navy text-primary-foreground booking-tab-active"
-                : "bg-background/60 text-navy hover:bg-background/80"
-                }`}
-            >
-              <tab.icon className="h-4 w-4" aria-hidden />
-              {tab.label}
-            </button>
-          );
-        })}
-      </div>
+    <div className="group/widget relative rounded-[28px] p-[1px] max-w-4xl bg-gradient-to-br from-white/40 via-[color:var(--gold)]/25 to-[color:var(--teal)]/25 shadow-deep">
+      <div className="glass-panel rounded-[27px] p-5 sm:p-7 relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-[color:var(--gold)]/15 blur-3xl" aria-hidden />
+        <div className="pointer-events-none absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-[color:var(--teal)]/15 blur-3xl" aria-hidden />
+
+        {/* Tab strip */}
+        <div role="tablist" aria-label="Booking type" className="relative flex flex-wrap gap-1.5 mb-6">
+          {TABS.map((tab, i) => {
+            const selected = active === tab.id;
+            return (
+              <button
+                key={tab.id}
+                ref={(el) => { tabRefs.current[i] = el; }}
+                role="tab"
+                id={`${baseId}-tab-${tab.id}`}
+                aria-selected={selected}
+                aria-controls={`${baseId}-panel-${tab.id}`}
+                tabIndex={selected ? 0 : -1}
+                onClick={() => setActive(tab.id)}
+                onKeyDown={(e) => onKeyDown(e, i)}
+                className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold tracking-[0.01em] transition-colors duration-500 glow-focus ${selected
+                  ? "text-primary-foreground"
+                  : "text-navy/80 hover:text-navy"
+                  }`}
+              >
+                {selected && (
+                  <motion.span
+                    layoutId="booking-tab-pill"
+                    className="absolute inset-0 rounded-full bg-navy shadow-[0_8px_24px_-8px_oklch(0.24_0.05_250/0.5),inset_0_1px_0_oklch(1_0_0/0.08)]"
+                    transition={{ type: "spring", stiffness: 320, damping: 32 }}
+                    aria-hidden
+                  />
+                )}
+                <tab.icon className="relative h-4 w-4" aria-hidden />
+                <span className="relative">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
 
       {/* Panels */}
       <form onSubmit={(e) => e.preventDefault()}>

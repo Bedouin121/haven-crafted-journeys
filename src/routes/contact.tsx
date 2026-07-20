@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight, Facebook, Instagram, Music2 } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Breadcrumbs } from "../components/site/breadcrumbs";
+import { FacebookIcon, InstagramIcon, TikTokIcon } from "../components/site/brand-icons";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -17,9 +18,9 @@ export const Route = createFileRoute("/contact")({
 });
 
 const SOCIALS = [
-  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
-  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
-  { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
+  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
 ];
 
 function ContactPage() {

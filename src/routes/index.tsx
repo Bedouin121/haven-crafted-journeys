@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   Compass, Award, HeartHandshake, Sparkles, ArrowRight,
 } from "lucide-react";
-import { destinations, packages, articles, stats } from "../lib/data";
+import { destinations, packages, stats } from "../lib/data";
 import { DestinationCard } from "../components/site/destination-card";
 import { PackageCard } from "../components/site/package-card";
 import { SectionHeading } from "../components/site/section-heading";

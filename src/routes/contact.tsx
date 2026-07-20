@@ -1,20 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Facebook, Instagram, Music2 } from "lucide-react";
 import { useState } from "react";
 import { Breadcrumbs } from "../components/site/breadcrumbs";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Travel Tours" },
-      { name: "description", content: "Speak to a Travel Tours travel designer. Offices in London and Singapore, specialists on six continents." },
-      { property: "og:title", content: "Contact Travel Tours" },
-      { property: "og:description", content: "Speak to a Travel Tours travel designer." },
+      { title: "Contact — Diganta Overseas" },
+      { name: "description", content: "Speak to a Diganta Overseas travel designer. Farmgate, Dhaka." },
+      { property: "og:title", content: "Contact Diganta Overseas" },
+      { property: "og:description", content: "Speak to a Diganta Overseas travel designer." },
     ],
   }),
   component: ContactPage,
 });
+
+const SOCIALS = [
+  { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
+  { icon: Music2, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+];
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -33,10 +39,27 @@ function ContactPage() {
           </p>
 
           <div className="mt-12 space-y-6">
-            <ContactRow icon={Mail} label="Email" value="hello@aeris.travel" />
-            <ContactRow icon={Phone} label="London" value="+44 20 7946 0900" />
-            <ContactRow icon={Phone} label="Singapore" value="+65 6812 4400" />
-            <ContactRow icon={MapPin} label="Studio" value="14 Redchurch Street, London E2" />
+            <ContactRow icon={Phone} label="Phone" value="+8801840-519083" />
+            <ContactRow icon={MapPin} label="Studio" value="4/A Indira Road, Mahabub Plaza (4th Floor), Room No-503, Farmgate, Dhaka – 1215" />
+            <ContactRow icon={Mail} label="Email" value="hello@digantaoverseas.com" />
+          </div>
+
+          <div className="mt-10">
+            <p className="text-eyebrow text-teal mb-3">Follow along</p>
+            <div className="flex items-center gap-2">
+              {SOCIALS.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-card text-navy hover:border-navy hover:bg-secondary transition-colors"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 rounded-3xl bg-sand-deep p-8">

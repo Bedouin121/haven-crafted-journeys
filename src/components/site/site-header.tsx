@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun, Shield, User as UserIcon, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,7 +20,10 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggle } = useTheme();
   const { isLoggedIn, role, user, logout } = useAuth();
-  const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  // Show white text only on homepage hero (not scrolled). Everywhere else use theme-aware foreground.
+  const logoTextClass = (!scrolled && isHome) ? "text-white" : "text-foreground";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -50,34 +53,32 @@ export function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-editorial flex items-center justify-between gap-6 py-4">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="Diganta Overseas home">
+      <div className="container-editorial flex items-center gap-4 py-4">
+        <Link to="/" className="flex shrink-0 items-center gap-2 group" aria-label="Diganta Overseas home">
           <img
             src="/logo.jpeg"
             alt="Haven Crafted Journeys Logo"
             className="h-16 w-16 rounded-full object-cover object-top"
           />
           <span
-            className={`font-display text-xl tracking-tight transition-colors duration-500 ${
-              scrolled ? "text-navy" : "text-white"
-            }`}
+            className={`font-display text-xl tracking-tight transition-colors duration-500 ${logoTextClass}`}
           >
             Diganta Overseas
           </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-2">
+        <nav aria-label="Primary" className="hidden lg:flex flex-1 items-center justify-center gap-2">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeProps={{
                 className:
-                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft",
+                  "rounded-full border border-navy bg-navy px-5 py-2.5 text-base font-medium text-primary-foreground shadow-soft transition-all duration-500 hover:bg-navy-soft whitespace-nowrap",
               }}
               inactiveProps={{
                 className:
-                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-base font-medium text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5",
+                  "rounded-full border border-border/60 bg-card/90 px-5 py-2.5 text-base font-medium text-secondary-foreground shadow-soft transition-all duration-500 hover:bg-card hover:border-border hover:shadow-lift hover:-translate-y-0.5 whitespace-nowrap",
               }}
             >
               {item.label}
@@ -94,7 +95,7 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={toggle}

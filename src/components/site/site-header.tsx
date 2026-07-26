@@ -1,18 +1,43 @@
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Moon, Sun, Shield, User as UserIcon, LogOut } from "lucide-react";
+import { Menu, X, Moon, Sun, Shield, User as UserIcon, LogOut, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../lib/theme-context";
 import { useAuth } from "../../lib/auth-context";
 
-const nav = [
-  { to: "/destinations", label: "Destinations" },
-  { to: "/packages", label: "Journeys" },
+type NavItem =
+  | { to: string; label: string; children?: undefined }
+  | {
+      to: string;
+      label: string;
+      children: { to: string; label: string; search?: Record<string, string> }[];
+    };
+
+const nav: NavItem[] = [
+  {
+    to: "/destinations",
+    label: "Destinations",
+    children: [
+      { to: "/destinations", label: "International Tours", search: { category: "international" } },
+      { to: "/destinations", label: "Domestic Tours", search: { category: "domestic" } },
+      { to: "/destinations", label: "Honeymoon Packages", search: { category: "honeymoon" } },
+      { to: "/destinations", label: "Group Tours", search: { category: "group" } },
+    ],
+  },
+  {
+    to: "/hajj-umrah",
+    label: "Hajj & Umrah",
+    children: [
+      { to: "/hajj-umrah", label: "Hajj Packages", search: { type: "hajj" } },
+      { to: "/hajj-umrah", label: "Umrah Packages", search: { type: "umrah" } },
+    ],
+  },
   { to: "/visa", label: "Tourist Visa" },
   { to: "/student-visa", label: "Student Visa" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
-] as const;
+];
+
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);

@@ -1,9 +1,37 @@
 import { useState, useId, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "@tanstack/react-router";
 import {
   Search, MapPin, Calendar, Users, Plane, Hotel, FileText, Globe,
   ChevronDown, Plus, Minus,
 } from "lucide-react";
+
+// ─── Travelpayouts credentials ───────────────────────────────────────────────
+const TRAVELPAYOUTS_MARKER = "756332";
+const TRAVELPAYOUTS_API_TOKEN = "68287350c353ebd276802f1d1b550545";
+
+// ─── IATA code mapping ───────────────────────────────────────────────────────
+// Each entry maps a destination display name to the nearest major flightable airport.
+const IATA_MAP: Record<string, string> = {
+  "Dhaka": "DAC",
+  "Kyoto, Japan": "KIX",           // Kansai Intl — nearest major airport to Kyoto
+  "Patagonia, Chile & Argentina": "BUE", // Buenos Aires — main gateway to Patagonia
+  "Amalfi Coast, Italy": "NAP",    // Naples
+  "Marrakech & Atlas, Morocco": "RAK",
+  "Iceland": "KEF",                // Reykjavik Keflavik
+  "Kenya Safari": "NBO",           // Nairobi
+  "Bali, Indonesia": "DPS",        // Ngurah Rai
+  "Santorini, Greece": "ATH",      // Athens — Santorini (JTR) is seasonal & often not indexed
+  "Maldives": "MLE",               // Velana Intl
+  "New Zealand": "AKL",            // Auckland
+  "Peru & Machu Picchu": "LIM",    // Lima — main gateway; CUZ has limited international service
+  "Safari — Tanzania": "JRO",      // Kilimanjaro
+};
+
+/** Returns the IATA code for a city name, with a configurable fallback. */
+function getIata(city: string, fallback: string): string {
+  return IATA_MAP[city] ?? fallback;
+}
 
 // ─── Shared dismiss logic for dropdown style panels ─────────────────────────
 function useDismissableDropdown<T extends HTMLElement>(open: boolean, onDismiss: () => void) {
@@ -177,8 +205,94 @@ function useFlightCities() {
   return { from, setFrom, to, setTo, fromOptions, toOptions };
 }
 
-function FlightPanel({ baseId, fieldVariants }: { baseId: string; fieldVariants: Record<string, unknown> }) {
+// ─── Controlled travelers counter (used by FlightPanel) ─────────────────────
+function FlightTravelersCounter({
+  id, label, adults, children, onAdultsChange, onChildrenChange,
+}: {
+  id: string; label: string;
+  adults: number; children: number;
+  onAdultsChange: (v: number) => void;
+  onChildrenChange: (v: number) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const dismiss = useCallback(() => setOpen(false), []);
+  const ref = useDismissableDropdown<HTMLDivElement>(open, dismiss);
+  const summary = `${adults} adult${adults !== 1 ? "s" : ""}${children > 0 ? `, ${children} child${children !== 1 ? "ren" : ""}` : ""}`;
+
+  return (
+    <div ref={ref} className="relative w-full">
+      <FieldLabel htmlFor={id}>{label}</FieldLabel>
+      <button
+        id={id}
+        type="button"
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        className="form-field-accessible w-full flex items-center justify-between gap-2 text-left glow-focus h-[52px]"
+      >
+        <span className="flex items-center gap-2.5">
+          <Users className="h-4 w-4 text-[color:var(--gold)] shrink-0" strokeWidth={ICON_STROKE} aria-hidden />
+          <span className="text-navy font-display">{summary}</span>
+        </span>
+        <ChevronDown
+          className={`h-3.5 w-3.5 text-navy/40 shrink-0 transition-transform duration-500 ease-out ${open ? "rotate-180" : ""}`}
+          strokeWidth={ICON_STROKE}
+          aria-hidden
+        />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute z-50 mt-2 w-72 rounded-2xl border border-border bg-card shadow-lift p-6 space-y-6"
+          >
+            <CounterRow label="Adults" sub="Age 18+" value={adults}
+              onDec={() => onAdultsChange(Math.max(1, adults - 1))}
+              onInc={() => onAdultsChange(Math.min(12, adults + 1))} />
+            <CounterRow label="Children" sub="Age 2–17" value={children}
+              onDec={() => onChildrenChange(Math.max(0, children - 1))}
+              onInc={() => onChildrenChange(Math.min(8, children + 1))} />
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="w-full rounded-full bg-navy text-primary-foreground py-2.5 text-sm font-medium tracking-wide hover:bg-navy-soft transition-colors duration-500"
+            >
+              Done
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+
+function FlightPanel({
+  baseId,
+  fieldVariants,
+  onSubmit,
+}: {
+  baseId: string;
+  fieldVariants: Record<string, unknown>;
+  onSubmit: (params: {
+    from: string; to: string; tripClass: string;
+    departDate: string; returnDate: string; adults: number; children: number;
+  }) => void;
+}) {
   const { from, setFrom, to, setTo, fromOptions, toOptions } = useFlightCities();
+  const [tripClass, setTripClass] = useState("Economy");
+  const [departDate, setDepartDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [adults, setAdults] = useState(2);
+  const [children, setChildren] = useState(0);
+
+  const handleSubmit = () => {
+    onSubmit({ from, to, tripClass, departDate, returnDate, adults, children });
+  };
+
   return (
     <>
       {/* Row 1: Flying from, Flying to, Class */}
@@ -190,21 +304,56 @@ function FlightPanel({ baseId, fieldVariants }: { baseId: string; fieldVariants:
           <ControlledDropdown id={`${baseId}-to`} label="Flying to" icon={Plane} placeholder="Arrival city" options={toOptions} value={to} onChange={setTo} />
         </motion.div>
         <motion.div custom={2} variants={fieldVariants}>
-          <WidgetSelect id={`${baseId}-class`} label="Class" options={["Economy", "Premium Economy", "Business", "First"]} />
+          <ControlledDropdown
+            id={`${baseId}-class`}
+            label="Class"
+            icon={ChevronDown}
+            placeholder="Economy"
+            options={["Economy", "Premium Economy", "Business", "First"]}
+            value={tripClass}
+            onChange={setTripClass}
+          />
         </motion.div>
       </div>
       {/* Row 2: Depart date, Return date */}
       <div className="grid gap-5 sm:grid-cols-2">
         <motion.div custom={3} variants={fieldVariants}>
-          <WidgetField id={`${baseId}-depart`} label="Depart date" icon={Calendar} type="date" />
+          <WidgetField
+            id={`${baseId}-depart`}
+            label="Depart date"
+            icon={Calendar}
+            type="date"
+            value={departDate}
+            onChange={setDepartDate}
+          />
         </motion.div>
         <motion.div custom={4} variants={fieldVariants}>
-          <WidgetField id={`${baseId}-return`} label="Return date" icon={Calendar} type="date" />
+          <WidgetField
+            id={`${baseId}-return`}
+            label="Return date"
+            icon={Calendar}
+            type="date"
+            value={returnDate}
+            onChange={setReturnDate}
+          />
         </motion.div>
       </div>
-      <motion.div custom={5} variants={fieldVariants} className="flex justify-end">
-        <SearchBtn label="Search flights" className="w-full sm:w-auto sm:min-w-[200px]" />
-      </motion.div>
+      {/* Row 3: Travelers counter + search */}
+      <div className="grid gap-5 sm:grid-cols-2">
+        <motion.div custom={5} variants={fieldVariants}>
+          <FlightTravelersCounter
+            id={`${baseId}-flight-travelers`}
+            label="Travelers"
+            adults={adults}
+            children={children}
+            onAdultsChange={setAdults}
+            onChildrenChange={setChildren}
+          />
+        </motion.div>
+        <motion.div custom={6} variants={fieldVariants} className="flex items-end justify-end">
+          <SearchBtn label="Search flights" className="w-full sm:min-w-[200px]" onSearch={handleSubmit} />
+        </motion.div>
+      </div>
     </>
   );
 }
@@ -315,11 +464,12 @@ function CounterRow({
 
 // ─── Plain text field ────────────────────────────────────────────────────────
 function WidgetField({
-  id, label, icon: Icon, type = "text", placeholder,
+  id, label, icon: Icon, type = "text", placeholder, value, onChange,
 }: {
   id: string; label: string;
   icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
   type?: string; placeholder?: string;
+  value?: string; onChange?: (v: string) => void;
 }) {
   return (
     <div className="w-full">
@@ -330,6 +480,8 @@ function WidgetField({
           id={id}
           type={type}
           placeholder={placeholder}
+          value={value}
+          onChange={onChange ? (e) => onChange(e.target.value) : undefined}
           className="form-field-accessible w-full pl-11 font-display glow-focus h-[52px]"
         />
       </div>
@@ -354,10 +506,19 @@ function WidgetSelect({ id, label, options }: { id: string; label: string; optio
 }
 
 // ─── Search button ───────────────────────────────────────────────────────────
-function SearchBtn({ label, className = "" }: { label: string; className?: string }) {
+function SearchBtn({
+  label,
+  className = "",
+  onSearch,
+}: {
+  label: string;
+  className?: string;
+  onSearch?: () => void;
+}) {
   return (
     <motion.button
       type="submit"
+      onClick={onSearch}
       whileHover={{ scale: 1.01, y: -1 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -374,6 +535,14 @@ export function HeroBookingWidget() {
   const [active, setActive] = useState<TabId>("tour");
   const baseId = useId();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const navigate = useNavigate();
+
+  // ── Hotel form state (lifted so onSubmit can read it) ──────────────────────
+  const [hotelPlace, setHotelPlace] = useState("");
+  const [hotelCheckIn, setHotelCheckIn] = useState("");
+  const [hotelCheckOut, setHotelCheckOut] = useState("");
+  const [hotelAdults, setHotelAdults] = useState(2);
+  const [hotelChildren, setHotelChildren] = useState(0);
 
   const onKeyDown = useCallback((e: React.KeyboardEvent, index: number) => {
     let next = index;
@@ -386,6 +555,46 @@ export function HeroBookingWidget() {
     tabRefs.current[next]?.focus();
     setActive(TABS[next].id);
   }, []);
+
+  // ── Flight search submission ───────────────────────────────────────────────
+  const handleFlightSearch = useCallback((params: {
+    from: string; to: string; tripClass: string;
+    departDate: string; returnDate: string; adults: number; children: number;
+  }) => {
+    const originIata = getIata(params.from, "DAC");
+    const destIata = getIata(params.to, "BKK");
+    const tripClassCode =
+      params.tripClass === "Economy" || params.tripClass === "Premium Economy" ? 0 : 1;
+    navigate({
+      to: "/flights",
+      search: {
+        origin: originIata,
+        destination: destIata,
+        originCity: params.from || undefined,
+        destinationCity: params.to || undefined,
+        depart_date: params.departDate || undefined,
+        return_date: params.returnDate || undefined,
+        adults: params.adults,
+        children: params.children,
+        trip_class: tripClassCode,
+        currency: "usd",
+      },
+    });
+  }, [navigate]);
+
+  // ── Hotel search submission ────────────────────────────────────────────────
+  const handleHotelSearch = useCallback(() => {
+    navigate({
+      to: "/hotels",
+      search: {
+        destination: hotelPlace || undefined,
+        checkIn: hotelCheckIn || undefined,
+        checkOut: hotelCheckOut || undefined,
+        adults: hotelAdults,
+        children: hotelChildren,
+      },
+    });
+  }, [navigate, hotelPlace, hotelCheckIn, hotelCheckOut, hotelAdults, hotelChildren]);
 
   return (
     <div className="group/widget relative rounded-[28px] p-[1px] max-w-4xl bg-gradient-to-br from-white/40 via-[color:var(--gold)]/25 to-[color:var(--teal)]/12 shadow-deep">
@@ -462,12 +671,6 @@ export function HeroBookingWidget() {
               }}
               className="space-y-5"
             >
-              {/* 
-                Unified 4-column grid system.
-                Inputs go in the grid. Search button gets its own row below 
-                to prevent asymmetric squeezing.
-              */}
-
               {active === "tour" && (
                 <>
                   <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -482,23 +685,68 @@ export function HeroBookingWidget() {
               )}
 
               {active === "flight" && (
-                <FlightPanel baseId={baseId} fieldVariants={fieldVariants} />
+                <FlightPanel
+                  baseId={baseId}
+                  fieldVariants={fieldVariants}
+                  onSubmit={handleFlightSearch}
+                />
               )}
 
               {active === "hotel" && (
                 <>
                   {/* Row 1: Place (full width) */}
                   <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                    <motion.div custom={0} variants={fieldVariants} className="sm:col-span-2 lg:col-span-4"><DestinationDropdown id={`${baseId}-hotel-place`} label="Place" options={ALL_PLACES} /></motion.div>
+                    <motion.div custom={0} variants={fieldVariants} className="sm:col-span-2 lg:col-span-4">
+                      <ControlledDropdown
+                        id={`${baseId}-hotel-place`}
+                        label="Place"
+                        placeholder="Where shall we take you?"
+                        icon={MapPin}
+                        options={ALL_PLACES}
+                        value={hotelPlace}
+                        onChange={setHotelPlace}
+                      />
+                    </motion.div>
                   </div>
                   {/* Row 2: Check-in, Check-out, Guests */}
                   <div className="grid gap-5 sm:grid-cols-3">
-                    <motion.div custom={1} variants={fieldVariants}><WidgetField id={`${baseId}-checkin`} label="Check in" icon={Calendar} type="date" /></motion.div>
-                    <motion.div custom={2} variants={fieldVariants}><WidgetField id={`${baseId}-checkout`} label="Check out" icon={Calendar} type="date" /></motion.div>
-                    <motion.div custom={3} variants={fieldVariants}><TravelersCounter id={`${baseId}-hotel-guests`} label="Guests" /></motion.div>
+                    <motion.div custom={1} variants={fieldVariants}>
+                      <WidgetField
+                        id={`${baseId}-checkin`}
+                        label="Check in"
+                        icon={Calendar}
+                        type="date"
+                        value={hotelCheckIn}
+                        onChange={setHotelCheckIn}
+                      />
+                    </motion.div>
+                    <motion.div custom={2} variants={fieldVariants}>
+                      <WidgetField
+                        id={`${baseId}-checkout`}
+                        label="Check out"
+                        icon={Calendar}
+                        type="date"
+                        value={hotelCheckOut}
+                        onChange={setHotelCheckOut}
+                      />
+                    </motion.div>
+                    <motion.div custom={3} variants={fieldVariants}>
+                      <FlightTravelersCounter
+                        id={`${baseId}-hotel-guests`}
+                        label="Guests"
+                        adults={hotelAdults}
+                        children={hotelChildren}
+                        onAdultsChange={setHotelAdults}
+                        onChildrenChange={setHotelChildren}
+                      />
+                    </motion.div>
                   </div>
                   <motion.div custom={4} variants={fieldVariants} className="flex justify-end">
-                    <SearchBtn label="Search hotels" className="w-full sm:w-auto sm:min-w-[200px]" />
+                    <SearchBtn
+                      label="Search hotels"
+                      className="w-full sm:w-auto sm:min-w-[200px]"
+                      onSearch={handleHotelSearch}
+                    />
                   </motion.div>
                 </>
               )}

@@ -2,11 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
-import { destinations } from "../lib/data";
+import { z } from "zod";
+import {
+  destinations,
+  getDestinationCategories,
+  destinationCategorySlugs,
+  type DestinationCategorySlug,
+} from "../lib/data";
 import { DestinationCard } from "../components/site/destination-card";
 import { Breadcrumbs } from "../components/site/breadcrumbs";
 
+const searchSchema = z.object({
+  category: z
+    .enum(["international", "domestic", "honeymoon", "group"])
+    .optional()
+    .catch(undefined),
+});
+
 export const Route = createFileRoute("/destinations")({
+  validateSearch: (search) => searchSchema.parse(search),
   head: () => ({
     meta: [
       { title: "Destinations — Travel Tours" },
@@ -20,9 +34,19 @@ export const Route = createFileRoute("/destinations")({
 
 const regions = ["All", "Asia", "Americas", "Africa"] as const;
 
+const categoryLabels: Record<DestinationCategorySlug, string> = {
+  international: "International Tours",
+  domestic: "Domestic Tours",
+  honeymoon: "Honeymoon Packages",
+  group: "Group Tours",
+};
+
 function DestinationsPage() {
+  const { category } = Route.useSearch();
   const [query, setQuery] = useState("");
   const [region, setRegion] = useState<(typeof regions)[number]>("All");
+
+  const activeCategory = category ? destinationCategorySlugs[category] : null;
 
   const filtered = useMemo(
     () =>
@@ -30,27 +54,41 @@ function DestinationsPage() {
         const okRegion = region === "All" || d.region === region;
         const q = query.trim().toLowerCase();
         const okQ = !q || d.name.toLowerCase().includes(q) || d.country.toLowerCase().includes(q);
-        return okRegion && okQ;
+        const okCat = !activeCategory || getDestinationCategories(d.slug).includes(activeCategory);
+        return okRegion && okQ && okCat;
       }),
-    [query, region],
+    [query, region, activeCategory],
   );
+
+  const heading = activeCategory
+    ? categoryLabels[category as DestinationCategorySlug]
+    : "The places we know best.";
 
   return (
     <div className="pt-32 pb-24 container-editorial">
-      <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Destinations" }]} />
+      <Breadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Destinations", to: "/destinations" },
+          ...(activeCategory ? [{ label: categoryLabels[category as DestinationCategorySlug] }] : []),
+        ]}
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         className="mt-8 max-w-3xl"
       >
-        <p className="text-eyebrow text-teal">Destinations</p>
+        <p className="text-eyebrow text-teal">
+          {activeCategory ? "Destinations" : "Destinations"}
+        </p>
         <h1 className="mt-3 font-display text-5xl sm:text-7xl leading-[1.02] text-navy">
-          The places we know best.
+          {heading}
         </h1>
         <p className="mt-6 text-lg text-muted-foreground">
-          Six regions, six specialists. Each of these destinations has been designed and delivered by a member of our
-          team who has spent years — sometimes decades — walking their streets.
+          {activeCategory
+            ? `Showing our ${categoryLabels[category as DestinationCategorySlug].toLowerCase()}. Each has been designed and delivered by a specialist on our team.`
+            : "Six regions, six specialists. Each of these destinations has been designed and delivered by a member of our team who has spent years — sometimes decades — walking their streets."}
         </p>
       </motion.div>
 

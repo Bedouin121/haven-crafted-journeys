@@ -270,7 +270,7 @@ export function SiteHeader() {
             >
               {nav.map((item) => (
                 <motion.div
-                  key={item.to}
+                  key={item.to + item.label}
                   variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
                 >
                   <Link
@@ -280,8 +280,24 @@ export function SiteHeader() {
                   >
                     {item.label}
                   </Link>
+                  {item.children && (
+                    <div className="mt-1 mb-2 flex flex-col gap-1 pl-4">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          to={child.to}
+                          search={child.search as never}
+                          onClick={() => setOpen(false)}
+                          className="block rounded-xl border border-border/40 bg-card/60 px-4 py-3 text-base text-secondary-foreground transition-colors hover:bg-secondary"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </motion.div>
               ))}
+
               {role === "admin" && (
                 <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}>
                   <Link

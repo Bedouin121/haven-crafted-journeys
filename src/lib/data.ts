@@ -964,3 +964,194 @@ export const visaFaqs: { q: string; a: string; category?: string }[] = [
 export function getTourCount(destinationSlug: string): number {
   return packages.filter((p) => p.destinationSlug === destinationSlug).length;
 }
+
+// ============= Destination categories (Header dropdown filters) =============
+export type DestinationCategory = "International" | "Domestic" | "Honeymoon" | "Group";
+
+export const destinationCategorySlugs = {
+  international: "International",
+  domestic: "Domestic",
+  honeymoon: "Honeymoon",
+  group: "Group",
+} as const satisfies Record<string, DestinationCategory>;
+
+export type DestinationCategorySlug = keyof typeof destinationCategorySlugs;
+
+/** Categories assigned to each existing destination. */
+export const destinationCategories: Record<string, DestinationCategory[]> = {
+  thailand: ["International", "Domestic", "Honeymoon"],
+  malaysia: ["International", "Domestic", "Group"],
+  singapore: ["International", "Domestic", "Honeymoon"],
+  china: ["International", "Group"],
+  usa: ["International", "Group"],
+  canada: ["International", "Honeymoon"],
+  indonesia: ["International", "Domestic", "Honeymoon"],
+  egypt: ["International", "Group"],
+  armenia: ["International", "Group"],
+};
+
+export function getDestinationCategories(slug: string): DestinationCategory[] {
+  return destinationCategories[slug] ?? ["International"];
+}
+
+// ============= Hajj & Umrah packages =============
+export type HajjUmrahPackage = {
+  slug: string;
+  title: string;
+  type: "hajj" | "umrah";
+  nights: number;
+  days: number;
+  price: number;
+  hotelRating: 3 | 4 | 5;
+  makkahHotel: string;
+  madinahHotel: string;
+  image: string;
+  summary: string;
+  inclusions: string[];
+  departure: string;
+};
+
+export const hajjUmrahPackages: HajjUmrahPackage[] = [
+  {
+    slug: "hajj-premium-shifting",
+    title: "Premium Hajj — Shifting Package",
+    type: "hajj",
+    nights: 21,
+    days: 22,
+    price: 8950,
+    hotelRating: 5,
+    makkahHotel: "Fairmont Makkah Clock Tower",
+    madinahHotel: "Anwar Al Madinah Movenpick",
+    image: U("photo-1591604129939-f1efa4d9f7fa"),
+    summary:
+      "A 5-star Hajj journey with walking-distance haram accommodation, private VIP tents in Mina, and a dedicated Bangla-speaking scholar throughout.",
+    inclusions: [
+      "Direct return flights (economy)",
+      "5★ hotels in Makkah & Madinah (walking distance to Haram)",
+      "VIP North American / European Mina camp (A/C, upgraded meals)",
+      "All ground transfers by luxury coach",
+      "Ziyarah tours in Makkah & Madinah",
+      "Experienced Bangla-speaking scholar & guide",
+      "Full board (3 buffet meals daily)",
+    ],
+    departure: "Dhul-Hijjah 2026",
+  },
+  {
+    slug: "hajj-standard-shifting",
+    title: "Standard Hajj — 4★ Package",
+    type: "hajj",
+    nights: 21,
+    days: 22,
+    price: 6480,
+    hotelRating: 4,
+    makkahHotel: "Elaf Ajyad Makkah",
+    madinahHotel: "Al Eiman Royal Madinah",
+    image: U("photo-1519817650390-64a93db51149"),
+    summary:
+      "A well-priced 4-star Hajj with quality haram-area hotels, standard Muallim tent in Mina, and thorough pre-departure training in Dhaka.",
+    inclusions: [
+      "Return flights (economy)",
+      "4★ hotels within 400m of the Haram",
+      "Standard Muallim tent in Mina & Arafah",
+      "All Hajj rituals coordination",
+      "Ground transport & Ziyarah",
+      "Half board (breakfast & dinner)",
+      "Pre-departure Hajj training in Dhaka",
+    ],
+    departure: "Dhul-Hijjah 2026",
+  },
+  {
+    slug: "hajj-economy",
+    title: "Economy Hajj — Non-Shifting",
+    type: "hajj",
+    nights: 21,
+    days: 22,
+    price: 4980,
+    hotelRating: 3,
+    makkahHotel: "Al Massa Aziziyah",
+    madinahHotel: "Grand Plaza Badr Al Maqam",
+    image: U("photo-1580418827493-f2b22c0a76cb"),
+    summary:
+      "An affordable, government-approved Hajj package with Aziziyah accommodation, dedicated shuttle to the Haram, and full ritual support.",
+    inclusions: [
+      "Return flights (economy)",
+      "3★ hotels in Aziziyah (Makkah) & central Madinah",
+      "Regular shuttle to Haram",
+      "Standard Mina & Arafah tent",
+      "Guided Ziyarah in both cities",
+      "Breakfast daily",
+      "Full ritual guidance",
+    ],
+    departure: "Dhul-Hijjah 2026",
+  },
+  {
+    slug: "umrah-luxury-14",
+    title: "Luxury Umrah — 14 Nights",
+    type: "umrah",
+    nights: 14,
+    days: 15,
+    price: 3480,
+    hotelRating: 5,
+    makkahHotel: "Raffles Makkah Palace",
+    madinahHotel: "The Oberoi Madina",
+    image: U("photo-1565019011521-b0575cbb57c8"),
+    summary:
+      "Two weeks of unhurried worship in 5-star haram-view suites, with private transfers, an Alim guide, and curated Ziyarah in both cities.",
+    inclusions: [
+      "Return flights (premium economy)",
+      "5★ haram-view rooms (7 nights Makkah, 7 nights Madinah)",
+      "Private car transfers throughout",
+      "Guided Ziyarah with an Alim",
+      "Full board dining",
+      "Umrah kit & Ihram assistance",
+    ],
+    departure: "Year-round",
+  },
+  {
+    slug: "umrah-family-10",
+    title: "Family Umrah — 10 Nights",
+    type: "umrah",
+    nights: 10,
+    days: 11,
+    price: 2280,
+    hotelRating: 4,
+    makkahHotel: "Swissotel Makkah",
+    madinahHotel: "Dallah Taibah Madinah",
+    image: U("photo-1568905123350-eae2df1a4c99"),
+    summary:
+      "A family-friendly Umrah with 4-star haram-adjacent hotels, connecting family rooms, and a relaxed schedule with time for children.",
+    inclusions: [
+      "Return flights (economy)",
+      "4★ hotels — connecting family rooms available",
+      "Shared coach transfers",
+      "Ziyarah in Makkah & Madinah",
+      "Breakfast & dinner buffet",
+      "Free child pricing under 6 (sharing)",
+    ],
+    departure: "Year-round",
+  },
+  {
+    slug: "umrah-express-7",
+    title: "Express Umrah — 7 Nights",
+    type: "umrah",
+    nights: 7,
+    days: 8,
+    price: 1480,
+    hotelRating: 3,
+    makkahHotel: "Al Kiswah Towers",
+    madinahHotel: "Al Rawda Al Aqeeq",
+    image: U("photo-1519677100203-a0e668c92439"),
+    summary:
+      "A short, focused 7-night Umrah for working professionals — clean 3-star hotels, group transfers, and all rituals completed in one week.",
+    inclusions: [
+      "Return flights (economy)",
+      "3★ hotels (4 nights Makkah, 3 nights Madinah)",
+      "Shared coach transfers",
+      "Group Ziyarah tour",
+      "Breakfast daily",
+      "Umrah visa & travel insurance",
+    ],
+    departure: "Year-round",
+  },
+];
+

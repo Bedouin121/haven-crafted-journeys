@@ -18,6 +18,7 @@ import { Route as PlanDreamTripRouteImport } from './routes/plan-dream-trip'
 import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HotelsRouteImport } from './routes/hotels'
+import { Route as HajjUmrahRouteImport } from './routes/hajj-umrah'
 import { Route as FlightsRouteImport } from './routes/flights'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DestinationsRouteImport } from './routes/destinations'
@@ -74,6 +75,11 @@ const LoginRoute = LoginRouteImport.update({
 const HotelsRoute = HotelsRouteImport.update({
   id: '/hotels',
   path: '/hotels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HajjUmrahRoute = HajjUmrahRouteImport.update({
+  id: '/hajj-umrah',
+  path: '/hajj-umrah',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FlightsRoute = FlightsRouteImport.update({
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/flights': typeof FlightsRoute
+  '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
@@ -170,6 +177,7 @@ export interface FileRoutesByTo {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/flights': typeof FlightsRoute
+  '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/destinations': typeof DestinationsRouteWithChildren
   '/faq': typeof FaqRoute
   '/flights': typeof FlightsRoute
+  '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
   '/packages': typeof PackagesRouteWithChildren
@@ -219,6 +228,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/flights'
+    | '/hajj-umrah'
     | '/hotels'
     | '/login'
     | '/packages'
@@ -242,6 +252,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/flights'
+    | '/hajj-umrah'
     | '/hotels'
     | '/login'
     | '/packages'
@@ -265,6 +276,7 @@ export interface FileRouteTypes {
     | '/destinations'
     | '/faq'
     | '/flights'
+    | '/hajj-umrah'
     | '/hotels'
     | '/login'
     | '/packages'
@@ -289,6 +301,7 @@ export interface RootRouteChildren {
   DestinationsRoute: typeof DestinationsRouteWithChildren
   FaqRoute: typeof FaqRoute
   FlightsRoute: typeof FlightsRoute
+  HajjUmrahRoute: typeof HajjUmrahRoute
   HotelsRoute: typeof HotelsRoute
   LoginRoute: typeof LoginRoute
   PackagesRoute: typeof PackagesRouteWithChildren
@@ -364,6 +377,13 @@ declare module '@tanstack/react-router' {
       path: '/hotels'
       fullPath: '/hotels'
       preLoaderRoute: typeof HotelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hajj-umrah': {
+      id: '/hajj-umrah'
+      path: '/hajj-umrah'
+      fullPath: '/hajj-umrah'
+      preLoaderRoute: typeof HajjUmrahRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/flights': {
@@ -487,6 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   DestinationsRoute: DestinationsRouteWithChildren,
   FaqRoute: FaqRoute,
   FlightsRoute: FlightsRoute,
+  HajjUmrahRoute: HajjUmrahRoute,
   HotelsRoute: HotelsRoute,
   LoginRoute: LoginRoute,
   PackagesRoute: PackagesRouteWithChildren,
@@ -501,13 +522,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

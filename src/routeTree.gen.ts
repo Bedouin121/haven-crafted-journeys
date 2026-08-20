@@ -16,6 +16,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PlanDreamTripRouteImport } from './routes/plan-dream-trip'
 import { Route as PackagesRouteImport } from './routes/packages'
+import { Route as MalaysiaStudentVisaRouteImport } from './routes/malaysia-student-visa'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HotelsRouteImport } from './routes/hotels'
 import { Route as HajjUmrahRouteImport } from './routes/hajj-umrah'
@@ -65,6 +66,11 @@ const PlanDreamTripRoute = PlanDreamTripRouteImport.update({
 const PackagesRoute = PackagesRouteImport.update({
   id: '/packages',
   path: '/packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MalaysiaStudentVisaRoute = MalaysiaStudentVisaRouteImport.update({
+  id: '/malaysia-student-visa',
+  path: '/malaysia-student-visa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -156,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
+  '/malaysia-student-visa': typeof MalaysiaStudentVisaRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
@@ -180,6 +187,7 @@ export interface FileRoutesByTo {
   '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
+  '/malaysia-student-visa': typeof MalaysiaStudentVisaRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
@@ -205,6 +213,7 @@ export interface FileRoutesById {
   '/hajj-umrah': typeof HajjUmrahRoute
   '/hotels': typeof HotelsRoute
   '/login': typeof LoginRoute
+  '/malaysia-student-visa': typeof MalaysiaStudentVisaRoute
   '/packages': typeof PackagesRouteWithChildren
   '/plan-dream-trip': typeof PlanDreamTripRoute
   '/signup': typeof SignupRoute
@@ -231,6 +240,7 @@ export interface FileRouteTypes {
     | '/hajj-umrah'
     | '/hotels'
     | '/login'
+    | '/malaysia-student-visa'
     | '/packages'
     | '/plan-dream-trip'
     | '/signup'
@@ -255,6 +265,7 @@ export interface FileRouteTypes {
     | '/hajj-umrah'
     | '/hotels'
     | '/login'
+    | '/malaysia-student-visa'
     | '/packages'
     | '/plan-dream-trip'
     | '/signup'
@@ -279,6 +290,7 @@ export interface FileRouteTypes {
     | '/hajj-umrah'
     | '/hotels'
     | '/login'
+    | '/malaysia-student-visa'
     | '/packages'
     | '/plan-dream-trip'
     | '/signup'
@@ -304,6 +316,7 @@ export interface RootRouteChildren {
   HajjUmrahRoute: typeof HajjUmrahRoute
   HotelsRoute: typeof HotelsRoute
   LoginRoute: typeof LoginRoute
+  MalaysiaStudentVisaRoute: typeof MalaysiaStudentVisaRoute
   PackagesRoute: typeof PackagesRouteWithChildren
   PlanDreamTripRoute: typeof PlanDreamTripRoute
   SignupRoute: typeof SignupRoute
@@ -363,6 +376,13 @@ declare module '@tanstack/react-router' {
       path: '/packages'
       fullPath: '/packages'
       preLoaderRoute: typeof PackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/malaysia-student-visa': {
+      id: '/malaysia-student-visa'
+      path: '/malaysia-student-visa'
+      fullPath: '/malaysia-student-visa'
+      preLoaderRoute: typeof MalaysiaStudentVisaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -510,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   HajjUmrahRoute: HajjUmrahRoute,
   HotelsRoute: HotelsRoute,
   LoginRoute: LoginRoute,
+  MalaysiaStudentVisaRoute: MalaysiaStudentVisaRoute,
   PackagesRoute: PackagesRouteWithChildren,
   PlanDreamTripRoute: PlanDreamTripRoute,
   SignupRoute: SignupRoute,

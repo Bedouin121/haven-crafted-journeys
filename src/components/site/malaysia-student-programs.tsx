@@ -140,6 +140,15 @@ const programs: ProgramCategory[] = [
   },
 ];
 
+const malaysiaProgramImageMap: Record<string, string> = {
+  certificate: "/images/Malyasia%20Student/Malaysia%20Certificate%20Programs.png",
+  diploma: "/images/Malyasia%20Student/Malaysia%20Diploma%20Programs.png",
+  foundation: "/images/Malyasia%20Student/Malaysia%20Foundation%20Programs.png",
+  master: "/images/Malyasia%20Student/Malaysia%20Master%20Programs.png",
+  other: "/images/Malyasia%20Student/Malaysia%20Other%20Programs.png",
+  phd: "/images/Malyasia%20Student/Malaysia%20PhD%20Programs.png",
+};
+
 const coreDocuments = [
   "University / College Offer Letter",
   "Passport Copy, Bio data and Visa Pages",
@@ -324,6 +333,7 @@ function ProgramCard({
 }) {
   const preview = program.universities.slice(0, 4);
   const remaining = program.universities.length - preview.length;
+  const imageSrc = malaysiaProgramImageMap[program.id] ?? "/images/Malyasia%20Student/Malaysia%20Diploma%20Programs.png";
 
   return (
     <motion.article
@@ -343,15 +353,13 @@ function ProgramCard({
       tabIndex={0}
       aria-label={`Open details for ${program.title}`}
     >
-      {/* Image placeholder */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl border border-border bg-card">
-              <span className="font-display text-sm text-navy">image</span>
-            </div>
-          </div>
-        </div>
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#f5f2ec]">
+        <img
+          src={imageSrc}
+          alt={`${program.title} preview`}
+          loading="lazy"
+          className="h-full w-full object-contain transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+        />
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-6">
@@ -403,6 +411,8 @@ function ProgramModal({
   program: ProgramCategory;
   onClose: () => void;
 }) {
+  const imageSrc = malaysiaProgramImageMap[program.id] ?? "/images/Malyasia%20Student/Malaysia%20Diploma%20Programs.png";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -423,12 +433,12 @@ function ProgramModal({
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-2xl overflow-hidden rounded-3xl bg-card shadow-deep max-h-[90vh] flex flex-col"
       >
-        <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid h-14 w-14 place-items-center rounded-2xl border border-border bg-card">
-              <span className="font-display text-base text-navy">image</span>
-            </div>
-          </div>
+        <div className="relative aspect-[16/9] overflow-hidden bg-[#f5f2ec]">
+          <img
+            src={imageSrc}
+            alt={`${program.title} cover`}
+            className="h-full w-full object-contain"
+          />
           <button
             type="button"
             onClick={onClose}

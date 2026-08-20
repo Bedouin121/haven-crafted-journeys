@@ -7,6 +7,12 @@ import { useTilt } from "../../hooks/use-interactions";
 
 export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: number }) {
   const tilt = useTilt(3);
+  const destinationHref =
+    visa.slug === "malaysia-student" || (visa.country === "Malaysia" && visa.visaType === "Student")
+      ? "/malaysia-student-visa"
+      : visa.visaType === "Student"
+        ? "/student-visa"
+        : "/visa";
 
   return (
     <motion.article
@@ -60,7 +66,7 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
             </p>
           </div>
           <Link
-            to={visa.visaType === "Student" ? "/student-visa" : "/visa"}
+            to={destinationHref}
             className="grid h-12 w-12 place-items-center rounded-full bg-secondary text-navy transition-all duration-500 group-hover:bg-navy group-hover:text-primary-foreground glow-focus"
             aria-label={`Learn more about ${visa.title}`}
           >

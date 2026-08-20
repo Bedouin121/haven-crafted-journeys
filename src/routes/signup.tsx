@@ -7,8 +7,8 @@ import { AuthShell, Field } from "./login";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Create account — Diganta Overseas" },
-      { name: "description", content: "Create your Diganta Overseas account." },
+      { title: "Create account — Upscale Travel" },
+      { name: "description", content: "Create your Upscale Travel account." },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -9,8 +9,8 @@ export const Route = createFileRoute("/login")({
   validateSearch: (search) => searchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Sign in — Diganta Overseas" },
-      { name: "description", content: "Sign in to your Diganta Overseas account." },
+      { title: "Sign in — Upscale Travel" },
+      { name: "description", content: "Sign in to your Upscale Travel account." },
       { name: "robots", content: "noindex" },
     ],
   }),

@@ -7,8 +7,8 @@ import { packages, destinations } from "../lib/data";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
-    meta: [
-      { title: "Admin — Diganta Overseas" },
+      meta: [
+      { title: "Admin — Upscale Travel" },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -37,7 +37,7 @@ function AdminPanel() {
     <div className="flex min-h-screen bg-background">
       <aside className="hidden w-64 shrink-0 flex-col border-r border-border/60 bg-card p-6 md:flex">
         <div className="mb-8">
-          <p className="text-eyebrow">Diganta</p>
+          <p className="text-eyebrow">Upscale</p>
           <p className="mt-1 font-display text-xl text-foreground">Admin</p>
         </div>
         <nav className="flex-1 space-y-1">

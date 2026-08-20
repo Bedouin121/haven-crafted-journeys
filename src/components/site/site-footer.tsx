@@ -3,9 +3,9 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon, TikTokIcon } from "./brand-icons";
 
 const SOCIALS = [
-  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
-  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
-  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/upscaletravel" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/upscale_travel" },
+  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@upscale_travel3" },
 ];
 
 export function SiteFooter() {
@@ -14,12 +14,12 @@ export function SiteFooter() {
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2" aria-label="Diganta Overseas home">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">D</span>
-              <span className="font-display text-2xl">Diganta Overseas</span>
+            <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travel home">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">U</span>
+              <span className="font-display text-2xl">Upscale Travel</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-              Bespoke travel, quietly considered. Diganta Overseas designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
+              Bespoke travel, quietly considered. Upscale Travel designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
@@ -32,7 +32,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-gold" aria-hidden />
-                <a href="mailto:hello@digantaoverseas.com" className="hover:text-gold transition-colors">hello@digantaoverseas.com</a>
+                <a href="mailto:hello@upscaletravel.com" className="hover:text-gold transition-colors">hello@upscaletravel.com</a>
               </li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/60">
-            © {new Date().getFullYear()} Diganta Overseas. All rights reserved.
+            © {new Date().getFullYear()} Upscale Travel. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             {SOCIALS.map(({ icon: Icon, label, href }) => (

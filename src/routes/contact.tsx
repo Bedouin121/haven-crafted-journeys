@@ -8,19 +8,19 @@ import { FacebookIcon, InstagramIcon, TikTokIcon } from "../components/site/bran
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Diganta Overseas" },
-      { name: "description", content: "Speak to a Diganta Overseas travel designer. Farmgate, Dhaka." },
-      { property: "og:title", content: "Contact Diganta Overseas" },
-      { property: "og:description", content: "Speak to a Diganta Overseas travel designer." },
+      { title: "Contact — Upscale Travel" },
+      { name: "description", content: "Speak to an Upscale Travel travel designer. Farmgate, Dhaka." },
+      { property: "og:title", content: "Contact Upscale Travel" },
+      { property: "og:description", content: "Speak to an Upscale Travel travel designer." },
     ],
   }),
   component: ContactPage,
 });
 
 const SOCIALS = [
-  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/digantaoverseas" },
-  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/diganta_overseas" },
-  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@diganta_overseas3" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/upscaletravel" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/upscale_travel" },
+  { icon: TikTokIcon, label: "TikTok", href: "https://www.tiktok.com/@upscale_travel3" },
 ];
 
 function ContactPage() {
@@ -42,7 +42,7 @@ function ContactPage() {
           <div className="mt-12 space-y-6">
             <ContactRow icon={Phone} label="Phone" value="+8801840-519083" />
             <ContactRow icon={MapPin} label="Studio" value="4/A Indira Road, Mahabub Plaza (4th Floor), Room No-503, Farmgate, Dhaka – 1215" />
-            <ContactRow icon={Mail} label="Email" value="hello@digantaoverseas.com" />
+            <ContactRow icon={Mail} label="Email" value="hello@upscaletravel.com" />
           </div>
 
           <div className="mt-10">

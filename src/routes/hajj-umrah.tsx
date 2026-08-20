@@ -14,14 +14,14 @@ const searchSchema = z.object({
 export const Route = createFileRoute("/hajj-umrah")({
   validateSearch: (search) => searchSchema.parse(search),
   head: () => ({
-    meta: [
-      { title: "Hajj & Umrah Packages — Diganta Overseas" },
+      meta: [
+      { title: "Hajj & Umrah Packages — Upscale Travel" },
       {
         name: "description",
         content:
           "Government-approved Hajj and Umrah packages — 3, 4 and 5-star hotels near the Haram, with experienced scholars, private transfers, and full ritual guidance.",
       },
-      { property: "og:title", content: "Hajj & Umrah Packages — Diganta Overseas" },
+      { property: "og:title", content: "Hajj & Umrah Packages — Upscale Travel" },
       {
         property: "og:description",
         content: "Government-approved Hajj and Umrah packages with experienced scholars and full ritual guidance.",

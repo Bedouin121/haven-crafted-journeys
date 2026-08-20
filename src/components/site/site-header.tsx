@@ -79,16 +79,17 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-editorial flex items-center gap-4 py-4">
-        <Link to="/" className="flex shrink-0 items-center gap-2 group" aria-label="Diganta Overseas home">
-          <img
-            src="/logo.jpeg"
-            alt="Haven Crafted Journeys Logo"
-            className="h-16 w-16 rounded-full object-cover object-top"
-          />
-          <span
-            className={`font-display text-xl tracking-tight transition-colors duration-500 ${logoTextClass}`}
-          >
-            Diganta Overseas
+        {/* Desktop logo */}
+        <Link to="/" className="flex shrink-0 items-center gap-3 group" aria-label="Upscale Travel home">
+          <div className="h-20 w-20 rounded-full bg-white p-2.5 shadow-soft overflow-hidden">
+            <img
+              src="/logo.jpeg"
+              alt="Upscale Travel logo"
+              className="h-full w-full object-contain"
+            />
+          </div>
+          <span className={`font-display text-xl tracking-tight transition-colors duration-500 ${logoTextClass}`}>
+            Upscale Travel
           </span>
         </Link>
 
@@ -245,13 +246,16 @@ export function SiteHeader() {
             className="fixed inset-0 z-50 bg-background lg:hidden overflow-y-auto"
           >
             <div className="container-editorial flex items-center justify-between py-4">
-              <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <img
-                  src="/logo.jpeg"
-                  alt="Haven Crafted Journeys Logo"
-                  className="h-16 w-16 rounded-full object-cover object-top"
-                />
-                <span className="font-display text-xl text-navy">Diganta Overseas</span>
+              {/* Mobile menu logo */}
+              <Link to="/" onClick={() => setOpen(false)} className="flex items-center gap-3">
+                <div className="h-20 w-20 rounded-full bg-white p-2.5 overflow-hidden">
+                  <img
+                    src="/logo.jpeg"
+                    alt="Upscale Travel logo"
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <span className="font-display text-xl text-navy">Upscale Travel</span>
               </Link>
               <button
                 onClick={() => setOpen(false)}

@@ -3,14 +3,14 @@ import { VisaCatalog } from "../components/site/visa-catalog";
 
 export const Route = createFileRoute("/student-visa")({
   head: () => ({
-    meta: [
-      { title: "Student Visa Services — Diganta Overseas" },
+      meta: [
+      { title: "Student Visa Services — Upscale Travel" },
       {
         name: "description",
         content:
           "Student visa support for study abroad — institution verification, sponsorship, medicals, and pre-arrival guidance handled end to end.",
       },
-      { property: "og:title", content: "Student Visa Services — Diganta Overseas" },
+      { property: "og:title", content: "Student Visa Services — Upscale Travel" },
       { property: "og:description", content: "Study-abroad visa handling, done right the first time." },
     ],
   }),

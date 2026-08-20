@@ -7,8 +7,8 @@ import { packages } from "../lib/data";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
-    meta: [
-      { title: "Your account — Diganta Overseas" },
+      meta: [
+      { title: "Your account — Upscale Travel" },
       { name: "robots", content: "noindex" },
     ],
   }),

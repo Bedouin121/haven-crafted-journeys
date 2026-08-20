@@ -1,5 +1,5 @@
 import { useState, useId, useRef, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useNavigate } from "@tanstack/react-router";
 import {
   Search, MapPin, Calendar, Users, Plane, Hotel, FileText, Globe,

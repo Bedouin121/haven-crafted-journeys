@@ -92,13 +92,16 @@ async function fetchCheapFlights(params: FlightSearchParams): Promise<FlightDeal
 // ─── Route ────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute("/flights")({
   validateSearch: flightSearchSchema,
-  head: ({ search }) => ({
-    meta: [
-      {
-        title: `Flights from ${search.originCity ?? search.origin} to ${search.destinationCity ?? search.destination} — Travel Tours`,
-      },
-    ],
-  }),
+  head: ({ match }) => {
+    const search = match.search as z.infer<typeof flightSearchSchema>;
+    return {
+      meta: [
+        {
+          title: `Flights from ${search.originCity ?? search.origin} to ${search.destinationCity ?? search.destination} — Travel Tours`,
+        },
+      ],
+    };
+  },
   component: FlightsPage,
 });
 

@@ -22,13 +22,16 @@ export type HotelSearchParams = z.infer<typeof hotelSearchSchema>;
 // ─── Route ────────────────────────────────────────────────────────────────────
 export const Route = createFileRoute("/hotels")({
   validateSearch: hotelSearchSchema,
-  head: ({ search }) => ({
-    meta: [
-      {
-        title: `Hotels in ${search.destination || "your destination"} — Travel Tours`,
-      },
-    ],
-  }),
+  head: ({ match }) => {
+    const search = match.search as z.infer<typeof hotelSearchSchema>;
+    return {
+      meta: [
+        {
+          title: `Hotels in ${search.destination || "your destination"} — Travel Tours`,
+        },
+      ],
+    };
+  },
   component: HotelsPage,
 });
 

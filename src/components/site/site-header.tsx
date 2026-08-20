@@ -46,6 +46,7 @@ export function SiteHeader() {
   const { theme, toggle } = useTheme();
   const { isLoggedIn, role, user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
   // Show white text only on homepage hero (not scrolled). Everywhere else use theme-aware foreground.
   const logoTextClass = (!scrolled && isHome) ? "text-white" : "text-foreground";

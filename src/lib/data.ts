@@ -87,7 +87,7 @@ export const destinations: Destination[] = [
     bestTime: "November – February",
     duration: "8 – 12 nights",
     fromPrice: 3480,
-    image: U("photo-1528181304800-259b08848526"),
+    image: "/images/Tourist-Visas/thailand-tourist.png",
     gallery: [
       U("photo-1552465011-b4e21bf6e79a"),
       U("photo-1506665531195-3566af2b4dfa"),
@@ -115,7 +115,7 @@ export const destinations: Destination[] = [
     bestTime: "March – October",
     duration: "7 – 10 nights",
     fromPrice: 2980,
-    image: U("photo-1596422846543-75c6fc197f07"),
+    image: "/images/Tourist-Visas/malaysia-tourist.png",
     gallery: [
       U("photo-1580237072353-751acb27a3fb"),
       U("photo-1583417319070-4a69db38a482"),
@@ -143,7 +143,7 @@ export const destinations: Destination[] = [
     bestTime: "February – April",
     duration: "3 – 5 nights",
     fromPrice: 2680,
-    image: U("photo-1525625293386-3f8f99389edd"),
+    image: "/images/Tourist-Visas/singapore-tourist.png",
     gallery: [
       U("photo-1508964942454-1a56651d54ac"),
       U("photo-1533628635777-112b2239b1c7"),
@@ -171,7 +171,7 @@ export const destinations: Destination[] = [
     bestTime: "April – May, September – October",
     duration: "10 – 14 nights",
     fromPrice: 5280,
-    image: U("photo-1508804185872-d7badad00f7d"),
+    image: "/images/Tourist-Visas/china-tourist.png",
     gallery: [
       U("photo-1547981609-4b6bfe67ca0b"),
       U("photo-1540960927-25d54103f0d3"),
@@ -199,7 +199,7 @@ export const destinations: Destination[] = [
     bestTime: "April – October",
     duration: "10 – 14 nights",
     fromPrice: 6480,
-    image: U("photo-1485871981521-5b1fd3805eee"),
+    image: "/images/Tourist-Visas/usa-tourist.png",
     gallery: [
       U("photo-1477959858617-67f85cf4f1df"),
       U("photo-1501594907352-04cda38ebc29"),
@@ -255,7 +255,7 @@ export const destinations: Destination[] = [
     bestTime: "May – September",
     duration: "8 – 12 nights",
     fromPrice: 4280,
-    image: U("photo-1537996194471-e657df975ab4"),
+    image: "/images/Tourist-Visas/indonesia-tourist.png",
     gallery: [
       U("photo-1512100356356-de1b84283e18"),
       U("photo-1518509562904-e7ef99cddc85"),
@@ -283,7 +283,7 @@ export const destinations: Destination[] = [
     bestTime: "October – April",
     duration: "9 – 12 nights",
     fromPrice: 5680,
-    image: U("photo-1539768942893-daf53e448371"),
+    image: "/images/Tourist-Visas/egypt-tourist.png",
     gallery: [
       U("photo-1568322445389-f64ac2515020"),
       U("photo-1580332449516-d5a7c8b4e2b8"),
@@ -342,7 +342,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "mixed" },
     rating: 4.9,
     reviews: 142,
-    image: U("photo-1528181304800-259b08848526"),
+    image: "/images/Tourist-Visas/thailand-tourist.png",
     summary:
       "Ten nights across Bangkok, Chiang Mai, and the Andaman coast — temple mornings, longtail afternoons, and quiet beaches beyond the crowds.",
     inclusions: [
@@ -376,7 +376,7 @@ export const packages: Package[] = [
     mood: { pace: "adventurous", landscape: "mixed" },
     rating: 4.8,
     reviews: 88,
-    image: U("photo-1596422846543-75c6fc197f07"),
+    image: "/images/Tourist-Visas/malaysia-tourist.png",
     summary:
       "Nine nights across Kuala Lumpur, Penang, the Cameron Highlands, and the ancient rainforest of Taman Negara.",
     inclusions: [
@@ -409,7 +409,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "beach" },
     rating: 4.8,
     reviews: 96,
-    image: U("photo-1525625293386-3f8f99389edd"),
+    image: "/images/Tourist-Visas/singapore-tourist.png",
     summary:
       "Four nights of curated Singapore — hawker centres, botanic mornings, chef's tables, and rooftop views over Marina Bay.",
     inclusions: [
@@ -438,7 +438,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "mixed" },
     rating: 4.9,
     reviews: 74,
-    image: U("photo-1508804185872-d7badad00f7d"),
+    image: "/images/Tourist-Visas/china-tourist.png",
     summary:
       "Twelve nights across Beijing, Xi'an, a Yangtze slow cruise, and Shanghai — with private access at the moments that matter.",
     inclusions: [
@@ -542,7 +542,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "beach" },
     rating: 4.8,
     reviews: 118,
-    image: U("photo-1537996194471-e657df975ab4"),
+    image: "/images/Tourist-Visas/indonesia-tourist.png",
     summary:
       "Ten nights across Bali, Sumba, and Komodo — cliffside villas, wild coasts, and the dragon islands, all connected by private boat and flight.",
     inclusions: [
@@ -576,7 +576,7 @@ export const packages: Package[] = [
     mood: { pace: "relaxing", landscape: "mixed" },
     rating: 4.9,
     reviews: 64,
-    image: U("photo-1539768942893-daf53e448371"),
+    image: "/images/Tourist-Visas/egypt-tourist.png",
     summary:
       "Ten nights between Cairo, a private dahabiya on the Nile, and the temples of Abu Simbel — with an Egyptologist at your side throughout.",
     inclusions: [
@@ -641,7 +641,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Travel Tours understood exactly what we were looking for — not the checklist Thailand, but the quiet one. From the Chiang Mai alms walk to that hidden island villa, every choice felt considered.",
     rating: 5,
-    avatar: U("photo-1544005313-94ddf0286df2", 200),
+    avatar: "/images/Testimonials/avatar-1.png",
   },
   {
     name: "The Andersen Family",
@@ -650,7 +650,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Our guide across the Icefields was extraordinary. The kids still talk about the morning canoe on Moraine Lake. It felt private, respectful, and genuinely wild.",
     rating: 5,
-    avatar: U("photo-1494790108377-be9c29b29330", 200),
+    avatar: "/images/Testimonials/avatar-2.png",
   },
   {
     name: "David Okafor",
@@ -659,7 +659,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Twelve days, three cities, and not a single hitch. The after-hours Forbidden City visit was worth the trip alone. I've traveled a lot — this was the best planned journey of my life.",
     rating: 5,
-    avatar: U("photo-1500648767791-00dcc994a43e", 200),
+    avatar: "/images/Testimonials/avatar-3.png",
   },
   {
     name: "Aya Tanaka",
@@ -668,7 +668,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "The pace was perfect. We felt looked after without being managed. The phinisi in Komodo was worth the entire trip on its own.",
     rating: 5,
-    avatar: U("photo-1487412720507-e7ab37603c6f", 200),
+    avatar: "/images/Testimonials/avatar-4.png",
   },
 ];
 
@@ -682,7 +682,7 @@ export const articles: Article[] = [
     readTime: "6 min read",
     date: "November 4, 2026",
     author: "Naree Suksri",
-    image: U("photo-1528181304800-259b08848526"),
+    image: "/images/Tourist-Visas/thailand-tourist.png",
     body: [
       "There is a particular quality to the light in Chiang Mai in early November — low, warm, and slightly amber. It is, for those in the know, the moment to go.",
       "The great crush of high season is still six weeks away. The rains have gone. The temples empty out by four in the afternoon and the night markets stretch to midnight without feeling packed.",
@@ -714,7 +714,7 @@ export const articles: Article[] = [
     readTime: "5 min read",
     date: "October 9, 2026",
     author: "Clara Whitmore",
-    image: U("photo-1525625293386-3f8f99389edd"),
+    image: "/images/Tourist-Visas/singapore-tourist.png",
     body: [
       "Luxury, in travel, used to mean a certain kind of hotel: marble lobbies, gold taps, a concierge in a tailcoat. It is beginning, quietly, to mean something else.",
       "The clients we speak to now — thirty-somethings, forty-somethings, often families — do not want the marble. They want the shophouse hawker meal with the extraordinary chef. They want the guide who knows the temple caretaker. They want time, and quiet, and access.",
@@ -730,7 +730,7 @@ export const articles: Article[] = [
     readTime: "7 min read",
     date: "September 28, 2026",
     author: "Yasmin Farouk",
-    image: U("photo-1539768942893-daf53e448371"),
+    image: "/images/Tourist-Visas/egypt-tourist.png",
     body: [
       "Everyone asks about the mega-cruises. They matter, but not in the way you think. A 300-passenger boat arriving at Kom Ombo at the same time as three others is not why you came.",
       "The thing most travelers forget: the Egyptian day is bookended by cool. Everything worth doing happens before ten in the morning or after four in the afternoon.",
@@ -793,7 +793,7 @@ export const visaPackages: VisaPackage[] = [
     price: 95,
     turnaround: "3–5 business days",
     summary: "Single-entry tourist visa for stays up to 60 days. Document review and e-visa submission handled for you.",
-    image: U("photo-1528181304800-259b08848526"),
+    image: "/images/Tourist-Visas/thailand-tourist.png",
   },
   {
     slug: "malaysia-tourist",
@@ -803,7 +803,7 @@ export const visaPackages: VisaPackage[] = [
     price: 85,
     turnaround: "3–5 business days",
     summary: "Tourist eVisa for stays up to 30 days. Fast-track processing with full document verification.",
-    image: U("photo-1596422846543-75c6fc197f07"),
+    image: "/images/Tourist-Visas/malaysia-tourist.png",
   },
   {
     slug: "singapore-tourist",
@@ -813,7 +813,7 @@ export const visaPackages: VisaPackage[] = [
     price: 75,
     turnaround: "2–4 business days",
     summary: "Tourist eVisa for stays up to 30 days. Sponsorship and letter coordination when required.",
-    image: U("photo-1525625293386-3f8f99389edd"),
+    image: "/images/Tourist-Visas/singapore-tourist.png",
   },
   {
     slug: "china-tourist",
@@ -823,7 +823,7 @@ export const visaPackages: VisaPackage[] = [
     price: 195,
     turnaround: "7–10 business days",
     summary: "L-class tourist visa for single or double entry. Full biometric appointment and embassy submission support.",
-    image: U("photo-1508804185872-d7badad00f7d"),
+    image: "/images/Tourist-Visas/china-tourist.png",
   },
   {
     slug: "usa-tourist",
@@ -833,7 +833,7 @@ export const visaPackages: VisaPackage[] = [
     price: 285,
     turnaround: "4–8 weeks",
     summary: "B1/B2 visitor visa with DS-160 preparation, interview coaching, and consular appointment scheduling.",
-    image: U("photo-1485871981521-5b1fd3805eee"),
+    image: "/images/Tourist-Visas/usa-tourist.png",
   },
   {
     slug: "canada-tourist",
@@ -843,7 +843,7 @@ export const visaPackages: VisaPackage[] = [
     price: 195,
     turnaround: "3–6 weeks",
     summary: "Temporary Resident Visa or eTA support, including biometric appointment coordination.",
-    image: U("photo-1503614472-8c93d56cd601"),
+    image: "/images/Tourist-Visas/canada-tourist.png",
   },
   {
     slug: "indonesia-tourist",
@@ -853,7 +853,7 @@ export const visaPackages: VisaPackage[] = [
     price: 95,
     turnaround: "3–5 business days",
     summary: "B211A tourist visa for stays up to 60 days, extendable in-country. Full document preparation.",
-    image: U("photo-1537996194471-e657df975ab4"),
+    image: "/images/Tourist-Visas/indonesia-tourist.png",
   },
   {
     slug: "egypt-tourist",
@@ -863,7 +863,7 @@ export const visaPackages: VisaPackage[] = [
     price: 85,
     turnaround: "2–3 business days",
     summary: "Electronic tourist visa for single or multiple entry. Fast-track processing with document verification.",
-    image: U("photo-1539768942893-daf53e448371"),
+    image: "/images/Tourist-Visas/egypt-tourist.png",
   },
   {
     slug: "armenia-tourist",
@@ -873,7 +873,7 @@ export const visaPackages: VisaPackage[] = [
     price: 65,
     turnaround: "2–3 business days",
     summary: "Electronic tourist visa for stays up to 120 days. Simple, fast-track processing.",
-    image: U("photo-1610294928006-8b6a7f671cd3"),
+    image: "/images/Tourist-Visas/armenia-tourist.png",
   },
   {
     slug: "nepal-tourist",
@@ -883,7 +883,7 @@ export const visaPackages: VisaPackage[] = [
     price: 55,
     turnaround: "2–4 business days",
     summary: "Visa on arrival support and pre-arrival eVisa handling for stays of 15, 30 or 90 days. Trekking permit guidance available.",
-    image: U("photo-1544735716-392fe2489ffa"),
+    image: "/images/Tourist-Visas/nepal-tourist.png",
   },
   {
     slug: "bhutan-tourist",
@@ -893,7 +893,7 @@ export const visaPackages: VisaPackage[] = [
     price: 250,
     turnaround: "5–7 business days",
     summary: "Full visa clearance including Sustainable Development Fee coordination and mandatory itinerary preparation with a licensed operator.",
-    image: U("photo-1580655653885-65763b2597d0"),
+    image: "/images/Tourist-Visas/bhutan-tourist.png",
   },
   {
     slug: "maldives-tourist",
@@ -903,7 +903,7 @@ export const visaPackages: VisaPackage[] = [
     price: 45,
     turnaround: "1–2 business days",
     summary: "Free 30-day visa on arrival with pre-travel IMUGA form handling, accommodation verification, and onward-ticket support.",
-    image: U("photo-1514282401047-d79a71a590e8"),
+    image: "/images/Tourist-Visas/maldives-tourist.png",
   },
   {
     slug: "malaysia-student",
@@ -913,7 +913,7 @@ export const visaPackages: VisaPackage[] = [
     price: 320,
     turnaround: "6–8 weeks",
     summary: "Student Pass for study at accredited Malaysian institutions. Full EMGS application, medical, and pre-arrival support.",
-    image: U("photo-1596422846543-75c6fc197f07"),
+    image: "/images/Tourist-Visas/malaysia-tourist.png",
   },
   {
     slug: "dubai-student",
@@ -923,7 +923,7 @@ export const visaPackages: VisaPackage[] = [
     price: 380,
     turnaround: "3–5 weeks",
     summary: "UAE student residence visa for accredited universities in Dubai. Sponsorship letters, medical, and Emirates ID support included.",
-    image: U("photo-1512453979798-5ea266f8880c"),
+    image: "/images/Tourist-Visas/dubai-student.png",
   },
 ];
 
@@ -1022,7 +1022,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 5,
     makkahHotel: "Fairmont Makkah Clock Tower",
     madinahHotel: "Anwar Al Madinah Movenpick",
-    image: U("photo-1591604129939-f1efa4d9f7fa"),
+    image: "/images/Hajj-Umrah/hajj-premium-shifting.png",
     summary:
       "A 5-star Hajj journey with walking-distance haram accommodation, private VIP tents in Mina, and a dedicated Bangla-speaking scholar throughout.",
     inclusions: [
@@ -1046,7 +1046,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 4,
     makkahHotel: "Elaf Ajyad Makkah",
     madinahHotel: "Al Eiman Royal Madinah",
-    image: U("photo-1519817650390-64a93db51149"),
+    image: "/images/Hajj-Umrah/hajj-standard-shifting.png",
     summary:
       "A well-priced 4-star Hajj with quality haram-area hotels, standard Muallim tent in Mina, and thorough pre-departure training in Dhaka.",
     inclusions: [
@@ -1070,7 +1070,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 3,
     makkahHotel: "Al Massa Aziziyah",
     madinahHotel: "Grand Plaza Badr Al Maqam",
-    image: U("photo-1580418827493-f2b22c0a76cb"),
+    image: "/images/Hajj-Umrah/hajj-economy.png",
     summary:
       "An affordable, government-approved Hajj package with Aziziyah accommodation, dedicated shuttle to the Haram, and full ritual support.",
     inclusions: [
@@ -1094,7 +1094,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 5,
     makkahHotel: "Raffles Makkah Palace",
     madinahHotel: "The Oberoi Madina",
-    image: U("photo-1565019011521-b0575cbb57c8"),
+    image: "/images/Hajj-Umrah/umrah-luxury.png",
     summary:
       "Two weeks of unhurried worship in 5-star haram-view suites, with private transfers, an Alim guide, and curated Ziyarah in both cities.",
     inclusions: [
@@ -1117,7 +1117,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 4,
     makkahHotel: "Swissotel Makkah",
     madinahHotel: "Dallah Taibah Madinah",
-    image: U("photo-1568905123350-eae2df1a4c99"),
+    image: "/images/Hajj-Umrah/umrah-family.png",
     summary:
       "A family-friendly Umrah with 4-star haram-adjacent hotels, connecting family rooms, and a relaxed schedule with time for children.",
     inclusions: [
@@ -1140,7 +1140,7 @@ export const hajjUmrahPackages: HajjUmrahPackage[] = [
     hotelRating: 3,
     makkahHotel: "Al Kiswah Towers",
     madinahHotel: "Al Rawda Al Aqeeq",
-    image: U("photo-1519677100203-a0e668c92439"),
+    image: "/images/Hajj-Umrah/umrah-express.png",
     summary:
       "A short, focused 7-night Umrah for working professionals — clean 3-star hotels, group transfers, and all rituals completed in one week.",
     inclusions: [

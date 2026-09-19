@@ -92,9 +92,8 @@ export function PackageCard({
             <div className="text-right">
               <p className="text-xs text-primary-foreground/70">From</p>
               <p className="font-display text-2xl text-primary-foreground leading-none">
-                ${pkg.price.toLocaleString()}
+                {pkg.price.toLocaleString()} BDT
               </p>
-              <p className="text-xs text-primary-foreground/70">/ person</p>
             </div>
           </div>
         </div>

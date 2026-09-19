@@ -62,8 +62,7 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
                 <Clock className="h-4 w-4" aria-hidden /> {visa.turnaround}
               </p>
               <p className="font-display text-2xl text-navy mt-1">
-                ${visa.price.toLocaleString()}
-                <span className="text-sm text-muted-foreground ml-1 font-sans">/ application</span>
+                {visa.price.toLocaleString()} BDT
               </p>
             </div>
             <Link

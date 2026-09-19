@@ -43,7 +43,7 @@ function About() {
           </h1>
           <p className="mt-8 text-xl leading-relaxed text-muted-foreground max-w-3xl">
             Upscale Travels Ltd. was founded in 2025 on a simple premise: the best trips are quiet, considered, and shaped by
-            people who have actually been there. In our second year, we still work that way.
+            people who have actually been there. In our first year, we still work that way.
           </p>
         </motion.div>
       </div>
@@ -88,7 +88,7 @@ function About() {
       <section className="bg-navy text-primary-foreground py-24">
         <div className="container-editorial">
           <p className="text-eyebrow text-gold-soft">By the numbers</p>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-[1.05]">Eighteen years, quietly.</h2>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl leading-[1.05]">One year, quietly.</h2>
           <div className="mt-16 grid gap-y-12 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="border-l border-white/15 pl-6">

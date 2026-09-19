@@ -74,12 +74,12 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-2 text-sm bg-secondary/50 rounded-2xl p-4">
-            <p><span className="font-semibold text-navy">Type:</span> {visa.visaType}</p>
-            <p><span className="font-semibold text-navy">Mode:</span> {visa.visaMode}</p>
-            <p><span className="font-semibold text-navy">Entry:</span> {visa.entryType}</p>
-            <p><span className="font-semibold text-navy">Validity:</span> {visa.visaValidity}</p>
-            <p className="col-span-2"><span className="font-semibold text-navy">Max Stay:</span> {visa.maxStay}</p>
+          <div className="flex flex-wrap gap-2 text-xs">
+            <span className="bg-secondary rounded-full px-3 py-1 text-navy font-medium">Type: {visa.visaType}</span>
+            <span className="bg-secondary rounded-full px-3 py-1 text-navy font-medium">Mode: {visa.visaMode}</span>
+            <span className="bg-secondary rounded-full px-3 py-1 text-navy font-medium">{visa.entryType}</span>
+            <span className="bg-secondary rounded-full px-3 py-1 text-navy font-medium">Valid: {visa.visaValidity}</span>
+            <span className="bg-secondary rounded-full px-3 py-1 text-navy font-medium">Stay: {visa.maxStay}</span>
           </div>
         </div>
       </div>

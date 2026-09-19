@@ -129,7 +129,7 @@ function PackageDetail() {
             <p className="text-sm text-muted-foreground mt-1">{pkg.destination} · {pkg.nights} nights</p>
             <div className="mt-6 border-t border-border pt-5">
               <p className="text-sm text-muted-foreground">From</p>
-              <p className="font-display text-4xl text-navy">${pkg.price.toLocaleString()}</p>
+              <p className="font-display text-4xl text-navy">৳{pkg.price.toLocaleString()}</p>
               <p className="text-sm text-muted-foreground">per person, twin share. Adaptable.</p>
             </div>
             <Link

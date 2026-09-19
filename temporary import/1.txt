@@ -1,0 +1,52 @@
+# Synthesized Traveler's Holiday Data
+
+## 1. Visa Services & Pricing
+| Country | Visa Type | Processing Time | Validity | Entry | Price From (BDT) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Thailand | eVisa (Tourist) | 10-12 Days | 3 Months | Single | ৳6,500 |
+| Malaysia | eVisa (Tourist) | 8-10 Days | 6 Months | Single | ৳5,000 |
+| India | Sticker (Tourist) | 3-7 Days | 90 Days | Single | ৳2,500 |
+| Singapore | eVisa (Tourist) | 10-15 Days | 2 Months | Single | ৳6,000 |
+| Saudi Arabia | eVisa (Umrah/Tourist)| 2-10 Days | 3 Months | Single | ৳20,000 |
+| UAE | eVisa (Tourist) | 2-3 Days | 3 Months | Single | ৳11,000 |
+| UK | eVisa (Visitor) | 15 Days | 6 Months | Multiple | ৳7,000 |
+| USA | Sticker (B1/B2) | Interview | 6 Months | Single | ৳7,000 |
+| Canada | Sticker (Visitor) | 20-40 Days | Up to 10 Yrs | Multiple | ৳7,000 |
+| Australia | eVisa (Subclass 600)| 20-30 Days | 3-12 Months | Multiple | ৳7,000 |
+| France | Sticker (Schengen) | 15 Days | Up to 90 days | Single | ৳6,000 |
+| Japan | Sticker (Short Term)| 5-7 Days | 3 Months | Multiple | ৳8,000 |
+| South Korea | eVisa (Tourist) | 7-10 Days | 90 Days | Single | ৳2,000 |
+| China | Sticker (Tourist) | 10 Days | 3 Months | Single | ৳10,500 |
+| Indonesia | Sticker (Tourist) | 10-15 Days | 3 Months | Single | ৳13,500 |
+| Turkey | Sticker (Tourist) | 15-25 Days | 90 Days | Single | ৳27,000 |
+| Turkey | eVisa (Tourist) | 1-2 Days | 6 Months | Single | ৳9,500 |
+| Philippines | eVisa (Tourist 9A) | 7-15 Days | 3 Months | Single | ৳2,000 |
+| Tanzania | eVisa (Tourist) | 10-15 Days | 90 Days | Single | ৳7,500 |
+| Italy | Sticker (Schengen) | 15-25 Days | 90 Days | Single | ৳6,000 |
+| Netherlands | Sticker (Schengen) | 15 Days | 90 Days | Single | ৳6,000 |
+| Spain | Sticker (Schengen) | 15-20 Days | 90 Days | Single | ৳22,000 |
+| Sweden | Sticker (Schengen) | 15-20 Days | 90 Days | Single | ৳6,000 |
+
+## 2. Tour & Pilgrimage Packages
+| Package Name | Duration | Price From (BDT) |
+| :--- | :--- | :--- |
+| Singapore Tour Packages | 3-6 Days | ৳7,500 - ৳58,550 |
+| Cairo & Alexandria Packages | 4-5 Days | ৳79,700 - ৳90,000 |
+| Thailand Packages | 3-7 Days | ৳16,500 - ৳52,500 |
+| China Guangzhou Tour | 5 Days | ৳84,500 |
+| Malaysia Packages | 3 Days | ৳14,950 - ৳35,990 |
+| Trio (Thai, Sin, Mys) | 7 Days | ৳89,900 |
+| Thai-Mys Combo | 5 Days | ৳70,500 |
+| Sin-Mys Combo | 5-6 Days | ৳79,500 - ৳87,500 |
+| Maldives-Sri Lanka | 7 Days | ৳88,000 |
+| Bhutan Tour | 4 Days | ৳88,500 |
+| Nepal Packages | 4-6 Days | ৳48,500 - ৳65,500 |
+| Canton Fair Group Tour | 6 Days | ৳46,500 |
+| Umrah & Dubai Tour | 14 Days | ৳225,000 |
+| Umrah Group Packages | 14 Days | ৳150,000 |
+| Umrah & Egypt Package | 14 Days | ৳215,000 |
+| Umrah & Turkey Package | 14 Days | ৳235,000 |
+| After Qurbani Umrah | 14 Days | ৳150,000 |
+| Umrah & Morocco Package | 15 Days | ৳240,000 |
+| Umrah & Jordan Package | 14 Days | ৳245,000 |
+| 5-Star Shifting Hajj | 42-45 Days | ৳680,000 - ৳820,000 |

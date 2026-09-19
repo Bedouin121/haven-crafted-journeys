@@ -1,0 +1,27 @@
+# Traveler's Holiday - Visa Services & Pricing
+
+| Country | Visa Type | Processing Time | Entry Type | Price From (BDT) |
+| :--- | :--- | :--- | :--- | :--- |
+| Thailand | eVisa (Tourist) | 10-12 Days | Single | ৳6,500 |
+| Malaysia | eVisa (Tourist) | 8-10 Days | Single | ৳5,000 |
+| India | Sticker (Tourist) | 3-7 Days | Single | ৳2,500 |
+| Singapore | eVisa (Tourist) | 10-15 Days | Single | ৳6,000 |
+| Saudi Arabia | eVisa (Umrah/Tourist)| 2-10 Days | Single | ৳20,000 |
+| UAE | eVisa (Tourist) | 2-3 Days | Single | ৳11,000 |
+| UK | eVisa (Visitor) | 15 Days | Multiple | ৳7,000 |
+| USA | Sticker (B1/B2) | Interview | Single | ৳7,000 |
+| Canada | Sticker (Visitor) | 20-40 Days | Multiple | ৳7,000 |
+| Australia | eVisa (Subclass 600)| 20-30 Days | Multiple | ৳7,000 |
+| France | Sticker (Schengen) | 15 Days | Single | ৳6,000 |
+| Japan | Sticker (Short Term)| 5-7 Days | Multiple | ৳8,000 |
+| South Korea | eVisa (Tourist) | 7-10 Days | Single | ৳2,000 |
+| China | Sticker (Tourist) | 10 Days | Single | ৳10,500 |
+| Indonesia | Sticker (Tourist) | 10-15 Days | Single | ৳13,500 |
+| Turkey | Sticker (Tourist) | 15-25 Days | Single | ৳27,000 |
+| Turkey | eVisa (Tourist) | 1-2 Days | Single | ৳9,500 |
+| Philippines | eVisa (Tourist 9A) | 7-15 Days | Single | ৳2,000 |
+| Tanzania | eVisa (Tourist) | 10-15 Days | Single | ৳7,500 |
+| Italy | Sticker (Schengen) | 15-25 Days | Single | ৳6,000 |
+| Netherlands | Sticker (Schengen) | 15 Days | Single | ৳6,000 |
+| Spain | Sticker (Schengen) | 15-20 Days | Single | ৳22,000 |
+| Sweden | Sticker (Schengen) | 15-20 Days | Single | ৳6,000 |

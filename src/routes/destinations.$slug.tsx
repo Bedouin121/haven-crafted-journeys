@@ -145,7 +145,7 @@ function DestinationDetail() {
             </dl>
             <div className="mt-8 border-t border-border pt-6">
               <p className="text-xs text-muted-foreground">Trips from</p>
-              <p className="font-display text-4xl text-navy">${dest.fromPrice.toLocaleString()}</p>
+              <p className="font-display text-4xl text-navy">৳{dest.fromPrice.toLocaleString()}</p>
               <p className="text-xs text-muted-foreground">per person, based on double occupancy</p>
             </div>
             <Link

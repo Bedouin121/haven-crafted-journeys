@@ -52,8 +52,8 @@ export function SiteFooter() {
             ["FAQ", "/faq"],
           ]} />
           <FooterCol title="Considerations" links={[
-            ["Privacy", "/"],
-            ["Terms", "/"],
+            ["Privacy", "/privacy"],
+            ["Terms", "/terms"],
             ["Responsible travel", "/about"],
           ]} />
         </div>

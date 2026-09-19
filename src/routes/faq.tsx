@@ -9,10 +9,10 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Upscale Travels Ltd." },
-      { name: "description", content: "Answers to common questions about planning, pricing, on-the-ground support, and responsible travel with Upscale Travels Ltd.." },
-      { property: "og:title", content: "Upscale Travels Ltd. FAQ" },
-      { property: "og:description", content: "Common questions about planning and traveling with Upscale Travels Ltd.." },
+      { title: "FAQ — Upscale Travels Pvt. Ltd." },
+      { name: "description", content: "Answers to common questions about planning, pricing, on-the-ground support, and responsible travel with Upscale Travels Pvt. Ltd.." },
+      { property: "og:title", content: "Upscale Travels Pvt. Ltd. FAQ" },
+      { property: "og:description", content: "Common questions about planning and traveling with Upscale Travels Pvt. Ltd.." },
     ],
   }),
   component: FaqPage,

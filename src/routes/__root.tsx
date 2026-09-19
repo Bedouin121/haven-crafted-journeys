@@ -82,15 +82,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Upscale Travels Ltd. — Bespoke Travel, Beautifully Considered" },
+      { title: "Upscale Travels Pvt. Ltd. — Bespoke Travel, Beautifully Considered" },
       {
         name: "description",
         content:
-          "Upscale Travels Ltd. designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers. Consult our travel designers to craft your next escape.",
+          "Upscale Travels Pvt. Ltd. designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers. Consult our travel designers to craft your next escape.",
       },
-      { name: "author", content: "Upscale Travels Ltd." },
+      { name: "author", content: "Upscale Travels Pvt. Ltd." },
       { name: "theme-color", content: "#1a2540" },
-      { property: "og:title", content: "Upscale Travels Ltd. — Bespoke Travel, Beautifully Considered" },
+      { property: "og:title", content: "Upscale Travels Pvt. Ltd. — Bespoke Travel, Beautifully Considered" },
       {
         property: "og:description",
         content:

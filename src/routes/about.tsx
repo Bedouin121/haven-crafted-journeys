@@ -8,9 +8,9 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Upscale Travels Ltd. — A travel studio, not a booking engine" },
-      { name: "description", content: "How Upscale Travels Ltd. designs journeys — a small studio of specialists, a network of trusted local partners, and nearly two years of considered travel." },
-      { property: "og:title", content: "About Upscale Travels Ltd." },
+      { title: "About Upscale Travels Pvt. Ltd. — A travel studio, not a booking engine" },
+      { name: "description", content: "How Upscale Travels Pvt. Ltd. designs journeys — a small studio of specialists, a network of trusted local partners, and nearly two years of considered travel." },
+      { property: "og:title", content: "About Upscale Travels Pvt. Ltd." },
       { property: "og:description", content: "A small studio of travel specialists designing thoughtfully curated journeys." },
     ],
   }),
@@ -42,7 +42,7 @@ function About() {
             A small studio, thoughtfully run.
           </h1>
           <p className="mt-8 text-xl leading-relaxed text-muted-foreground max-w-3xl">
-            Upscale Travels Ltd. was founded in 2025 on a simple premise: the best trips are quiet, considered, and shaped by
+            Upscale Travels Pvt. Ltd. was founded in 2025 on a simple premise: the best trips are quiet, considered, and shaped by
             people who have actually been there. In our first year, we still work that way.
           </p>
         </motion.div>

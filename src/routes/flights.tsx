@@ -97,7 +97,7 @@ export const Route = createFileRoute("/flights")({
     return {
       meta: [
         {
-          title: `Flights from ${search.originCity ?? search.origin} to ${search.destinationCity ?? search.destination} — Upscale Travels Ltd.`,
+          title: `Flights from ${search.originCity ?? search.origin} to ${search.destinationCity ?? search.destination} — Upscale Travels Pvt. Ltd.`,
         },
       ],
     };

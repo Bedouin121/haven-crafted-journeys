@@ -153,10 +153,10 @@ function UsersTable() {
 }
 
 const MOCK_BOOKINGS = [
-  { id: "B-1042", user: "Amelia Hart", trip: "Bangkok to the Andaman", start: "2026-08-12", status: "Confirmed", total: "$8,220" },
-  { id: "B-1043", user: "Rohan Kapoor", trip: "Peninsular Malaysia Crossings", start: "2026-09-04", status: "Pending", total: "$5,940" },
-  { id: "B-1044", user: "Lena Fischer", trip: "Singapore Signature", start: "2026-10-19", status: "Confirmed", total: "$4,110" },
-  { id: "B-1045", user: "James Okoro", trip: "Canadian Rockies in Slow Motion", start: "2026-07-22", status: "Cancelled", total: "$7,880" },
+  { id: "B-1042", user: "Amelia Hart", trip: "Bangkok to the Andaman", start: "2026-08-12", status: "Confirmed", total: "৳1,068,600" },
+  { id: "B-1043", user: "Rohan Kapoor", trip: "Peninsular Malaysia Crossings", start: "2026-09-04", status: "Pending", total: "৳772,200" },
+  { id: "B-1044", user: "Lena Fischer", trip: "Singapore Signature", start: "2026-10-19", status: "Confirmed", total: "৳534,300" },
+  { id: "B-1045", user: "James Okoro", trip: "Canadian Rockies in Slow Motion", start: "2026-07-22", status: "Cancelled", total: "৳1,024,400" },
 ];
 
 function BookingsTable() {

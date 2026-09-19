@@ -40,9 +40,9 @@ const questions = [
     key: "budget" as const,
     question: "What's your budget range?",
     options: [
-      { value: "moderate" as Budget, label: "Under $6,000 / person" },
-      { value: "premium" as Budget, label: "$6,000 – $9,000 / person" },
-      { value: "luxury" as Budget, label: "$9,000+ / person" },
+      { value: "moderate" as Budget, label: "Under ৳780,000 / person" },
+      { value: "premium" as Budget, label: "৳780,000 – ৳1,170,000 / person" },
+      { value: "luxury" as Budget, label: "৳1,170,000+ / person" },
     ],
   },
   {
@@ -74,9 +74,9 @@ function matchPackages(answers: Answers): Package[] {
     if (answers.mood === "adventurous" && (m.pace === "adventurous" || pkg.style === "Adventure")) score += 2;
     if (answers.landscape === "beach" && m.landscape === "beach") score += 3;
     if (answers.landscape === "mountains" && m.landscape === "mountains") score += 3;
-    if (answers.budget === "moderate" && pkg.price < 6500) score += 2;
-    if (answers.budget === "premium" && pkg.price >= 6500 && pkg.price < 9500) score += 2;
-    if (answers.budget === "luxury" && pkg.price >= 9500) score += 2;
+    if (answers.budget === "moderate" && pkg.price < 845000) score += 2;
+    if (answers.budget === "premium" && pkg.price >= 845000 && pkg.price < 1235000) score += 2;
+    if (answers.budget === "luxury" && pkg.price >= 1235000) score += 2;
     if (answers.group === "family" && pkg.style === "Family") score += 3;
     if (answers.group === "solo-couple" && (pkg.style === "Romantic" || pkg.style === "Cultural")) score += 1;
     if (answers.length === "short" && pkg.nights <= 7) score += 2;

@@ -26,11 +26,11 @@ const emptyForm: DreamTripFormData = {
 };
 
 const budgetOptions = [
-  "Under $3,000 per person",
-  "$3,000 – $5,000 per person",
-  "$5,000 – $8,000 per person",
-  "$8,000 – $12,000 per person",
-  "$12,000+ per person",
+  "Under ৳390,000 per person",
+  "৳390,000 – ৳650,000 per person",
+  "৳650,000 – ৳1,040,000 per person",
+  "৳1,040,000 – ৳1,560,000 per person",
+  "৳1,560,000+ per person",
 ];
 
 function FormField({
@@ -67,7 +67,7 @@ export function PlanDreamTripForm({ compact = false }: { compact?: boolean }) {
     e.preventDefault();
     // Structured for future backend — payload ready to POST
     const payload = { ...form, submittedAt: new Date().toISOString(), source: compact ? "homepage" : "dedicated-page" };
-    console.info("[Upscale Travels Ltd.] Dream trip enquiry:", payload);
+    console.info("[Upscale Travels Pvt. Ltd.] Dream trip enquiry:", payload);
     setSubmitted(true);
   };
 
@@ -83,7 +83,7 @@ export function PlanDreamTripForm({ compact = false }: { compact?: boolean }) {
         <CheckCircle2 className="mx-auto h-14 w-14 text-teal" aria-hidden />
         <h3 className="mt-5 font-display text-3xl text-navy">Thank you — we've received your idea</h3>
         <p className="mt-4 text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
-          An Upscale Travels Ltd. specialist will review your request and follow up within two business days with a custom quote.
+          An Upscale Travels Pvt. Ltd. specialist will review your request and follow up within two business days with a custom quote.
         </p>
       </motion.div>
     );

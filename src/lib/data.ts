@@ -1,4 +1,4 @@
-// Fictional but realistic travel data for the Upscale Travels Ltd. design showcase.
+// Fictional but realistic travel data for the Upscale Travels Pvt. Ltd. design showcase.
 
 export type Destination = {
   slug: string;

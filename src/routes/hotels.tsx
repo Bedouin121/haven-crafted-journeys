@@ -27,7 +27,7 @@ export const Route = createFileRoute("/hotels")({
     return {
       meta: [
         {
-          title: `Hotels in ${search.destination || "your destination"} — Upscale Travels Ltd.`,
+          title: `Hotels in ${search.destination || "your destination"} — Upscale Travels Pvt. Ltd.`,
         },
       ],
     };

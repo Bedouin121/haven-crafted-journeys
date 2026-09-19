@@ -7,17 +7,17 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/plan-dream-trip")({
   head: () => ({
     meta: [
-      { title: "Plan Your Dream Trip — Upscale Travels Ltd." },
+      { title: "Plan Your Dream Trip — Upscale Travels Pvt. Ltd." },
       {
         name: "description",
         content:
-          "Submit your custom itinerary idea to Upscale Travels Ltd.. A specialist will review it personally and follow up with a tailored quote within two business days.",
+          "Submit your custom itinerary idea to Upscale Travels Pvt. Ltd.. A specialist will review it personally and follow up with a tailored quote within two business days.",
       },
-      { property: "og:title", content: "Plan Your Dream Trip — Upscale Travels Ltd." },
+      { property: "og:title", content: "Plan Your Dream Trip — Upscale Travels Pvt. Ltd." },
       {
         property: "og:description",
         content:
-          "Tell us about your dream trip. A Upscale Travels Ltd. specialist will design a custom itinerary and quote just for you.",
+          "Tell us about your dream trip. A Upscale Travels Pvt. Ltd. specialist will design a custom itinerary and quote just for you.",
       },
     ],
   }),
@@ -41,7 +41,7 @@ function PlanDreamTripPage() {
             Tell us what you're imagining.
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-muted-foreground max-w-2xl">
-            Have a destination in mind — or just a feeling? Share it with us. A Upscale Travels Ltd. specialist reads
+            Have a destination in mind — or just a feeling? Share it with us. A Upscale Travels Pvt. Ltd. specialist reads
             every submission personally and comes back with a custom itinerary and transparent pricing.
           </p>
         </motion.div>

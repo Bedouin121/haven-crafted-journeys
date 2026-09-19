@@ -42,7 +42,7 @@ function ContactPage() {
           <div className="mt-12 space-y-6">
             <ContactRow icon={Phone} label="Phone" value="+8801840-519083" />
             <ContactRow icon={MapPin} label="Studio" value="4/A Indira Road, Mahabub Plaza (4th Floor), Room No-503, Farmgate, Dhaka – 1215" />
-            <ContactRow icon={Mail} label="Email" value="hello@upscaletravel.com" />
+            <ContactRow icon={Mail} label="Email" value="admin@upscale-travels.com" />
           </div>
 
           <div className="mt-10">

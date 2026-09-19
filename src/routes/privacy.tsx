@@ -5,8 +5,8 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPolicy,
   head: () => ({
     meta: [
-      { title: "Privacy Policy — Upscale Travels Ltd." },
-      { name: "description", content: "Privacy policy for Upscale Travels Ltd., detailing how we protect your personal and travel-related data." },
+      { title: "Privacy Policy — Upscale Travels Pvt. Ltd." },
+      { name: "description", content: "Privacy policy for Upscale Travels Pvt. Ltd., detailing how we protect your personal and travel-related data." },
     ],
   }),
 });
@@ -22,7 +22,7 @@ function PrivacyPolicy() {
 
       <div className="mt-12 prose prose-slate prose-lg max-w-none">
         <p>
-          At Upscale Travels Ltd., we are committed to protecting your privacy in compliance with applicable international standards (such as GDPR) and the laws of Bangladesh, including the Digital Security Act.
+          At Upscale Travels Pvt. Ltd., we are committed to protecting your privacy in compliance with applicable international standards (such as GDPR) and the laws of Bangladesh, including the Digital Security Act.
         </p>
 
         <h2 className="mt-8 font-display text-2xl text-navy">Information We Collect</h2>
@@ -61,9 +61,9 @@ function PrivacyPolicy() {
           If you have any questions regarding our privacy practices, please contact us:
         </p>
         <p className="mt-2">
-          Upscale Travels Ltd.<br />
+          Upscale Travels Pvt. Ltd.<br />
           4/A Indira Road, Mahabub Plaza (4th Floor), Room No-503, Farmgate, Dhaka – 1215<br />
-          Email: hello@upscaletravel.com
+          Email: admin@upscale-travels.com
         </p>
       </div>
     </div>

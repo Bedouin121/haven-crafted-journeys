@@ -14,18 +14,18 @@ export function SiteFooter() {
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travels Ltd. home">
+            <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travels Pvt. Ltd. home">
               <div className="h-12 w-12 rounded-full overflow-hidden shrink-0">
                 <img
                   src="/logo.jpeg"
-                  alt="Upscale Travels Ltd. logo"
+                  alt="Upscale Travels Pvt. Ltd. logo"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <span className="font-display text-2xl">Upscale Travels Ltd.</span>
+              <span className="font-display text-2xl">Upscale Travels Pvt. Ltd.</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-              Bespoke travel, quietly considered. Upscale Travels Ltd. designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
+              Bespoke travel, quietly considered. Upscale Travels Pvt. Ltd. designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
@@ -38,7 +38,7 @@ export function SiteFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-gold" aria-hidden />
-                <a href="mailto:hello@upscaletravel.com" className="hover:text-gold transition-colors">hello@upscaletravel.com</a>
+                <a href="mailto:admin@upscale-travels.com" className="hover:text-gold transition-colors">admin@upscale-travels.com</a>
               </li>
             </ul>
           </div>
@@ -66,7 +66,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/60">
-            © {new Date().getFullYear()} Upscale Travels Ltd. All rights reserved.
+            © {new Date().getFullYear()} Upscale Travels Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             {SOCIALS.map(({ icon: Icon, label, href }) => (

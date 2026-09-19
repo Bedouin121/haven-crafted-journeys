@@ -25,6 +25,14 @@ const nav: NavItem[] = [
     ],
   },
   {
+    to: "/packages",
+    label: "Journeys",
+    children: [
+      { to: "/packages", label: "All Journeys" },
+      { to: "/tour-packages", label: "Tour Packages" },
+    ],
+  },
+  {
     to: "/hajj-umrah",
     label: "Hajj & Umrah",
     children: [

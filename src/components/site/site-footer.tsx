@@ -46,6 +46,7 @@ export function SiteFooter() {
           <FooterCol title="Discover" links={[
             ["Destinations", "/destinations"],
             ["Journeys", "/packages"],
+            ["Tour Packages", "/tour-packages"],
             ["Tourist Visa", "/visa"],
             ["Student Visa", "/student-visa"],
             ["Client stories", "/testimonials"],

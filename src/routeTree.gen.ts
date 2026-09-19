@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaRouteImport } from './routes/visa'
+import { Route as TourPackagesRouteImport } from './routes/tour-packages'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as StudentVisaRouteImport } from './routes/student-visa'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -36,6 +37,11 @@ import { Route as ApiFlightsRouteImport } from './routes/api.flights'
 const VisaRoute = VisaRouteImport.update({
   id: '/visa',
   path: '/visa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TourPackagesRoute = TourPackagesRouteImport.update({
+  id: '/tour-packages',
+  path: '/tour-packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
@@ -170,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
+  '/tour-packages': typeof TourPackagesRoute
   '/api/flights': typeof ApiFlightsRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
+  '/tour-packages': typeof TourPackagesRoute
   '/api/flights': typeof ApiFlightsRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/student-visa': typeof StudentVisaRoute
   '/testimonials': typeof TestimonialsRoute
   '/visa': typeof VisaRoute
+  '/tour-packages': typeof TourPackagesRoute
   '/api/flights': typeof ApiFlightsRoute
   '/destinations/$slug': typeof DestinationsSlugRoute
   '/packages/$slug': typeof PackagesSlugRoute
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/student-visa'
     | '/testimonials'
     | '/visa'
+    | '/tour-packages'
     | '/api/flights'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -273,6 +283,7 @@ export interface FileRouteTypes {
     | '/student-visa'
     | '/testimonials'
     | '/visa'
+    | '/tour-packages'
     | '/api/flights'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -298,6 +309,7 @@ export interface FileRouteTypes {
     | '/student-visa'
     | '/testimonials'
     | '/visa'
+    | '/tour-packages'
     | '/api/flights'
     | '/destinations/$slug'
     | '/packages/$slug'
@@ -324,6 +336,7 @@ export interface RootRouteChildren {
   StudentVisaRoute: typeof StudentVisaRoute
   TestimonialsRoute: typeof TestimonialsRoute
   VisaRoute: typeof VisaRoute
+  TourPackagesRoute: typeof TourPackagesRoute
   ApiFlightsRoute: typeof ApiFlightsRoute
 }
 
@@ -490,6 +503,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiFlightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tour-packages': {
+      id: '/tour-packages'
+      path: '/tour-packages'
+      fullPath: '/tour-packages'
+      preLoaderRoute: typeof TourPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -538,6 +558,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudentVisaRoute: StudentVisaRoute,
   TestimonialsRoute: TestimonialsRoute,
   VisaRoute: VisaRoute,
+  TourPackagesRoute: TourPackagesRoute,
   ApiFlightsRoute: ApiFlightsRoute,
 }
 export const routeTree = rootRouteImport

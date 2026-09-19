@@ -142,7 +142,7 @@ function BookPage() {
                     <div className="mt-8">
                       <div className="flex items-baseline justify-between">
                         <span className="text-sm text-muted-foreground">Estimated budget</span>
-                        <span className="font-display text-3xl text-navy">৳{(Number(form.budget) * 130).toLocaleString()}</span>
+                        <span className="font-display text-3xl text-navy">৳{Number(form.budget).toLocaleString()}</span>
                       </div>
                       <input type="range" min="390000" max="3250000" step="50000" value={form.budget} onChange={(e) => update("budget", e.target.value)} className="mt-3 w-full accent-navy" aria-label="Budget per person" />
                       <div className="mt-1 flex justify-between text-xs text-muted-foreground">
@@ -208,7 +208,7 @@ function BookPage() {
               <SummaryRow icon={MapPin} label="Destination" value={form.destination || "—"} />
               <SummaryRow icon={Calendar} label="Dates" value={form.dates || "—"} />
               <SummaryRow icon={Users} label="Travelers" value={`${form.adults} adult${form.adults !== 1 ? "s" : ""}${form.children ? `, ${form.children} children` : ""}`} />
-              <SummaryRow icon={DollarSign} label="Budget" value={`৳${(Number(form.budget) * 130).toLocaleString()} pp · ${form.style}`} />
+              <SummaryRow icon={DollarSign} label="Budget" value={`৳${Number(form.budget).toLocaleString()} pp · ${form.style}`} />
               <SummaryRow icon={MessageSquare} label="Notes" value={form.notes ? `${form.notes.slice(0, 40)}${form.notes.length > 40 ? "…" : ""}` : "—"} />
             </dl>
             <p className="mt-8 text-xs text-muted-foreground">This is a fictional booking flow for a design showcase. No data is sent.</p>

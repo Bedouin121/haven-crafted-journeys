@@ -66,7 +66,7 @@ export function DestinationCard({ dest, index = 0 }: { dest: Destination; index?
           <div className="flex items-center justify-center gap-10 px-6 py-5 text-center">
             <div>
               <p className="text-xs text-muted-foreground">From</p>
-              <p className="font-display text-lg text-navy">${dest.fromPrice.toLocaleString()}</p>
+              <p className="font-display text-lg text-navy">৳{dest.fromPrice.toLocaleString()}</p>
             </div>
             <div className="h-8 w-px bg-border" aria-hidden />
             <div>

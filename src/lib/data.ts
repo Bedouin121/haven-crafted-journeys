@@ -90,7 +90,7 @@ export const destinations: Destination[] = [
       "Wake to monks chanting in Chiang Mai, drift between limestone islands in the Andaman Sea, and end each day at a riverside table in Bangkok. Thailand still surprises those who slow down.",
     bestTime: "November – February",
     duration: "8 – 12 nights",
-    fromPrice: 3480,
+    fromPrice: 452400,
     image: "/images/Tourist-Visas/thailand-tourist.png",
     gallery: [
       U("photo-1552465011-b4e21bf6e79a"),
@@ -118,7 +118,7 @@ export const destinations: Destination[] = [
       "Kuala Lumpur's skyline gives way to Penang's shophouse lanes, and both give way to the ancient rainforest of Taman Negara. A country that rewards curiosity, one plate at a time.",
     bestTime: "March – October",
     duration: "7 – 10 nights",
-    fromPrice: 2980,
+    fromPrice: 387400,
     image: "/images/Tourist-Visas/malaysia-tourist.png",
     gallery: [
       U("photo-1580237072353-751acb27a3fb"),
@@ -146,7 +146,7 @@ export const destinations: Destination[] = [
       "Rooftop bars over Marina Bay, hawker centres tucked into HDB estates, and a Botanic Gardens that still feels like a jungle. Singapore is a masterclass in doing many things at once.",
     bestTime: "February – April",
     duration: "3 – 5 nights",
-    fromPrice: 2680,
+    fromPrice: 348400,
     image: "/images/Tourist-Visas/singapore-tourist.png",
     gallery: [
       U("photo-1508964942454-1a56651d54ac"),
@@ -174,7 +174,7 @@ export const destinations: Destination[] = [
       "Walk an unrestored stretch of the Great Wall at sunrise, dine in a hutong courtyard in Beijing, and drift through the Three Gorges at the pace they were meant to be seen.",
     bestTime: "April – May, September – October",
     duration: "10 – 14 nights",
-    fromPrice: 5280,
+    fromPrice: 686400,
     image: "/images/Tourist-Visas/china-tourist.png",
     gallery: [
       U("photo-1547981609-4b6bfe67ca0b"),
@@ -202,7 +202,7 @@ export const destinations: Destination[] = [
       "From the red rock of the Southwest to the misty forests of the Pacific Northwest — the United States rewards long journeys, thoughtfully planned, and a willingness to stray from the interstate.",
     bestTime: "April – October",
     duration: "10 – 14 nights",
-    fromPrice: 6480,
+    fromPrice: 842400,
     image: "/images/Tourist-Visas/usa-tourist.png",
     gallery: [
       U("photo-1477959858617-67f85cf4f1df"),
@@ -230,7 +230,7 @@ export const destinations: Destination[] = [
       "Trace the Icefields Parkway between Banff and Jasper, canoe on Moraine Lake at first light, and end each day beside a wood stove in a mountain lodge. Canada is the pace you had forgotten.",
     bestTime: "June – September",
     duration: "8 – 11 nights",
-    fromPrice: 5980,
+    fromPrice: 777400,
     image: U("photo-1489447068241-b3490214e879"),
     gallery: [
       U("photo-1489447068241-b3490214e879"),
@@ -258,7 +258,7 @@ export const destinations: Destination[] = [
       "Beyond Bali's south coast lie the mist-shrouded terraces of Ubud, the wilder beaches of Sumba, and the dragon islands of Komodo. A country of 17,000 islands and no shortage of firsts.",
     bestTime: "May – September",
     duration: "8 – 12 nights",
-    fromPrice: 4280,
+    fromPrice: 556400,
     image: "/images/Tourist-Visas/indonesia-tourist.png",
     gallery: [
       U("photo-1512100356356-de1b84283e18"),
@@ -286,7 +286,7 @@ export const destinations: Destination[] = [
       "Sail a private dahabiya between Luxor and Aswan, breakfast in view of the Giza plateau, and step into tombs that most visitors will never see. Egypt is quieter than you think, if you plan it well.",
     bestTime: "October – April",
     duration: "9 – 12 nights",
-    fromPrice: 5680,
+    fromPrice: 738400,
     image: "/images/Tourist-Visas/egypt-tourist.png",
     gallery: [
       U("photo-1568322445389-f64ac2515020"),
@@ -314,7 +314,7 @@ export const destinations: Destination[] = [
       "Cliffside monasteries, walnut orchards, and one of the oldest wine regions in the world. Armenia is a country you leave promising yourself you'll come back — and most of our travelers do.",
     bestTime: "May – October",
     duration: "6 – 9 nights",
-    fromPrice: 3280,
+    fromPrice: 426400,
     image: U("photo-1567168539593-59673ababaae"),
     gallery: [
       U("photo-1567168539593-59673ababaae"),

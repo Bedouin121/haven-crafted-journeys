@@ -8,10 +8,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
-      { title: "Plan a trip — Travel Tours" },
-      { name: "description", content: "Start planning a bespoke journey with Travel Tours. Tell us where you're going, when, and who with — a specialist responds within one business day." },
-      { property: "og:title", content: "Plan a trip with Travel Tours" },
-      { property: "og:description", content: "Start planning a bespoke journey with Travel Tours." },
+      { title: "Plan a trip — Upscale Travels Ltd." },
+      { name: "description", content: "Start planning a bespoke journey with Upscale Travels Ltd.. Tell us where you're going, when, and who with — a specialist responds within one business day." },
+      { property: "og:title", content: "Plan a trip with Upscale Travels Ltd." },
+      { property: "og:description", content: "Start planning a bespoke journey with Upscale Travels Ltd.." },
     ],
   }),
   component: BookPage,

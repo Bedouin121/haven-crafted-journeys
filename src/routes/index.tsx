@@ -190,7 +190,7 @@ function PlanDreamTripSection() {
             Have a trip idea in mind?
           </h2>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-            Submit your custom itinerary idea and a Travel Tours specialist will review it personally,
+            Submit your custom itinerary idea and a Upscale Travels Ltd. specialist will review it personally,
             then follow up with a tailored quote within two business days.
           </p>
           <Link
@@ -299,7 +299,7 @@ function WhyUs() {
     <section className="container-editorial py-24 sm:py-32">
       <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
         <SectionHeading
-          eyebrow="Why Travel Tours"
+          eyebrow="Why Upscale Travels Ltd."
           title="A travel studio, not a booking engine."
         />
         <div className="grid gap-8 sm:grid-cols-2">

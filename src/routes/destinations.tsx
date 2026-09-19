@@ -23,10 +23,10 @@ export const Route = createFileRoute("/destinations")({
   validateSearch: (search) => searchSchema.parse(search),
   head: () => ({
     meta: [
-      { title: "Destinations — Travel Tours" },
-      { name: "description", content: "From Kyoto's temple gardens to Patagonia's granite spires — explore the destinations Travel Tours travel designers know best." },
-      { property: "og:title", content: "Destinations — Travel Tours" },
-      { property: "og:description", content: "Explore the destinations Travel Tours travel designers know best." },
+      { title: "Destinations — Upscale Travels Ltd." },
+      { name: "description", content: "From Kyoto's temple gardens to Patagonia's granite spires — explore the destinations Upscale Travels Ltd. travel designers know best." },
+      { property: "og:title", content: "Destinations — Upscale Travels Ltd." },
+      { property: "og:description", content: "Explore the destinations Upscale Travels Ltd. travel designers know best." },
     ],
   }),
   component: DestinationsPage,

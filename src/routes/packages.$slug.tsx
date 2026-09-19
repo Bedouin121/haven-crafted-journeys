@@ -16,7 +16,7 @@ export const Route = createFileRoute("/packages/$slug")({
     const { pkg } = loaderData;
     return {
       meta: [
-        { title: `${pkg.title} — Travel Tours` },
+        { title: `${pkg.title} — Upscale Travels Ltd.` },
         { name: "description", content: pkg.summary },
         { property: "og:title", content: pkg.title },
         { property: "og:description", content: pkg.summary },

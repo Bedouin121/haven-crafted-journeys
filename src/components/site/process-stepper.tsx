@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const steps = [
   { num: 1, title: "Submit your idea", body: "Tell us where you'd like to go, when, and what matters most to you." },
-  { num: 2, title: "We review & design", body: "A Travel Tours specialist studies your request and crafts a tailored proposal." },
+  { num: 2, title: "We review & design", body: "A Upscale Travels Ltd. specialist studies your request and crafts a tailored proposal." },
   { num: 3, title: "Follow-up & quote", body: "We reach out with a custom itinerary and transparent pricing." },
 ];
 

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/destinations/$slug")({
     const { dest } = loaderData;
     return {
       meta: [
-        { title: `${dest.name}, ${dest.country} — Travel Tours` },
+        { title: `${dest.name}, ${dest.country} — Upscale Travels Ltd.` },
         { name: "description", content: dest.description },
         { property: "og:title", content: `${dest.name}, ${dest.country}` },
         { property: "og:description", content: dest.tagline },

@@ -7,10 +7,10 @@ import { Breadcrumbs } from "../components/site/breadcrumbs";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Client Stories — Travel Tours" },
-      { name: "description", content: "What our clients say about traveling with Travel Tours — a collection of first-person stories from journeys we've designed." },
-      { property: "og:title", content: "Client Stories — Travel Tours" },
-      { property: "og:description", content: "First-person stories from journeys designed by Travel Tours." },
+      { title: "Client Stories — Upscale Travels Ltd." },
+      { name: "description", content: "What our clients say about traveling with Upscale Travels Ltd. — a collection of first-person stories from journeys we've designed." },
+      { property: "og:title", content: "Client Stories — Upscale Travels Ltd." },
+      { property: "og:description", content: "First-person stories from journeys designed by Upscale Travels Ltd.." },
     ],
   }),
   component: TestimonialsPage,

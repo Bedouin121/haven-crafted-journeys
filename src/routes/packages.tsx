@@ -10,10 +10,10 @@ import { useComparisonTray } from "../hooks/use-comparison-tray";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: "Journeys — Travel Tours" },
-      { name: "description", content: "Signature itineraries designed by Travel Tours specialists — cultural, adventure, romantic, and family journeys across six continents." },
-      { property: "og:title", content: "Journeys — Travel Tours" },
-      { property: "og:description", content: "Signature itineraries designed by Travel Tours specialists." },
+      { title: "Journeys — Upscale Travels Ltd." },
+      { name: "description", content: "Signature itineraries designed by Upscale Travels Ltd. specialists — cultural, adventure, romantic, and family journeys across six continents." },
+      { property: "og:title", content: "Journeys — Upscale Travels Ltd." },
+      { property: "og:description", content: "Signature itineraries designed by Upscale Travels Ltd. specialists." },
     ],
   }),
   component: PackagesPage,

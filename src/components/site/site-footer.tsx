@@ -15,7 +15,13 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travels Ltd. home">
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">U</span>
+              <div className="h-12 w-12 rounded-full overflow-hidden shrink-0">
+                <img
+                  src="/logo.jpeg"
+                  alt="Upscale Travels Ltd. logo"
+                  className="h-full w-full object-cover"
+                />
+              </div>
               <span className="font-display text-2xl">Upscale Travels Ltd.</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">

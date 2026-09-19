@@ -55,23 +55,32 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
           <h3 className="mt-2 font-display text-2xl text-navy leading-tight">{visa.title}</h3>
         </div>
         <p className="text-base text-muted-foreground line-clamp-2 flex-1">{visa.summary}</p>
-        <div className="mt-auto flex items-end justify-between pt-4 border-t border-border">
-          <div>
-            <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-              <Clock className="h-4 w-4" aria-hidden /> {visa.turnaround}
-            </p>
-            <p className="font-display text-2xl text-navy mt-1">
-              ${visa.price.toLocaleString()}
-              <span className="text-sm text-muted-foreground ml-1 font-sans">/ application</span>
-            </p>
+        <div className="mt-auto flex flex-col pt-4 border-t border-border gap-4">
+          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
+            <p><strong>Visa Type:</strong> {visa.visaType}</p>
+            <p><strong>Visa Mode:</strong> {visa.visaMode}</p>
+            <p><strong>Entry Type:</strong> {visa.entryType}</p>
+            <p><strong>Validity:</strong> {visa.visaValidity}</p>
+            <p className="col-span-2"><strong>Max Stay:</strong> {visa.maxStay}</p>
           </div>
-          <Link
-            to={destinationHref}
-            className="grid h-12 w-12 place-items-center rounded-full bg-secondary text-navy transition-all duration-500 group-hover:bg-navy group-hover:text-primary-foreground glow-focus"
-            aria-label={`Learn more about ${visa.title}`}
-          >
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+                <Clock className="h-4 w-4" aria-hidden /> {visa.turnaround}
+              </p>
+              <p className="font-display text-2xl text-navy mt-1">
+                ${visa.price.toLocaleString()}
+                <span className="text-sm text-muted-foreground ml-1 font-sans">/ application</span>
+              </p>
+            </div>
+            <Link
+              to={destinationHref}
+              className="grid h-12 w-12 place-items-center rounded-full bg-secondary text-navy transition-all duration-500 group-hover:bg-navy group-hover:text-primary-foreground glow-focus"
+              aria-label={`Learn more about ${visa.title}`}
+            >
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.article>

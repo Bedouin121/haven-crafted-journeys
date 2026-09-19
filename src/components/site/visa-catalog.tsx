@@ -51,7 +51,7 @@ export function VisaCatalog({
 
   return (
     <div className="pt-32 pb-24">
-      <div className="container-editorial">
+      <div className="container-wide">
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: copy.breadcrumb }]} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export function VisaCatalog({
       </div>
 
       <section className="bg-secondary mt-16 sm:mt-20 pb-20 sm:pb-28">
-        <div className="container-editorial pt-0 mt-0">
+        <div className="container-wide pt-0 mt-0">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
             <div>
               <p className="text-eyebrow text-teal">{copy.heading}</p>
@@ -144,7 +144,7 @@ export function VisaCatalog({
         </div>
       </section>
 
-      <section className="container-editorial py-20 sm:py-28" aria-labelledby="visa-process-heading">
+      <section className="container-wide py-20 sm:py-28" aria-labelledby="visa-process-heading">
         <p className="text-eyebrow text-teal">How it works</p>
         <h2 id="visa-process-heading" className="mt-3 font-display text-4xl sm:text-5xl text-navy mb-14">
           Four steps to your visa
@@ -172,7 +172,7 @@ export function VisaCatalog({
         </ol>
       </section>
 
-      <section className="container-editorial py-20 sm:py-28" aria-labelledby="visa-faq-heading">
+      <section className="container-wide py-20 sm:py-28" aria-labelledby="visa-faq-heading">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.8fr] lg:gap-20">
           <div>
             <p className="text-eyebrow text-teal">Questions</p>
@@ -193,7 +193,7 @@ export function VisaCatalog({
         </div>
       </section>
 
-      <div className="container-editorial pb-8">
+      <div className="container-wide pb-8">
         <div className="relative overflow-hidden rounded-4xl bg-navy px-8 py-16 sm:px-16 sm:py-24 text-center cta-sweep">
           <FileText className="mx-auto h-12 w-12 text-gold mb-6" aria-hidden />
           <p className="text-eyebrow text-gold-soft">Ready to apply?</p>

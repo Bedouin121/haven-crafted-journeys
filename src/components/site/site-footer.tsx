@@ -14,12 +14,12 @@ export function SiteFooter() {
       <div className="container-editorial py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travel home">
+            <Link to="/" className="flex items-center gap-2" aria-label="Upscale Travels Ltd. home">
               <span className="grid h-10 w-10 place-items-center rounded-full bg-sand text-navy font-display text-xl">U</span>
-              <span className="font-display text-2xl">Upscale Travel</span>
+              <span className="font-display text-2xl">Upscale Travels Ltd.</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/70">
-              Bespoke travel, quietly considered. Upscale Travel designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
+              Bespoke travel, quietly considered. Upscale Travels Ltd. designs meticulously planned journeys and handles visas end to end, for travelers who value the finer details.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-3">
@@ -60,7 +60,7 @@ export function SiteFooter() {
 
         <div className="mt-16 flex flex-col-reverse gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/60">
-            © {new Date().getFullYear()} Upscale Travel. All rights reserved.
+            © {new Date().getFullYear()} Upscale Travels Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             {SOCIALS.map(({ icon: Icon, label, href }) => (

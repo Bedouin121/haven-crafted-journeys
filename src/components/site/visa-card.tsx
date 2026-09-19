@@ -56,13 +56,6 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
         </div>
         <p className="text-base text-muted-foreground line-clamp-2 flex-1">{visa.summary}</p>
         <div className="mt-auto flex flex-col pt-4 border-t border-border gap-4">
-          <div className="grid grid-cols-2 gap-2 text-sm text-muted-foreground">
-            <p><strong>Visa Type:</strong> {visa.visaType}</p>
-            <p><strong>Visa Mode:</strong> {visa.visaMode}</p>
-            <p><strong>Entry Type:</strong> {visa.entryType}</p>
-            <p><strong>Validity:</strong> {visa.visaValidity}</p>
-            <p className="col-span-2"><strong>Max Stay:</strong> {visa.maxStay}</p>
-          </div>
           <div className="flex items-end justify-between">
             <div>
               <p className="text-sm text-muted-foreground flex items-center gap-1.5">
@@ -80,6 +73,13 @@ export function VisaCard({ visa, index = 0 }: { visa: VisaPackage; index?: numbe
             >
               <ArrowRight className="h-5 w-5" />
             </Link>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-sm bg-secondary/50 rounded-2xl p-4">
+            <p><span className="font-semibold text-navy">Type:</span> {visa.visaType}</p>
+            <p><span className="font-semibold text-navy">Mode:</span> {visa.visaMode}</p>
+            <p><span className="font-semibold text-navy">Entry:</span> {visa.entryType}</p>
+            <p><span className="font-semibold text-navy">Validity:</span> {visa.visaValidity}</p>
+            <p className="col-span-2"><span className="font-semibold text-navy">Max Stay:</span> {visa.maxStay}</p>
           </div>
         </div>
       </div>

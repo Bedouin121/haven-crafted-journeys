@@ -21,8 +21,8 @@ import { MagneticButton } from "../components/site/magnetic-button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Travel Tours — Bespoke Travel, Beautifully Considered" },
-      { name: "description", content: "Travel Tours designs unhurried, meticulously planned journeys — from Kyoto teahouses to Patagonian glaciers." },
+      { title: "Upscale Travels Ltd. — Bespoke Travel, Beautifully Considered" },
+      { name: "description", content: "Upscale Travels Ltd. curates thoughtfully designed journeys — from Kyoto teahouses to Patagonian glaciers." },
       { property: "og:image", content: "https://images.unsplash.com/photo-1533165850316-2f28e485115a?auto=format&fit=crop&w=1200&q=80" },
     ],
     links: [
@@ -147,7 +147,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.05 }}
           className="text-eyebrow text-gold-soft"
         >
-          Est. 2008 · Bespoke Travel Studio
+          Est. 2025 · Upscale Travels Ltd.
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -163,8 +163,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 max-w-xl text-lg text-white/90"
         >
-          We design unhurried, meticulously planned journeys for travelers who value the quiet things — a
-          garden at sunrise, a chef who cooks only for you, a guide who knows exactly where to stand.
+          We curate thoughtfully designed journeys for travelers who appreciate the finer details — a quiet garden at sunrise, a private dining experience, and a hidden gem known only to those who know where to look.
         </motion.p>
 
         <motion.div

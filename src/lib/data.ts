@@ -1,4 +1,4 @@
-// Fictional but realistic travel data for the Travel Tours design showcase.
+// Fictional but realistic travel data for the Upscale Travels Ltd. design showcase.
 
 export type Destination = {
   slug: string;
@@ -778,7 +778,7 @@ export const faqs: { q: string; a: string; category: string }[] = [
 ];
 
 export const stats = [
-  { value: "18", suffix: "yrs", label: "Designing quiet journeys" },
+  { value: "1", suffix: "yr", label: "Designing quiet journeys" },
   { value: "62", suffix: "", label: "Countries on our map" },
   { value: "4.9", suffix: "/5", label: "Client satisfaction" },
   { value: "94", suffix: "%", label: "Return travelers" },
